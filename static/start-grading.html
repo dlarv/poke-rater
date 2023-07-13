@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+    <head>
+        <title>Start Grading</title>
+        <link rel="stylesheet" href="./styles.css">
+
+        <!-- Temp script for tab functionality -->
+        <script>
+            function openTab(event, id) {
+                // Declare all variables
+                var i, tabcontent, tablinks;
+
+                  // Get all elements with class="tabcontent" and hide them
+                tabcontent = document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                } 
+
+                  // Get all elements with class="tablinks" and remove the class "active"
+                  tablinks = document.getElementsByClassName("tablinks");
+                  for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" active", "");
+                  }
+              
+                  // Show the current tab, and add an "active" class to the button that opened the tab
+                  document.getElementById(id).style.display = "block";
+                  event.currentTarget.className += " active";
+            } 
+        </script>
+    </head>
+    <body onload="document.getElementById('start-tab').click()">
+        <div class="header-ribbon">
+            <button><a href="homepage.html">Back</a></button>
+            <h1 style="text-align: center;">Pokemon Rater</h1>
+            <div class="tabbar">
+                <button id="start-tab" class="tablinks" onclick="openTab(event, 'Slide-Mode')">Slide Mode</button>
+                <button class="tablinks" onclick="openTab(event, 'List-Mode')">List Mode</button>
+                <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
+            </div>
+        </div>
+            
+        <!-- Tab content -->
+        <div id="List-Mode" class="tabcontent">
+            <!-- List of pokemon -->
+            <!-- Filter options -->
+        </div>
+
+        <div id="Slide-Mode" class="tabcontent">
+            <!-- Show pokemon by 'related' groupings -->
+        </div>
+
+        <div id="Settings" class="tabcontent">
+            <!-- Autofill and filter options -->
+            <div >
+                <!-- Add new filter/autofill rule -->
+            </div>
+            <div>
+                <!-- List of filter/autofill rules -->
+            </div>
+        </div>
+
+        <dialog class="select-gradebook">
+            <!-- Display list of loaded gradebooks the user can resume -->
+        </dialog>
+    </body>
+</html>

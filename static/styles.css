@@ -1,0 +1,100 @@
+* {
+    --dark-bg: 24,  24,  37;
+    --base-bg: 30,  30,  46;
+    --base-text: 205, 214, 244;
+
+    color: rgb(var(--base-text));
+    background-color: rgb(var(--base-bg));
+}
+
+.header-ribbon {
+    background-color: rgb(var(--dark-bg));
+    width: 100%;
+    padding: 1em 2em 0;
+}
+h1 {
+    background-color: inherit;
+}
+
+/* Centered box containing controls */
+.control-box {
+    background-color: rgb(var(--dark-bg));
+    padding: 20px 15px;
+    /* Center Box */
+    width: 300px; 
+    height: auto;
+    margin: 10% auto;
+    display: flex;
+    flex-direction: column;
+}
+.control-box>* {
+    background-color: inherit;
+    width: 100%;
+    margin: 0;
+    font-size: large;
+    padding: 2px;
+}
+.control-box button {
+    width: 100%;
+}
+
+/* Input elements */
+
+form {
+    background-color: inherit;
+    width: 100%;
+    font-size: large;
+}
+form>* {
+    background-color: inherit;
+}
+label {
+    display: block;
+    background-color: inherit;
+    margin-bottom: 10px;
+}
+
+/* Span holding horizontal elements */
+span {
+    background-color: inherit;
+    display: flex;
+    flex-direction: row;
+}
+span>* {
+    margin: 0 .5em;
+    height: 100%;
+}
+
+a{
+    text-decoration: none;
+}
+
+ /* Style the tab */
+.tabbar {
+    overflow: hidden;
+    margin-bottom: 0;
+    background-color: inherit;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tabbar button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Create an active/current tablink class */
+.tabbar button.active {
+  background-color: rgb(var(--base-bg));
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border-top: none;
+} 
