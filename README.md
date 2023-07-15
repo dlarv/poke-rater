@@ -13,3 +13,10 @@ Is it worth the time investment to find out that poison types from Hoenn are you
 Filter rules:
 - Sort by gen
 - Sort by type
+
+TODO:
+- PreEvos: related pokemon listed in dex order, not evo order
+- ListMode
+- Filter Rules
+- Autofill rules
+- Save/set Rank 

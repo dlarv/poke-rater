@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+    <head>
+        <title>Start Grading</title>
+        <link rel="stylesheet" href="./styles.css">
+        <script type="text/javascript" src="./main.js" defer></script>
+
+        <!-- Temp script for tab functionality -->
+    </head>
+    <body onload="document.getElementById('start-tab').click()">
+        <div class="header-ribbon">
+            <button><a href="homepage.html">Back</a></button>
+            <h1 style="text-align: center;">Pokemon Rater</h1>
+            <div class="tabbar">
+                <button id="start-tab" class="tablinks" onclick="openTab(event, 'Slide-Mode')">Slide Mode</button>
+                <button  class="tablinks" onclick="openTab(event, 'List-Mode')">List Mode</button>
+                <button class="tablinks" onclick="openTab(event, 'Settings')">Settings</button>
+            </div>
+        </div>
+            
+        <!-- Tab content -->
+        <div id="Slide-Mode" class="tabcontent">
+            <!-- Show pokemon by 'related' groupings -->
+            <div id="SlideContainer" class="slide-container">
+                <div class="slide">
+                    <img src="./assets/pics/1.jpg" >
+                    <select>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+                <div class="slide">
+                    <img src="./assets/pics/2.jpg">
+                    <select>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+                <div class="slide">
+                    <img src="./assets/pics/3.jpg">
+                    <select>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="slide-controls">
+                <button onclick="prevSlide()"><</button>
+                <button onclick="nextSlide()">></button>
+            </div>
+        </div>
+        
+        <div id="List-Mode" class="tabcontent">
+            <div class="list-mode">
+                <!-- List of pokemon -->
+                <!-- Filter options -->
+                <div class="list-container">
+                    <div class="list-item">
+                        <div class="list-title">Bulbasaur</div>
+                        <select style="font-size: large;">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="list-container">
+                </div>
+                <div class="list-container">
+                </div>
+                <div class="list-container">
+                </div>
+            </div>
+        </div>
+
+
+        <div id="Settings" class="tabcontent">
+            <!-- Autofill and filter options -->
+            <div >
+                <!-- Add new filter/autofill rule -->
+            </div>
+            <div>
+                <!-- List of filter/autofill rules -->
+            </div>
+        </div>
+
+        <dialog class="select-gradebook">
+            <!-- Display list of loaded gradebooks the user can resume -->
+        </dialog>
+    </body>
+</html>
