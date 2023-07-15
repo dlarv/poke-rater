@@ -1,1 +1,1 @@
-{"dex_no": 873, "related": [872, 873], "name": "Frosmoth", "color": "White", "gen_no": 8, "typing": ["Ice", "Bug"], "pic": "./pics/873.jpg"}
+{"dex_no": 873, "related": [872, 873], "name": "Frosmoth", "color": "white", "gen_no": 8, "typing": ["ice", "bug"], "pic": "./pics/873.jpg", "anime_count": 3, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["grass", "ice", "ground"], "200": ["flying", "steel"], "400": ["fire", "rock"]}, "stats": [["sp_atk", 125], ["sp_def", 90], ["hp", 70], ["attack", 65], ["speed", 65], ["defense", 60]], "stat_total": 475}

@@ -1,1 +1,1 @@
-{"dex_no": 857, "related": [856, 857, 858], "name": "Hattrem", "color": "Pink", "gen_no": 8, "typing": ["Psychic"], "pic": "./pics/857.jpg"}
+{"dex_no": 857, "related": [856, 857, 858], "name": "Hattrem", "color": "pink", "gen_no": 8, "typing": ["psychic"], "pic": "./pics/857.jpg", "anime_count": 4, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["sp_atk", 86], ["sp_def", 73], ["defense", 65], ["hp", 57], ["speed", 49], ["attack", 40]], "stat_total": 370}

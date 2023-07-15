@@ -1,1 +1,1 @@
-{"dex_no": 129, "related": [129, 130], "name": "Magikarp", "color": "Red", "gen_no": 1, "typing": ["Water"], "pic": "./pics/129.jpg"}
+{"dex_no": 129, "related": [129, 130], "name": "Magikarp", "color": "red", "gen_no": 1, "typing": ["water"], "pic": "./pics/129.jpg", "anime_count": 90, "manga_count": 32, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["speed", 80], ["defense", 55], ["hp", 20], ["sp_def", 20], ["sp_atk", 15], ["attack", 10]], "stat_total": 200}

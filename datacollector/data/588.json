@@ -1,1 +1,1 @@
-{"dex_no": 588, "related": [588, 589], "name": "Karrablast", "color": "Blue", "gen_no": 5, "typing": ["Bug"], "pic": "./pics/588.jpg"}
+{"dex_no": 588, "related": [588, 589], "name": "Karrablast", "color": "blue", "gen_no": 5, "typing": ["bug"], "pic": "./pics/588.jpg", "anime_count": 6, "manga_count": 6, "matchups": {"0": [], "25": [], "50": ["grass", "fighting", "ground"], "200": ["fire", "flying", "rock"], "400": []}, "stats": [["attack", 75], ["speed", 60], ["hp", 50], ["defense", 45], ["sp_def", 45], ["sp_atk", 40]], "stat_total": 315}

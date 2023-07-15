@@ -1,1 +1,1 @@
-{"dex_no": 508, "related": [506, 507, 508], "name": "Stoutland", "color": "Gray", "gen_no": 5, "typing": ["Normal"], "pic": "./pics/508.jpg"}
+{"dex_no": 508, "related": [506, 507, 508], "name": "Stoutland", "color": "gray", "gen_no": 5, "typing": ["normal"], "pic": "./pics/508.jpg", "anime_count": 15, "manga_count": 4, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 110], ["defense", 90], ["sp_def", 90], ["hp", 85], ["speed", 80], ["sp_atk", 45]], "stat_total": 500}

@@ -1,1 +1,1 @@
-{"dex_no": 868, "related": [868, 869], "name": "Milcery", "color": "White", "gen_no": 8, "typing": ["Fairy"], "pic": "./pics/868.jpg"}
+{"dex_no": 868, "related": [868, 869], "name": "Milcery", "color": "white", "gen_no": 8, "typing": ["fairy"], "pic": "./pics/868.jpg", "anime_count": 2, "manga_count": 1, "matchups": {"0": ["dragon"], "25": [], "50": ["fighting", "bug", "dark"], "200": ["poison", "steel"], "400": []}, "stats": [["sp_def", 61], ["sp_atk", 50], ["hp", 45], ["attack", 40], ["defense", 40], ["speed", 34]], "stat_total": 270}

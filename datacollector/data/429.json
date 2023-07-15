@@ -1,1 +1,1 @@
-{"dex_no": 429, "related": [200, 429], "name": "Mismagius", "color": "Purple", "gen_no": 4, "typing": ["Ghost"], "pic": "./pics/429.jpg"}
+{"dex_no": 429, "related": [200, 429], "name": "Mismagius", "color": "purple", "gen_no": 4, "typing": ["ghost"], "pic": "./pics/429.jpg", "anime_count": 11, "manga_count": 5, "matchups": {"0": ["normal", "fighting", "ground"], "25": [], "50": ["poison", "bug"], "200": ["ghost", "dark"], "400": []}, "stats": [["sp_atk", 105], ["sp_def", 105], ["speed", 105], ["hp", 60], ["attack", 60], ["defense", 60]], "stat_total": 495}

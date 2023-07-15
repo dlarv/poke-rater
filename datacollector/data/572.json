@@ -1,1 +1,1 @@
-{"dex_no": 572, "related": [572, 573], "name": "Minccino", "color": "Gray", "gen_no": 5, "typing": ["Normal"], "pic": "./pics/572.jpg"}
+{"dex_no": 572, "related": [572, 573], "name": "Minccino", "color": "gray", "gen_no": 5, "typing": ["normal"], "pic": "./pics/572.jpg", "anime_count": 35, "manga_count": 15, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["speed", 75], ["hp", 55], ["attack", 50], ["defense", 40], ["sp_atk", 40], ["sp_def", 40]], "stat_total": 300}

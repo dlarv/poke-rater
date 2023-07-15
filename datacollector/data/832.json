@@ -1,1 +1,1 @@
-{"dex_no": 832, "related": [831, 832], "name": "Dubwool", "color": "White", "gen_no": 8, "typing": ["Normal"], "pic": "./pics/832.jpg"}
+{"dex_no": 832, "related": [831, 832], "name": "Dubwool", "color": "white", "gen_no": 8, "typing": ["normal"], "pic": "./pics/832.jpg", "anime_count": 5, "manga_count": 1, "matchups": {"0": ["ghost", "ghost", "ghost"], "25": [], "50": [], "200": ["fire", "fighting", "fighting", "fighting"], "400": []}, "stats": [["defense", 100], ["sp_def", 90], ["speed", 88], ["attack", 80], ["hp", 72], ["sp_atk", 60]], "stat_total": 490}

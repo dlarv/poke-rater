@@ -1,1 +1,1 @@
-{"dex_no": 687, "related": [686, 687], "name": "Malamar", "color": "Blue", "gen_no": 6, "typing": ["Dark", "Psychic"], "pic": "./pics/687.jpg"}
+{"dex_no": 687, "related": [686, 687], "name": "Malamar", "color": "blue", "gen_no": 6, "typing": ["dark", "psychic"], "pic": "./pics/687.jpg", "anime_count": 5, "manga_count": 2, "matchups": {"0": ["psychic"], "25": [], "50": [], "200": ["fairy"], "400": ["bug"]}, "stats": [["attack", 92], ["defense", 88], ["hp", 86], ["sp_def", 75], ["speed", 73], ["sp_atk", 68]], "stat_total": 482}

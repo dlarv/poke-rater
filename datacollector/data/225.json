@@ -1,1 +1,1 @@
-{"dex_no": 225, "related": null, "name": "Delibird", "color": "Red", "gen_no": 2, "typing": ["Ice", "Flying"], "pic": "./pics/225.jpg"}
+{"dex_no": 225, "related": null, "name": "Delibird", "color": "red", "gen_no": 2, "typing": ["ice", "flying"], "pic": "./pics/225.jpg", "anime_count": 6, "manga_count": 4, "matchups": {"0": ["ground"], "25": [], "50": ["grass", "bug"], "200": ["fire", "electric", "steel"], "400": ["rock"]}, "stats": [["speed", 75], ["sp_atk", 65], ["attack", 55], ["hp", 45], ["defense", 45], ["sp_def", 45]], "stat_total": 330}

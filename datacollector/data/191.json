@@ -1,1 +1,1 @@
-{"dex_no": 191, "related": [191, 192], "name": "Sunkern", "color": "Yellow", "gen_no": 2, "typing": ["Grass"], "pic": "./pics/191.jpg"}
+{"dex_no": 191, "related": [191, 192], "name": "Sunkern", "color": "yellow", "gen_no": 2, "typing": ["grass"], "pic": "./pics/191.jpg", "anime_count": 13, "manga_count": 12, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["hp", 30], ["attack", 30], ["defense", 30], ["sp_atk", 30], ["sp_def", 30], ["speed", 30]], "stat_total": 180}

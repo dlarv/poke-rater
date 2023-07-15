@@ -1,1 +1,1 @@
-{"dex_no": 533, "related": [532, 533, 534], "name": "Gurdurr", "color": "Gray", "gen_no": 5, "typing": ["Fighting"], "pic": "./pics/533.jpg"}
+{"dex_no": 533, "related": [532, 533, 534], "name": "Gurdurr", "color": "gray", "gen_no": 5, "typing": ["fighting"], "pic": "./pics/533.jpg", "anime_count": 13, "manga_count": 8, "matchups": {"0": [], "25": [], "50": ["bug", "rock", "dark"], "200": ["flying", "psychic", "fairy"], "400": []}, "stats": [["attack", 105], ["hp", 85], ["defense", 85], ["sp_def", 50], ["sp_atk", 40], ["speed", 40]], "stat_total": 405}

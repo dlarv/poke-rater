@@ -1,1 +1,1 @@
-{"dex_no": 750, "related": [749, 750], "name": "Mudsdale", "color": "Brown", "gen_no": 7, "typing": ["Ground"], "pic": "./pics/750.jpg"}
+{"dex_no": 750, "related": [749, 750], "name": "Mudsdale", "color": "brown", "gen_no": 7, "typing": ["ground"], "pic": "./pics/750.jpg", "anime_count": 6, "manga_count": 3, "matchups": {"0": ["electric"], "25": [], "50": ["poison", "rock"], "200": ["water", "grass", "ice"], "400": []}, "stats": [["attack", 125], ["hp", 100], ["defense", 100], ["sp_def", 85], ["sp_atk", 55], ["speed", 35]], "stat_total": 500}

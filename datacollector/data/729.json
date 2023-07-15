@@ -1,1 +1,1 @@
-{"dex_no": 729, "related": [728, 729, 730], "name": "Brionne", "color": "Blue", "gen_no": 7, "typing": ["Water"], "pic": "./pics/729.jpg"}
+{"dex_no": 729, "related": [728, 729, 730], "name": "Brionne", "color": "blue", "gen_no": 7, "typing": ["water"], "pic": "./pics/729.jpg", "anime_count": 4, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["sp_atk", 91], ["sp_def", 81], ["attack", 69], ["defense", 69], ["hp", 60], ["speed", 50]], "stat_total": 420}

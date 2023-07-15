@@ -1,1 +1,1 @@
-{"dex_no": 807, "related": null, "name": "Zeraora", "color": "Yellow", "gen_no": 7, "typing": ["Electric"], "pic": "./pics/807.jpg"}
+{"dex_no": 807, "related": null, "name": "Zeraora", "color": "yellow", "gen_no": 7, "typing": ["electric"], "pic": "./pics/807.jpg", "anime_count": 2, "manga_count": 1, "matchups": {"0": ["electric"], "25": [], "50": ["flying", "steel"], "200": ["ground"], "400": []}, "stats": [["speed", 143], ["attack", 112], ["sp_atk", 102], ["hp", 88], ["sp_def", 80], ["defense", 75]], "stat_total": 600}

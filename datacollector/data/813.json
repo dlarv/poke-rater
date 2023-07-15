@@ -1,1 +1,1 @@
-{"dex_no": 813, "related": [813, 814, 815], "name": "Scorbunny", "color": "White", "gen_no": 8, "typing": ["Fire"], "pic": "./pics/813.jpg"}
+{"dex_no": 813, "related": [813, 814, 815], "name": "Scorbunny", "color": "white", "gen_no": 8, "typing": ["fire"], "pic": "./pics/813.jpg", "anime_count": 4, "manga_count": 2, "matchups": {"0": [], "25": [], "50": ["fire", "grass", "ice", "bug", "steel", "fairy"], "200": ["water", "ground", "rock"], "400": []}, "stats": [["attack", 71], ["speed", 69], ["hp", 50], ["defense", 40], ["sp_atk", 40], ["sp_def", 40]], "stat_total": 310}

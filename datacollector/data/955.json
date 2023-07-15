@@ -1,1 +1,1 @@
-{"dex_no": 955, "related": [955, 956], "name": "Flittle", "color": "Yellow", "gen_no": 9, "typing": ["Psychic"], "pic": "./pics/955.jpg"}
+{"dex_no": 955, "related": [955, 956], "name": "Flittle", "color": "yellow", "gen_no": 9, "typing": ["psychic"], "pic": "./pics/955.jpg", "anime_count": 0, "manga_count": 0, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["speed", 75], ["sp_atk", 55], ["attack", 35], ["hp", 30], ["defense", 30], ["sp_def", 30]], "stat_total": 255}

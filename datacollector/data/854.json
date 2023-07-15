@@ -1,1 +1,1 @@
-{"dex_no": 854, "related": [854, 855], "name": "Sinistea", "color": "Purple", "gen_no": 8, "typing": ["Ghost"], "pic": "./pics/854.jpg"}
+{"dex_no": 854, "related": [854, 855], "name": "Sinistea", "color": "purple", "gen_no": 8, "typing": ["ghost"], "pic": "./pics/854.jpg", "anime_count": 3, "manga_count": 1, "matchups": {"0": ["normal", "fighting"], "25": [], "50": ["poison", "bug"], "200": ["ghost", "dark"], "400": []}, "stats": [["sp_atk", 74], ["sp_def", 54], ["speed", 50], ["attack", 45], ["defense", 45], ["hp", 40]], "stat_total": 308}

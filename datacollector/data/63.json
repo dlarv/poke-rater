@@ -1,1 +1,1 @@
-{"dex_no": 63, "related": [63, 64, 65], "name": "Abra", "color": "Brown", "gen_no": 1, "typing": ["Psychic"], "pic": "./pics/63.jpg"}
+{"dex_no": 63, "related": [63, 64, 65], "name": "Abra", "color": "brown", "gen_no": 1, "typing": ["psychic"], "pic": "./pics/63.jpg", "anime_count": 34, "manga_count": 9, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["sp_atk", 105], ["speed", 90], ["sp_def", 55], ["hp", 25], ["attack", 20], ["defense", 15]], "stat_total": 310}

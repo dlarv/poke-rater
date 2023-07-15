@@ -1,1 +1,1 @@
-{"dex_no": 418, "related": [418, 419], "name": "Buizel", "color": "Brown", "gen_no": 4, "typing": ["Water"], "pic": "./pics/418.jpg"}
+{"dex_no": 418, "related": [418, 419], "name": "Buizel", "color": "brown", "gen_no": 4, "typing": ["water"], "pic": "./pics/418.jpg", "anime_count": 12, "manga_count": 14, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["speed", 85], ["attack", 65], ["sp_atk", 60], ["hp", 55], ["defense", 35], ["sp_def", 30]], "stat_total": 330}

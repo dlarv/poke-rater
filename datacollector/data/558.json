@@ -1,1 +1,1 @@
-{"dex_no": 558, "related": [557, 558], "name": "Crustle", "color": "Red", "gen_no": 5, "typing": ["Bug", "Rock"], "pic": "./pics/558.jpg"}
+{"dex_no": 558, "related": [557, 558], "name": "Crustle", "color": "red", "gen_no": 5, "typing": ["bug", "rock"], "pic": "./pics/558.jpg", "anime_count": 5, "manga_count": 2, "matchups": {"0": [], "25": [], "50": ["normal", "poison"], "200": ["water", "rock", "steel"], "400": []}, "stats": [["defense", 125], ["attack", 105], ["sp_def", 75], ["hp", 70], ["sp_atk", 65], ["speed", 45]], "stat_total": 485}

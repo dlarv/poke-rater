@@ -1,1 +1,1 @@
-{"dex_no": 606, "related": [605, 606], "name": "Beheeyem", "color": "Brown", "gen_no": 5, "typing": ["Psychic"], "pic": "./pics/606.jpg"}
+{"dex_no": 606, "related": [605, 606], "name": "Beheeyem", "color": "brown", "gen_no": 5, "typing": ["psychic"], "pic": "./pics/606.jpg", "anime_count": 3, "manga_count": 2, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["sp_atk", 125], ["sp_def", 95], ["hp", 75], ["attack", 75], ["defense", 75], ["speed", 40]], "stat_total": 485}

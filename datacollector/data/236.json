@@ -1,1 +1,1 @@
-{"dex_no": 236, "related": [236, 106, 107, 237], "name": "Tyrogue", "color": "Purple", "gen_no": 2, "typing": ["Fighting"], "pic": "./pics/236.jpg"}
+{"dex_no": 236, "related": [236, 106, 107, 237], "name": "Tyrogue", "color": "purple", "gen_no": 2, "typing": ["fighting"], "pic": "./pics/236.jpg", "anime_count": 9, "manga_count": 10, "matchups": {"0": [], "25": [], "50": ["bug", "rock", "dark"], "200": ["flying", "psychic", "fairy"], "400": []}, "stats": [["hp", 35], ["attack", 35], ["defense", 35], ["sp_atk", 35], ["sp_def", 35], ["speed", 35]], "stat_total": 210}

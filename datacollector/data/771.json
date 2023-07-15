@@ -1,1 +1,1 @@
-{"dex_no": 771, "related": null, "name": "Pyukumuku", "color": "Black", "gen_no": 7, "typing": ["Water"], "pic": "./pics/771.jpg"}
+{"dex_no": 771, "related": null, "name": "Pyukumuku", "color": "black", "gen_no": 7, "typing": ["water"], "pic": "./pics/771.jpg", "anime_count": 14, "manga_count": 4, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["defense", 130], ["sp_def", 130], ["attack", 60], ["hp", 55], ["sp_atk", 30], ["speed", 5]], "stat_total": 410}

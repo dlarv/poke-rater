@@ -1,1 +1,1 @@
-{"dex_no": 611, "related": [610, 611, 612], "name": "Fraxure", "color": "Green", "gen_no": 5, "typing": ["Dragon"], "pic": "./pics/611.jpg"}
+{"dex_no": 611, "related": [610, 611, 612], "name": "Fraxure", "color": "green", "gen_no": 5, "typing": ["dragon"], "pic": "./pics/611.jpg", "anime_count": 8, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["fire", "water", "electric", "grass"], "200": ["ice", "dragon", "fairy"], "400": []}, "stats": [["attack", 117], ["defense", 70], ["speed", 67], ["hp", 66], ["sp_def", 50], ["sp_atk", 40]], "stat_total": 410}

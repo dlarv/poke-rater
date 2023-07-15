@@ -1,1 +1,1 @@
-{"dex_no": 452, "related": [451, 452], "name": "Drapion", "color": "Purple", "gen_no": 4, "typing": ["Poison", "Dark"], "pic": "./pics/452.jpg"}
+{"dex_no": 452, "related": [451, 452], "name": "Drapion", "color": "purple", "gen_no": 4, "typing": ["poison", "dark"], "pic": "./pics/452.jpg", "anime_count": 10, "manga_count": 10, "matchups": {"0": ["psychic"], "25": [], "50": ["grass", "poison", "ghost", "dark"], "200": ["ground"], "400": []}, "stats": [["defense", 110], ["speed", 95], ["attack", 90], ["sp_def", 75], ["hp", 70], ["sp_atk", 60]], "stat_total": 500}

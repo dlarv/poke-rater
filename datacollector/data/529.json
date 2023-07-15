@@ -1,1 +1,1 @@
-{"dex_no": 529, "related": [529, 530], "name": "Drilbur", "color": "Gray", "gen_no": 5, "typing": ["Ground"], "pic": "./pics/529.jpg"}
+{"dex_no": 529, "related": [529, 530], "name": "Drilbur", "color": "gray", "gen_no": 5, "typing": ["ground"], "pic": "./pics/529.jpg", "anime_count": 10, "manga_count": 9, "matchups": {"0": ["electric"], "25": [], "50": ["poison", "rock"], "200": ["water", "grass", "ice"], "400": []}, "stats": [["attack", 85], ["speed", 68], ["hp", 60], ["sp_def", 45], ["defense", 40], ["sp_atk", 30]], "stat_total": 328}

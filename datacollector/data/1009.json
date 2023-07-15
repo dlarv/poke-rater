@@ -1,1 +1,1 @@
-{"dex_no": 1009, "related": null, "name": "Walking Wake", "color": "Blue", "gen_no": 9, "typing": ["Water", "Dragon"], "pic": "./pics/1009.jpg"}
+{"dex_no": 1009, "related": null, "name": "Walking Wake", "color": "blue", "gen_no": 9, "typing": ["water", "dragon"], "pic": "./pics/1009.jpg", "anime_count": 0, "manga_count": 0, "matchups": {"0": [], "25": ["fire", "water"], "50": ["steel"], "200": ["dragon", "fairy"], "400": []}, "stats": [["sp_atk", 125], ["speed", 109], ["hp", 99], ["defense", 91], ["attack", 83], ["sp_def", 83]], "stat_total": 590}

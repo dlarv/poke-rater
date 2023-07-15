@@ -1,1 +1,1 @@
-{"dex_no": 754, "related": [753, 754], "name": "Lurantis", "color": "Pink", "gen_no": 7, "typing": ["Grass"], "pic": "./pics/754.jpg"}
+{"dex_no": 754, "related": [753, 754], "name": "Lurantis", "color": "pink", "gen_no": 7, "typing": ["grass"], "pic": "./pics/754.jpg", "anime_count": 4, "manga_count": 2, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["attack", 105], ["defense", 90], ["sp_def", 90], ["sp_atk", 80], ["hp", 70], ["speed", 45]], "stat_total": 480}

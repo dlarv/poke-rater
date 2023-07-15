@@ -1,1 +1,1 @@
-{"dex_no": 616, "related": [616, 617], "name": "Shelmet", "color": "Red", "gen_no": 5, "typing": ["Bug"], "pic": "./pics/616.jpg"}
+{"dex_no": 616, "related": [616, 617], "name": "Shelmet", "color": "red", "gen_no": 5, "typing": ["bug"], "pic": "./pics/616.jpg", "anime_count": 2, "manga_count": 6, "matchups": {"0": [], "25": [], "50": ["grass", "fighting", "ground"], "200": ["fire", "flying", "rock"], "400": []}, "stats": [["defense", 85], ["sp_def", 65], ["hp", 50], ["attack", 40], ["sp_atk", 40], ["speed", 25]], "stat_total": 305}

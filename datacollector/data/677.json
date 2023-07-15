@@ -1,1 +1,1 @@
-{"dex_no": 677, "related": [677, 678, 678], "name": "Espurr", "color": "Gray", "gen_no": 6, "typing": ["Psychic"], "pic": "./pics/677.jpg"}
+{"dex_no": 677, "related": [677, 678, 678], "name": "Espurr", "color": "gray", "gen_no": 6, "typing": ["psychic"], "pic": "./pics/677.jpg", "anime_count": 12, "manga_count": 3, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["speed", 68], ["sp_atk", 63], ["hp", 62], ["sp_def", 60], ["defense", 54], ["attack", 48]], "stat_total": 355}

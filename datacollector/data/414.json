@@ -1,1 +1,1 @@
-{"dex_no": 414, "related": [412, 414], "name": "Mothim", "color": "Yellow", "gen_no": 4, "typing": ["Bug", "Flying"], "pic": "./pics/414.jpg"}
+{"dex_no": 414, "related": [412, 414], "name": "Mothim", "color": "yellow", "gen_no": 4, "typing": ["bug", "flying"], "pic": "./pics/414.jpg", "anime_count": 9, "manga_count": 2, "matchups": {"0": ["ground"], "25": ["grass", "fighting"], "50": ["bug"], "200": ["fire", "electric", "ice", "flying"], "400": ["rock"]}, "stats": [["attack", 94], ["sp_atk", 94], ["hp", 70], ["speed", 66], ["defense", 50], ["sp_def", 50]], "stat_total": 424}

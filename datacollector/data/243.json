@@ -1,1 +1,1 @@
-{"dex_no": 243, "related": null, "name": "Raikou", "color": "Yellow", "gen_no": 2, "typing": ["Electric"], "pic": "./pics/243.jpg"}
+{"dex_no": 243, "related": null, "name": "Raikou", "color": "yellow", "gen_no": 2, "typing": ["electric"], "pic": "./pics/243.jpg", "anime_count": 12, "manga_count": 8, "matchups": {"0": [], "25": [], "50": ["electric", "flying", "steel"], "200": ["ground"], "400": []}, "stats": [["sp_atk", 115], ["speed", 115], ["sp_def", 100], ["hp", 90], ["attack", 85], ["defense", 75]], "stat_total": 580}

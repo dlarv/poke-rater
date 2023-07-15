@@ -1,1 +1,1 @@
-{"dex_no": 502, "related": [501, 502, 503, 503], "name": "Dewott", "color": "Blue", "gen_no": 5, "typing": ["Water"], "pic": "./pics/502.jpg"}
+{"dex_no": 502, "related": [501, 502, 503, 503], "name": "Dewott", "color": "blue", "gen_no": 5, "typing": ["water"], "pic": "./pics/502.jpg", "anime_count": 6, "manga_count": 4, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["sp_atk", 83], ["hp", 75], ["attack", 75], ["defense", 60], ["sp_def", 60], ["speed", 60]], "stat_total": 413}

@@ -1,1 +1,1 @@
-{"dex_no": 347, "related": [347, 348], "name": "Anorith", "color": "Gray", "gen_no": 3, "typing": ["Rock", "Bug"], "pic": "./pics/347.jpg"}
+{"dex_no": 347, "related": [347, 348], "name": "Anorith", "color": "gray", "gen_no": 3, "typing": ["rock", "bug"], "pic": "./pics/347.jpg", "anime_count": 6, "manga_count": 2, "matchups": {"0": [], "25": [], "50": ["normal", "poison"], "200": ["water", "rock", "steel"], "400": []}, "stats": [["attack", 95], ["speed", 75], ["defense", 50], ["sp_def", 50], ["hp", 45], ["sp_atk", 40]], "stat_total": 355}

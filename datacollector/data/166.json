@@ -1,1 +1,1 @@
-{"dex_no": 166, "related": [165, 166], "name": "Ledian", "color": "Red", "gen_no": 2, "typing": ["Bug", "Flying"], "pic": "./pics/166.jpg"}
+{"dex_no": 166, "related": [165, 166], "name": "Ledian", "color": "red", "gen_no": 2, "typing": ["bug", "flying"], "pic": "./pics/166.jpg", "anime_count": 11, "manga_count": 8, "matchups": {"0": ["ground"], "25": ["grass", "fighting"], "50": ["bug"], "200": ["fire", "electric", "ice", "flying"], "400": ["rock"]}, "stats": [["sp_def", 110], ["speed", 85], ["hp", 55], ["sp_atk", 55], ["defense", 50], ["attack", 35]], "stat_total": 390}

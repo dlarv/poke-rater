@@ -1,1 +1,1 @@
-{"dex_no": 669, "related": [669, 670, 671], "name": "Flab\u00e9b\u00e9", "color": "White", "gen_no": 6, "typing": ["Fairy"], "pic": "./pics/669.jpg"}
+{"dex_no": 669, "related": [669, 670, 671], "name": "Flab\u00e9b\u00e9", "color": "white", "gen_no": 6, "typing": ["fairy"], "pic": "./pics/669.jpg", "anime_count": 11, "manga_count": 2, "matchups": {"0": ["dragon"], "25": [], "50": ["fighting", "bug", "dark"], "200": ["poison", "steel"], "400": []}, "stats": [["sp_def", 79], ["sp_atk", 61], ["hp", 44], ["speed", 42], ["defense", 39], ["attack", 38]], "stat_total": 303}

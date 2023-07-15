@@ -1,1 +1,1 @@
-{"dex_no": 278, "related": [278, 279], "name": "Wingull", "color": "White", "gen_no": 3, "typing": ["Water", "Flying"], "pic": "./pics/278.jpg"}
+{"dex_no": 278, "related": [278, 279], "name": "Wingull", "color": "white", "gen_no": 3, "typing": ["water", "flying"], "pic": "./pics/278.jpg", "anime_count": 80, "manga_count": 13, "matchups": {"0": ["ground"], "25": [], "50": ["fire", "water", "fighting", "bug", "steel"], "200": ["rock"], "400": ["electric"]}, "stats": [["speed", 85], ["sp_atk", 55], ["hp", 40], ["attack", 30], ["defense", 30], ["sp_def", 30]], "stat_total": 270}

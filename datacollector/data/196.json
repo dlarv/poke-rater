@@ -1,1 +1,1 @@
-{"dex_no": 196, "related": [133, 134, 135, 136], "name": "Espeon", "color": "Purple", "gen_no": 2, "typing": ["Psychic"], "pic": "./pics/196.jpg"}
+{"dex_no": 196, "related": [133, 134, 135, 136], "name": "Espeon", "color": "purple", "gen_no": 2, "typing": ["psychic"], "pic": "./pics/196.jpg", "anime_count": 31, "manga_count": 9, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["sp_atk", 130], ["speed", 110], ["sp_def", 95], ["hp", 65], ["attack", 65], ["defense", 60]], "stat_total": 525}

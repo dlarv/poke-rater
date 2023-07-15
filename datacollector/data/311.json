@@ -1,1 +1,1 @@
-{"dex_no": 311, "related": null, "name": "Plusle", "color": "Yellow", "gen_no": 3, "typing": ["Electric"], "pic": "./pics/311.jpg"}
+{"dex_no": 311, "related": null, "name": "Plusle", "color": "yellow", "gen_no": 3, "typing": ["electric"], "pic": "./pics/311.jpg", "anime_count": 16, "manga_count": 7, "matchups": {"0": ["electric"], "25": [], "50": ["electric", "flying", "steel", "flying", "steel"], "200": ["ground", "ground"], "400": []}, "stats": [["speed", 95], ["sp_atk", 85], ["sp_def", 75], ["hp", 60], ["attack", 50], ["defense", 40]], "stat_total": 405}

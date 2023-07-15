@@ -1,1 +1,1 @@
-{"dex_no": 519, "related": [519, 520, 521], "name": "Pidove", "color": "Gray", "gen_no": 5, "typing": ["Normal", "Flying"], "pic": "./pics/519.jpg"}
+{"dex_no": 519, "related": [519, 520, 521], "name": "Pidove", "color": "gray", "gen_no": 5, "typing": ["normal", "flying"], "pic": "./pics/519.jpg", "anime_count": 55, "manga_count": 17, "matchups": {"0": ["ground", "ghost"], "25": [], "50": ["grass", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["attack", 55], ["hp", 50], ["defense", 50], ["speed", 43], ["sp_atk", 36], ["sp_def", 30]], "stat_total": 264}

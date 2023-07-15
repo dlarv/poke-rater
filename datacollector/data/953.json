@@ -1,1 +1,1 @@
-{"dex_no": 953, "related": [953, 954], "name": "Rellor", "color": "Brown", "gen_no": 9, "typing": ["Bug"], "pic": "./pics/953.jpg"}
+{"dex_no": 953, "related": [953, 954], "name": "Rellor", "color": "brown", "gen_no": 9, "typing": ["bug"], "pic": "./pics/953.jpg", "anime_count": 0, "manga_count": 0, "matchups": {"0": [], "25": [], "50": ["grass", "fighting", "ground"], "200": ["fire", "flying", "rock"], "400": []}, "stats": [["defense", 60], ["sp_def", 58], ["attack", 50], ["hp", 41], ["sp_atk", 31], ["speed", 30]], "stat_total": 270}

@@ -1,1 +1,1 @@
-{"dex_no": 91, "related": [90, 91], "name": "Cloyster", "color": "Purple", "gen_no": 1, "typing": ["Water", "Ice"], "pic": "./pics/91.jpg"}
+{"dex_no": 91, "related": [90, 91], "name": "Cloyster", "color": "purple", "gen_no": 1, "typing": ["water", "ice"], "pic": "./pics/91.jpg", "anime_count": 21, "manga_count": 7, "matchups": {"0": [], "25": ["ice"], "50": ["water"], "200": ["electric", "grass", "fighting", "rock"], "400": []}, "stats": [["defense", 180], ["attack", 95], ["sp_atk", 85], ["speed", 70], ["hp", 50], ["sp_def", 45]], "stat_total": 525}

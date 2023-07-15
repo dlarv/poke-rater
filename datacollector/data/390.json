@@ -1,1 +1,1 @@
-{"dex_no": 390, "related": [390, 391, 392], "name": "Chimchar", "color": "Brown", "gen_no": 4, "typing": ["Fire"], "pic": "./pics/390.jpg"}
+{"dex_no": 390, "related": [390, 391, 392], "name": "Chimchar", "color": "brown", "gen_no": 4, "typing": ["fire"], "pic": "./pics/390.jpg", "anime_count": 17, "manga_count": 13, "matchups": {"0": [], "25": [], "50": ["fire", "grass", "ice", "bug", "steel", "fairy"], "200": ["water", "ground", "rock"], "400": []}, "stats": [["speed", 61], ["attack", 58], ["sp_atk", 58], ["hp", 44], ["defense", 44], ["sp_def", 44]], "stat_total": 309}

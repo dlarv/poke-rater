@@ -1,1 +1,1 @@
-{"dex_no": 294, "related": [293, 294, 295], "name": "Loudred", "color": "Blue", "gen_no": 3, "typing": ["Normal"], "pic": "./pics/294.jpg"}
+{"dex_no": 294, "related": [293, 294, 295], "name": "Loudred", "color": "blue", "gen_no": 3, "typing": ["normal"], "pic": "./pics/294.jpg", "anime_count": 22, "manga_count": 10, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 84], ["attack", 71], ["sp_atk", 71], ["speed", 48], ["defense", 43], ["sp_def", 43]], "stat_total": 360}

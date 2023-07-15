@@ -1,1 +1,1 @@
-{"dex_no": 579, "related": [577, 578, 579], "name": "Reuniclus", "color": "Green", "gen_no": 5, "typing": ["Psychic"], "pic": "./pics/579.jpg"}
+{"dex_no": 579, "related": [577, 578, 579], "name": "Reuniclus", "color": "green", "gen_no": 5, "typing": ["psychic"], "pic": "./pics/579.jpg", "anime_count": 5, "manga_count": 3, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["sp_atk", 125], ["hp", 110], ["sp_def", 85], ["defense", 75], ["attack", 65], ["speed", 30]], "stat_total": 490}

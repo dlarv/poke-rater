@@ -1,1 +1,1 @@
-{"dex_no": 577, "related": [577, 578, 579], "name": "Solosis", "color": "Green", "gen_no": 5, "typing": ["Psychic"], "pic": "./pics/577.jpg"}
+{"dex_no": 577, "related": [577, 578, 579], "name": "Solosis", "color": "green", "gen_no": 5, "typing": ["psychic"], "pic": "./pics/577.jpg", "anime_count": 4, "manga_count": 8, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["sp_atk", 105], ["sp_def", 50], ["hp", 45], ["defense", 40], ["attack", 30], ["speed", 20]], "stat_total": 290}

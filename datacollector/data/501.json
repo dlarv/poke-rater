@@ -1,1 +1,1 @@
-{"dex_no": 501, "related": [501, 502, 503, 503], "name": "Oshawott", "color": "Blue", "gen_no": 5, "typing": ["Water"], "pic": "./pics/501.jpg"}
+{"dex_no": 501, "related": [501, 502, 503, 503], "name": "Oshawott", "color": "blue", "gen_no": 5, "typing": ["water"], "pic": "./pics/501.jpg", "anime_count": 20, "manga_count": 10, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["sp_atk", 63], ["hp", 55], ["attack", 55], ["defense", 45], ["sp_def", 45], ["speed", 45]], "stat_total": 308}

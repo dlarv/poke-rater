@@ -1,1 +1,1 @@
-{"dex_no": 161, "related": [161, 162], "name": "Sentret", "color": "Brown", "gen_no": 2, "typing": ["Normal"], "pic": "./pics/161.jpg"}
+{"dex_no": 161, "related": [161, 162], "name": "Sentret", "color": "brown", "gen_no": 2, "typing": ["normal"], "pic": "./pics/161.jpg", "anime_count": 46, "manga_count": 14, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 46], ["sp_def", 45], ["hp", 35], ["sp_atk", 35], ["defense", 34], ["speed", 20]], "stat_total": 215}

@@ -1,1 +1,1 @@
-{"dex_no": 180, "related": [179, 180, 181], "name": "Flaaffy", "color": "Pink", "gen_no": 2, "typing": ["Electric"], "pic": "./pics/180.jpg"}
+{"dex_no": 180, "related": [179, 180, 181], "name": "Flaaffy", "color": "pink", "gen_no": 2, "typing": ["electric"], "pic": "./pics/180.jpg", "anime_count": 20, "manga_count": 9, "matchups": {"0": [], "25": [], "50": ["electric", "flying", "steel"], "200": ["ground"], "400": []}, "stats": [["sp_atk", 80], ["hp", 70], ["sp_def", 60], ["attack", 55], ["defense", 55], ["speed", 45]], "stat_total": 365}

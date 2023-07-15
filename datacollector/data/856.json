@@ -1,1 +1,1 @@
-{"dex_no": 856, "related": [856, 857, 858], "name": "Hatenna", "color": "Pink", "gen_no": 8, "typing": ["Psychic"], "pic": "./pics/856.jpg"}
+{"dex_no": 856, "related": [856, 857, 858], "name": "Hatenna", "color": "pink", "gen_no": 8, "typing": ["psychic"], "pic": "./pics/856.jpg", "anime_count": 2, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["sp_atk", 56], ["sp_def", 53], ["defense", 45], ["hp", 42], ["speed", 39], ["attack", 30]], "stat_total": 265}

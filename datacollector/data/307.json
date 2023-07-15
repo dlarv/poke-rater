@@ -1,1 +1,1 @@
-{"dex_no": 307, "related": [307, 308], "name": "Meditite", "color": "Blue", "gen_no": 3, "typing": ["Fighting", "Psychic"], "pic": "./pics/307.jpg"}
+{"dex_no": 307, "related": [307, 308], "name": "Meditite", "color": "blue", "gen_no": 3, "typing": ["fighting", "psychic"], "pic": "./pics/307.jpg", "anime_count": 7, "manga_count": 4, "matchups": {"0": [], "25": [], "50": ["fighting", "rock"], "200": ["flying", "ghost", "fairy"], "400": []}, "stats": [["speed", 60], ["defense", 55], ["sp_def", 55], ["attack", 40], ["sp_atk", 40], ["hp", 30]], "stat_total": 280}

@@ -1,1 +1,1 @@
-{"dex_no": 57, "related": [56, 57, 979], "name": "Primeape", "color": "Brown", "gen_no": 1, "typing": ["Fighting"], "pic": "./pics/57.jpg"}
+{"dex_no": 57, "related": [56, 57, 979], "name": "Primeape", "color": "brown", "gen_no": 1, "typing": ["fighting"], "pic": "./pics/57.jpg", "anime_count": 33, "manga_count": 28, "matchups": {"0": [], "25": [], "50": ["bug", "rock", "dark"], "200": ["flying", "psychic", "fairy"], "400": []}, "stats": [["attack", 105], ["speed", 95], ["sp_def", 70], ["hp", 65], ["defense", 60], ["sp_atk", 60]], "stat_total": 455}

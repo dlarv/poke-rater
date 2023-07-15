@@ -1,1 +1,1 @@
-{"dex_no": 486, "related": null, "name": "Regigigas", "color": "White", "gen_no": 4, "typing": ["Normal"], "pic": "./pics/486.jpg"}
+{"dex_no": 486, "related": null, "name": "Regigigas", "color": "white", "gen_no": 4, "typing": ["normal"], "pic": "./pics/486.jpg", "anime_count": 8, "manga_count": 4, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 160], ["hp", 110], ["defense", 110], ["sp_def", 110], ["speed", 100], ["sp_atk", 80]], "stat_total": 670}

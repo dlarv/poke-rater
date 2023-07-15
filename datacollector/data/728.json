@@ -1,1 +1,1 @@
-{"dex_no": 728, "related": [728, 729, 730], "name": "Popplio", "color": "Blue", "gen_no": 7, "typing": ["Water"], "pic": "./pics/728.jpg"}
+{"dex_no": 728, "related": [728, 729, 730], "name": "Popplio", "color": "blue", "gen_no": 7, "typing": ["water"], "pic": "./pics/728.jpg", "anime_count": 6, "manga_count": 3, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["sp_atk", 66], ["sp_def", 56], ["attack", 54], ["defense", 54], ["hp", 50], ["speed", 40]], "stat_total": 320}

@@ -1,1 +1,1 @@
-{"dex_no": 614, "related": [613, 614], "name": "Beartic", "color": "White", "gen_no": 5, "typing": ["Ice"], "pic": "./pics/614.jpg"}
+{"dex_no": 614, "related": [613, 614], "name": "Beartic", "color": "white", "gen_no": 5, "typing": ["ice"], "pic": "./pics/614.jpg", "anime_count": 17, "manga_count": 7, "matchups": {"0": [], "25": [], "50": ["ice"], "200": ["fire", "fighting", "rock", "steel"], "400": []}, "stats": [["attack", 130], ["hp", 95], ["defense", 80], ["sp_def", 80], ["sp_atk", 70], ["speed", 50]], "stat_total": 505}

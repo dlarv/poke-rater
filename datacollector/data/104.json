@@ -1,1 +1,1 @@
-{"dex_no": 104, "related": [104, 105, 105], "name": "Cubone", "color": "Brown", "gen_no": 1, "typing": ["Ground"], "pic": "./pics/104.jpg"}
+{"dex_no": 104, "related": [104, 105, 105], "name": "Cubone", "color": "brown", "gen_no": 1, "typing": ["ground"], "pic": "./pics/104.jpg", "anime_count": 44, "manga_count": 16, "matchups": {"0": ["electric"], "25": [], "50": ["poison", "rock"], "200": ["water", "grass", "ice"], "400": []}, "stats": [["defense", 95], ["hp", 50], ["attack", 50], ["sp_def", 50], ["sp_atk", 40], ["speed", 35]], "stat_total": 320}

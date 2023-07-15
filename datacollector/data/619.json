@@ -1,1 +1,1 @@
-{"dex_no": 619, "related": [619, 620], "name": "Mienfoo", "color": "Yellow", "gen_no": 5, "typing": ["Fighting"], "pic": "./pics/619.jpg"}
+{"dex_no": 619, "related": [619, 620], "name": "Mienfoo", "color": "yellow", "gen_no": 5, "typing": ["fighting"], "pic": "./pics/619.jpg", "anime_count": 6, "manga_count": 5, "matchups": {"0": [], "25": [], "50": ["bug", "rock", "dark"], "200": ["flying", "psychic", "fairy"], "400": []}, "stats": [["attack", 85], ["speed", 65], ["sp_atk", 55], ["defense", 50], ["sp_def", 50], ["hp", 45]], "stat_total": 350}

@@ -1,1 +1,1 @@
-{"dex_no": 693, "related": [692, 693], "name": "Clawitzer", "color": "Blue", "gen_no": 6, "typing": ["Water"], "pic": "./pics/693.jpg"}
+{"dex_no": 693, "related": [692, 693], "name": "Clawitzer", "color": "blue", "gen_no": 6, "typing": ["water"], "pic": "./pics/693.jpg", "anime_count": 5, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["sp_atk", 120], ["sp_def", 89], ["defense", 88], ["attack", 73], ["hp", 71], ["speed", 59]], "stat_total": 500}

@@ -1,1 +1,1 @@
-{"dex_no": 517, "related": [517, 518], "name": "Munna", "color": "Pink", "gen_no": 5, "typing": ["Psychic"], "pic": "./pics/517.jpg"}
+{"dex_no": 517, "related": [517, 518], "name": "Munna", "color": "pink", "gen_no": 5, "typing": ["psychic"], "pic": "./pics/517.jpg", "anime_count": 6, "manga_count": 6, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["hp", 76], ["sp_atk", 67], ["sp_def", 55], ["defense", 45], ["attack", 25], ["speed", 24]], "stat_total": 292}

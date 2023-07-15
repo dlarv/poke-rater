@@ -1,1 +1,1 @@
-{"dex_no": 231, "related": [231, 232], "name": "Phanpy", "color": "Blue", "gen_no": 2, "typing": ["Ground"], "pic": "./pics/231.jpg"}
+{"dex_no": 231, "related": [231, 232], "name": "Phanpy", "color": "blue", "gen_no": 2, "typing": ["ground"], "pic": "./pics/231.jpg", "anime_count": 12, "manga_count": 10, "matchups": {"0": ["electric"], "25": [], "50": ["poison", "rock"], "200": ["water", "grass", "ice"], "400": []}, "stats": [["hp", 90], ["attack", 60], ["defense", 60], ["sp_atk", 40], ["sp_def", 40], ["speed", 40]], "stat_total": 330}

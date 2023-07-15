@@ -1,1 +1,1 @@
-{"dex_no": 532, "related": [532, 533, 534], "name": "Timburr", "color": "Gray", "gen_no": 5, "typing": ["Fighting"], "pic": "./pics/532.jpg"}
+{"dex_no": 532, "related": [532, 533, 534], "name": "Timburr", "color": "gray", "gen_no": 5, "typing": ["fighting"], "pic": "./pics/532.jpg", "anime_count": 5, "manga_count": 2, "matchups": {"0": [], "25": [], "50": ["bug", "rock", "dark"], "200": ["flying", "psychic", "fairy"], "400": []}, "stats": [["attack", 80], ["hp", 75], ["defense", 55], ["sp_def", 35], ["speed", 35], ["sp_atk", 25]], "stat_total": 305}

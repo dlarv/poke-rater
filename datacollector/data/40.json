@@ -1,1 +1,1 @@
-{"dex_no": 40, "related": [174, 39, 40], "name": "Wigglytuff", "color": "Pink", "gen_no": 1, "typing": ["Normal", "Fairy"], "pic": "./pics/40.jpg"}
+{"dex_no": 40, "related": [174, 39, 40], "name": "Wigglytuff", "color": "pink", "gen_no": 1, "typing": ["normal", "fairy"], "pic": "./pics/40.jpg", "anime_count": 26, "manga_count": 9, "matchups": {"0": ["ghost", "dragon"], "25": [], "50": ["bug", "dark"], "200": ["poison", "steel"], "400": []}, "stats": [["hp", 140], ["sp_atk", 85], ["attack", 70], ["sp_def", 50], ["defense", 45], ["speed", 45]], "stat_total": 435}

@@ -1,1 +1,1 @@
-{"dex_no": 796, "related": null, "name": "Xurkitree", "color": "Black", "gen_no": 7, "typing": ["Electric"], "pic": "./pics/796.jpg"}
+{"dex_no": 796, "related": null, "name": "Xurkitree", "color": "black", "gen_no": 7, "typing": ["electric"], "pic": "./pics/796.jpg", "anime_count": 2, "manga_count": 4, "matchups": {"0": [], "25": [], "50": ["electric", "flying", "steel"], "200": ["ground"], "400": []}, "stats": [["sp_atk", 173], ["attack", 89], ["hp", 83], ["speed", 83], ["defense", 71], ["sp_def", 71]], "stat_total": 570}

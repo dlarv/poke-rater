@@ -1,1 +1,1 @@
-{"dex_no": 580, "related": [580, 581], "name": "Ducklett", "color": "Blue", "gen_no": 5, "typing": ["Water", "Flying"], "pic": "./pics/580.jpg"}
+{"dex_no": 580, "related": [580, 581], "name": "Ducklett", "color": "blue", "gen_no": 5, "typing": ["water", "flying"], "pic": "./pics/580.jpg", "anime_count": 24, "manga_count": 7, "matchups": {"0": ["ground"], "25": [], "50": ["fire", "water", "fighting", "bug", "steel"], "200": ["rock"], "400": ["electric"]}, "stats": [["hp", 62], ["speed", 55], ["defense", 50], ["sp_def", 50], ["attack", 44], ["sp_atk", 44]], "stat_total": 305}

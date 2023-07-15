@@ -1,1 +1,1 @@
-{"dex_no": 276, "related": [276, 277], "name": "Taillow", "color": "Blue", "gen_no": 3, "typing": ["Normal", "Flying"], "pic": "./pics/276.jpg"}
+{"dex_no": 276, "related": [276, 277], "name": "Taillow", "color": "blue", "gen_no": 3, "typing": ["normal", "flying"], "pic": "./pics/276.jpg", "anime_count": 18, "manga_count": 8, "matchups": {"0": ["ground", "ghost"], "25": [], "50": ["grass", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["speed", 85], ["attack", 55], ["hp", 40], ["defense", 30], ["sp_atk", 30], ["sp_def", 30]], "stat_total": 270}

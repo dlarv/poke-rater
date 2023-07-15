@@ -1,1 +1,1 @@
-{"dex_no": 438, "related": [438, 185], "name": "Bonsly", "color": "Brown", "gen_no": 4, "typing": ["Rock"], "pic": "./pics/438.jpg"}
+{"dex_no": 438, "related": [438, 185], "name": "Bonsly", "color": "brown", "gen_no": 4, "typing": ["rock"], "pic": "./pics/438.jpg", "anime_count": 24, "manga_count": 9, "matchups": {"0": [], "25": [], "50": ["normal", "fire", "poison", "flying"], "200": ["water", "grass", "fighting", "ground", "steel"], "400": []}, "stats": [["defense", 95], ["attack", 80], ["hp", 50], ["sp_def", 45], ["sp_atk", 10], ["speed", 10]], "stat_total": 290}

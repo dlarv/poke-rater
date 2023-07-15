@@ -1,1 +1,1 @@
-{"dex_no": 234, "related": [234, 899], "name": "Stantler", "color": "Brown", "gen_no": 2, "typing": ["Normal"], "pic": "./pics/234.jpg"}
+{"dex_no": 234, "related": [234, 899], "name": "Stantler", "color": "brown", "gen_no": 2, "typing": ["normal"], "pic": "./pics/234.jpg", "anime_count": 23, "manga_count": 5, "matchups": {"0": ["ghost", "ghost", "grass", "ghost"], "25": [], "50": [], "200": ["fighting", "fighting", "fighting"], "400": []}, "stats": [["attack", 95], ["sp_atk", 85], ["speed", 85], ["hp", 73], ["sp_def", 65], ["defense", 62]], "stat_total": 465}

@@ -1,1 +1,1 @@
-{"dex_no": 213, "related": null, "name": "Shuckle", "color": "Yellow", "gen_no": 2, "typing": ["Bug", "Rock"], "pic": "./pics/213.jpg"}
+{"dex_no": 213, "related": null, "name": "Shuckle", "color": "yellow", "gen_no": 2, "typing": ["bug", "rock"], "pic": "./pics/213.jpg", "anime_count": 16, "manga_count": 12, "matchups": {"0": [], "25": [], "50": ["normal", "poison"], "200": ["water", "rock", "steel"], "400": []}, "stats": [["defense", 230], ["sp_def", 230], ["hp", 20], ["attack", 10], ["sp_atk", 10], ["speed", 5]], "stat_total": 505}

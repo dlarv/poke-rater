@@ -1,1 +1,1 @@
-{"dex_no": 352, "related": null, "name": "Kecleon", "color": "Green", "gen_no": 3, "typing": ["Normal"], "pic": "./pics/352.jpg"}
+{"dex_no": 352, "related": null, "name": "Kecleon", "color": "green", "gen_no": 3, "typing": ["normal"], "pic": "./pics/352.jpg", "anime_count": 20, "manga_count": 7, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["sp_def", 120], ["attack", 90], ["defense", 70], ["hp", 60], ["sp_atk", 60], ["speed", 40]], "stat_total": 440}

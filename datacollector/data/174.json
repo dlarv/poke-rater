@@ -1,1 +1,1 @@
-{"dex_no": 174, "related": [174, 39, 40], "name": "Igglybuff", "color": "Pink", "gen_no": 2, "typing": ["Normal", "Fairy"], "pic": "./pics/174.jpg"}
+{"dex_no": 174, "related": [174, 39, 40], "name": "Igglybuff", "color": "pink", "gen_no": 2, "typing": ["normal", "fairy"], "pic": "./pics/174.jpg", "anime_count": 13, "manga_count": 7, "matchups": {"0": ["ghost", "dragon"], "25": [], "50": ["bug", "dark"], "200": ["poison", "steel"], "400": []}, "stats": [["hp", 90], ["sp_atk", 40], ["attack", 30], ["sp_def", 20], ["defense", 15], ["speed", 15]], "stat_total": 210}

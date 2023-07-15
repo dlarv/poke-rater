@@ -1,1 +1,1 @@
-{"dex_no": 421, "related": [420, 421], "name": "Cherrim", "color": "Purple", "gen_no": 4, "typing": ["Grass"], "pic": "./pics/421.jpg"}
+{"dex_no": 421, "related": [420, 421], "name": "Cherrim", "color": "purple", "gen_no": 4, "typing": ["grass"], "pic": "./pics/421.jpg", "anime_count": 8, "manga_count": 7, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["sp_atk", 87], ["speed", 85], ["sp_def", 78], ["hp", 70], ["defense", 70], ["attack", 60]], "stat_total": 450}

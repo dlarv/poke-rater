@@ -1,1 +1,1 @@
-{"dex_no": 749, "related": [749, 750], "name": "Mudbray", "color": "Brown", "gen_no": 7, "typing": ["Ground"], "pic": "./pics/749.jpg"}
+{"dex_no": 749, "related": [749, 750], "name": "Mudbray", "color": "brown", "gen_no": 7, "typing": ["ground"], "pic": "./pics/749.jpg", "anime_count": 7, "manga_count": 3, "matchups": {"0": ["electric"], "25": [], "50": ["poison", "rock"], "200": ["water", "grass", "ice"], "400": []}, "stats": [["attack", 100], ["hp", 70], ["defense", 70], ["sp_def", 55], ["sp_atk", 45], ["speed", 45]], "stat_total": 385}

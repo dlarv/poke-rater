@@ -1,1 +1,1 @@
-{"dex_no": 951, "related": [951, 952], "name": "Capsakid", "color": "Green", "gen_no": 9, "typing": ["Grass"], "pic": "./pics/951.jpg"}
+{"dex_no": 951, "related": [951, 952], "name": "Capsakid", "color": "green", "gen_no": 9, "typing": ["grass"], "pic": "./pics/951.jpg", "anime_count": 0, "manga_count": 0, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["attack", 62], ["sp_atk", 62], ["hp", 50], ["speed", 50], ["defense", 40], ["sp_def", 40]], "stat_total": 304}

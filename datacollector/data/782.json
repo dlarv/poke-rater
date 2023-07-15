@@ -1,1 +1,1 @@
-{"dex_no": 782, "related": [782, 783, 784], "name": "Jangmo-o", "color": "Gray", "gen_no": 7, "typing": ["Dragon"], "pic": "./pics/782.jpg"}
+{"dex_no": 782, "related": [782, 783, 784], "name": "Jangmo-o", "color": "gray", "gen_no": 7, "typing": ["dragon"], "pic": "./pics/782.jpg", "anime_count": null, "manga_count": null, "matchups": {"0": [], "25": [], "50": ["fire", "water", "electric", "grass"], "200": ["ice", "dragon", "fairy"], "400": []}, "stats": [["defense", 65], ["attack", 55], ["hp", 45], ["sp_atk", 45], ["sp_def", 45], ["speed", 45]], "stat_total": 300}

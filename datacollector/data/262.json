@@ -1,1 +1,1 @@
-{"dex_no": 262, "related": [261, 262], "name": "Mightyena", "color": "Gray", "gen_no": 3, "typing": ["Dark"], "pic": "./pics/262.jpg"}
+{"dex_no": 262, "related": [261, 262], "name": "Mightyena", "color": "gray", "gen_no": 3, "typing": ["dark"], "pic": "./pics/262.jpg", "anime_count": 18, "manga_count": 6, "matchups": {"0": ["psychic"], "25": [], "50": ["ghost", "dark"], "200": ["fighting", "bug", "fairy"], "400": []}, "stats": [["attack", 90], ["hp", 70], ["defense", 70], ["speed", 70], ["sp_atk", 60], ["sp_def", 60]], "stat_total": 420}

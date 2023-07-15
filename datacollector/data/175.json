@@ -1,1 +1,1 @@
-{"dex_no": 175, "related": [175, 176, 468], "name": "Togepi", "color": "White", "gen_no": 2, "typing": ["Fairy"], "pic": "./pics/175.jpg"}
+{"dex_no": 175, "related": [175, 176, 468], "name": "Togepi", "color": "white", "gen_no": 2, "typing": ["fairy"], "pic": "./pics/175.jpg", "anime_count": 7, "manga_count": 9, "matchups": {"0": ["dragon"], "25": [], "50": ["fighting", "bug", "dark"], "200": ["poison", "steel"], "400": []}, "stats": [["defense", 65], ["sp_def", 65], ["sp_atk", 40], ["hp", 35], ["attack", 20], ["speed", 20]], "stat_total": 245}

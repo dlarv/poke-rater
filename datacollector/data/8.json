@@ -1,1 +1,1 @@
-{"dex_no": 8, "related": [7, 8, 9], "name": "Wartortle", "color": "Blue", "gen_no": 1, "typing": ["Water"], "pic": "./pics/8.jpg"}
+{"dex_no": 8, "related": [7, 8, 9], "name": "Wartortle", "color": "blue", "gen_no": 1, "typing": ["water"], "pic": "./pics/8.jpg", "anime_count": 25, "manga_count": 13, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["defense", 80], ["sp_def", 80], ["sp_atk", 65], ["attack", 63], ["hp", 59], ["speed", 58]], "stat_total": 405}

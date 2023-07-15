@@ -1,1 +1,1 @@
-{"dex_no": 446, "related": [446, 143], "name": "Munchlax", "color": "Black", "gen_no": 4, "typing": ["Normal"], "pic": "./pics/446.jpg"}
+{"dex_no": 446, "related": [446, 143], "name": "Munchlax", "color": "black", "gen_no": 4, "typing": ["normal"], "pic": "./pics/446.jpg", "anime_count": 20, "manga_count": 8, "matchups": {"0": ["ghost", "ghost", "ghost"], "25": [], "50": ["fire", "ice"], "200": ["fighting", "fighting", "fighting"], "400": []}, "stats": [["hp", 135], ["attack", 85], ["sp_def", 85], ["defense", 40], ["sp_atk", 40], ["speed", 5]], "stat_total": 390}

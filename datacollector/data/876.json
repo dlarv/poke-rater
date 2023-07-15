@@ -1,1 +1,1 @@
-{"dex_no": 876, "related": null, "name": "Indeedee", "color": "Purple", "gen_no": 8, "typing": ["Psychic", "Normal"], "pic": "./pics/876.jpg"}
+{"dex_no": 876, "related": null, "name": "Indeedee", "color": "purple", "gen_no": 8, "typing": ["psychic", "normal"], "pic": "./pics/876.jpg", "anime_count": 3, "manga_count": 1, "matchups": {"0": ["ghost", "ghost"], "25": [], "50": ["psychic", "psychic"], "200": ["bug", "dark", "bug", "dark"], "400": []}, "stats": [["sp_atk", 105], ["sp_def", 95], ["speed", 95], ["attack", 65], ["hp", 60], ["defense", 55]], "stat_total": 475}

@@ -1,1 +1,1 @@
-{"dex_no": 831, "related": [831, 832], "name": "Wooloo", "color": "White", "gen_no": 8, "typing": ["Normal"], "pic": "./pics/831.jpg"}
+{"dex_no": 831, "related": [831, 832], "name": "Wooloo", "color": "white", "gen_no": 8, "typing": ["normal"], "pic": "./pics/831.jpg", "anime_count": 9, "manga_count": 6, "matchups": {"0": ["ghost", "ghost", "ghost"], "25": [], "50": [], "200": ["fire", "fighting", "fighting", "fighting"], "400": []}, "stats": [["defense", 55], ["speed", 48], ["sp_def", 45], ["hp", 42], ["attack", 40], ["sp_atk", 40]], "stat_total": 270}

@@ -1,1 +1,1 @@
-{"dex_no": 84, "related": [84, 85], "name": "Doduo", "color": "Brown", "gen_no": 1, "typing": ["Normal", "Flying"], "pic": "./pics/84.jpg"}
+{"dex_no": 84, "related": [84, 85], "name": "Doduo", "color": "brown", "gen_no": 1, "typing": ["normal", "flying"], "pic": "./pics/84.jpg", "anime_count": 33, "manga_count": 16, "matchups": {"0": ["ground", "ghost"], "25": [], "50": ["grass", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["attack", 85], ["speed", 75], ["defense", 45], ["hp", 35], ["sp_atk", 35], ["sp_def", 35]], "stat_total": 310}

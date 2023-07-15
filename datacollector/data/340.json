@@ -1,1 +1,1 @@
-{"dex_no": 340, "related": [339, 340], "name": "Whiscash", "color": "Blue", "gen_no": 3, "typing": ["Water", "Ground"], "pic": "./pics/340.jpg"}
+{"dex_no": 340, "related": [339, 340], "name": "Whiscash", "color": "blue", "gen_no": 3, "typing": ["water", "ground"], "pic": "./pics/340.jpg", "anime_count": 10, "manga_count": 4, "matchups": {"0": ["electric"], "25": [], "50": ["fire", "poison", "rock", "steel"], "200": [], "400": ["grass"]}, "stats": [["hp", 110], ["attack", 78], ["sp_atk", 76], ["defense", 73], ["sp_def", 71], ["speed", 60]], "stat_total": 468}

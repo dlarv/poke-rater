@@ -1,1 +1,1 @@
-{"dex_no": 29, "related": [29, 30, 31], "name": "Nidoran\u2640 (female)", "color": "Blue", "gen_no": 1, "typing": ["Poison"], "pic": "./pics/29.jpg"}
+{"dex_no": 29, "related": [29, 30, 31], "name": "Nidoran\u2640", "color": "blue", "gen_no": 1, "typing": ["poison"], "pic": "./pics/29.jpg", "matchups": {"0": [], "25": [], "50": ["grass", "fighting", "poison", "bug", "fairy"], "200": ["ground", "psychic"], "400": []}, "stats": [["hp", 55], ["defense", 52], ["attack", 47], ["speed", 41], ["sp_atk", 40], ["sp_def", 40]], "stat_total": 275, "anime_count": 45, "manga_count": 3}

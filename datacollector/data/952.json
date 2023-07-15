@@ -1,1 +1,1 @@
-{"dex_no": 952, "related": [951, 952], "name": "Scovillain", "color": "Green", "gen_no": 9, "typing": ["Grass", "Fire"], "pic": "./pics/952.jpg"}
+{"dex_no": 952, "related": [951, 952], "name": "Scovillain", "color": "green", "gen_no": 9, "typing": ["grass", "fire"], "pic": "./pics/952.jpg", "anime_count": 0, "manga_count": 0, "matchups": {"0": [], "25": ["grass"], "50": ["electric", "steel", "fairy"], "200": ["poison", "flying", "rock"], "400": []}, "stats": [["attack", 108], ["sp_atk", 108], ["speed", 75], ["hp", 65], ["defense", 65], ["sp_def", 65]], "stat_total": 486}

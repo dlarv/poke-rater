@@ -1,1 +1,1 @@
-{"dex_no": 505, "related": [504, 505], "name": "Watchog", "color": "Brown", "gen_no": 5, "typing": ["Normal"], "pic": "./pics/505.jpg"}
+{"dex_no": 505, "related": [504, 505], "name": "Watchog", "color": "brown", "gen_no": 5, "typing": ["normal"], "pic": "./pics/505.jpg", "anime_count": 34, "manga_count": 6, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 85], ["speed", 77], ["defense", 69], ["sp_def", 69], ["hp", 60], ["sp_atk", 60]], "stat_total": 420}

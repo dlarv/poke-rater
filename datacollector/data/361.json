@@ -1,1 +1,1 @@
-{"dex_no": 361, "related": [361, 362, 478], "name": "Snorunt", "color": "Gray", "gen_no": 3, "typing": ["Ice"], "pic": "./pics/361.jpg"}
+{"dex_no": 361, "related": [361, 362, 478], "name": "Snorunt", "color": "gray", "gen_no": 3, "typing": ["ice"], "pic": "./pics/361.jpg", "anime_count": 14, "manga_count": 10, "matchups": {"0": [], "25": [], "50": ["ice"], "200": ["fire", "fighting", "rock", "steel"], "400": []}, "stats": [["hp", 50], ["attack", 50], ["defense", 50], ["sp_atk", 50], ["sp_def", 50], ["speed", 50]], "stat_total": 300}

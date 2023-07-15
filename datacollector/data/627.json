@@ -1,1 +1,1 @@
-{"dex_no": 627, "related": [627, 628, 628], "name": "Rufflet", "color": "White", "gen_no": 5, "typing": ["Normal", "Flying"], "pic": "./pics/627.jpg"}
+{"dex_no": 627, "related": [627, 628, 628], "name": "Rufflet", "color": "white", "gen_no": 5, "typing": ["normal", "flying"], "pic": "./pics/627.jpg", "anime_count": 9, "manga_count": 4, "matchups": {"0": ["ground", "ghost"], "25": [], "50": ["grass", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["attack", 83], ["hp", 70], ["speed", 60], ["defense", 50], ["sp_def", 50], ["sp_atk", 37]], "stat_total": 350}

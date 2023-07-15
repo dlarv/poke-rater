@@ -1,1 +1,1 @@
-{"dex_no": 944, "related": [944, 945], "name": "Shroodle", "color": "Gray", "gen_no": 9, "typing": ["Poison", "Normal"], "pic": "./pics/944.jpg"}
+{"dex_no": 944, "related": [944, 945], "name": "Shroodle", "color": "gray", "gen_no": 9, "typing": ["poison", "normal"], "pic": "./pics/944.jpg", "anime_count": 0, "manga_count": 0, "matchups": {"0": ["ghost"], "25": [], "50": ["grass", "poison", "bug", "fairy"], "200": ["ground", "psychic"], "400": []}, "stats": [["speed", 75], ["attack", 65], ["hp", 40], ["sp_atk", 40], ["defense", 35], ["sp_def", 35]], "stat_total": 290}

@@ -1,1 +1,1 @@
-{"dex_no": 272, "related": [270, 271, 272], "name": "Ludicolo", "color": "Green", "gen_no": 3, "typing": ["Water", "Grass"], "pic": "./pics/272.jpg"}
+{"dex_no": 272, "related": [270, 271, 272], "name": "Ludicolo", "color": "green", "gen_no": 3, "typing": ["water", "grass"], "pic": "./pics/272.jpg", "anime_count": 9, "manga_count": 5, "matchups": {"0": [], "25": ["water"], "50": ["ground", "steel"], "200": ["poison", "flying", "bug"], "400": []}, "stats": [["sp_def", 100], ["sp_atk", 90], ["hp", 80], ["attack", 70], ["defense", 70], ["speed", 70]], "stat_total": 480}

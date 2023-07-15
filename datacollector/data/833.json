@@ -1,1 +1,1 @@
-{"dex_no": 833, "related": [833, 834], "name": "Chewtle", "color": "Green", "gen_no": 8, "typing": ["Water"], "pic": "./pics/833.jpg"}
+{"dex_no": 833, "related": [833, 834], "name": "Chewtle", "color": "green", "gen_no": 8, "typing": ["water"], "pic": "./pics/833.jpg", "anime_count": 3, "manga_count": 3, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["attack", 64], ["hp", 50], ["defense", 50], ["speed", 44], ["sp_atk", 38], ["sp_def", 38]], "stat_total": 284}

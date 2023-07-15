@@ -1,1 +1,1 @@
-{"dex_no": 372, "related": [371, 372, 373], "name": "Shelgon", "color": "White", "gen_no": 3, "typing": ["Dragon"], "pic": "./pics/372.jpg"}
+{"dex_no": 372, "related": [371, 372, 373], "name": "Shelgon", "color": "white", "gen_no": 3, "typing": ["dragon"], "pic": "./pics/372.jpg", "anime_count": 9, "manga_count": 4, "matchups": {"0": [], "25": [], "50": ["fire", "water", "electric", "grass"], "200": ["ice", "dragon", "fairy"], "400": []}, "stats": [["defense", 100], ["attack", 95], ["hp", 65], ["sp_atk", 60], ["sp_def", 50], ["speed", 50]], "stat_total": 420}

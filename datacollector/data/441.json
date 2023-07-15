@@ -1,1 +1,1 @@
-{"dex_no": 441, "related": null, "name": "Chatot", "color": "Black", "gen_no": 4, "typing": ["Normal", "Flying"], "pic": "./pics/441.jpg"}
+{"dex_no": 441, "related": null, "name": "Chatot", "color": "black", "gen_no": 4, "typing": ["normal", "flying"], "pic": "./pics/441.jpg", "anime_count": 15, "manga_count": 6, "matchups": {"0": ["ground", "ghost"], "25": [], "50": ["grass", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["sp_atk", 92], ["speed", 91], ["hp", 76], ["attack", 65], ["defense", 45], ["sp_def", 42]], "stat_total": 411}

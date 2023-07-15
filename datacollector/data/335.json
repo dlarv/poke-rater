@@ -1,1 +1,1 @@
-{"dex_no": 335, "related": null, "name": "Zangoose", "color": "White", "gen_no": 3, "typing": ["Normal"], "pic": "./pics/335.jpg"}
+{"dex_no": 335, "related": null, "name": "Zangoose", "color": "white", "gen_no": 3, "typing": ["normal"], "pic": "./pics/335.jpg", "anime_count": 18, "manga_count": 7, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 115], ["speed", 90], ["hp", 73], ["defense", 60], ["sp_atk", 60], ["sp_def", 60]], "stat_total": 458}

@@ -1,1 +1,1 @@
-{"dex_no": 682, "related": [682, 683], "name": "Spritzee", "color": "Pink", "gen_no": 6, "typing": ["Fairy"], "pic": "./pics/682.jpg"}
+{"dex_no": 682, "related": [682, 683], "name": "Spritzee", "color": "pink", "gen_no": 6, "typing": ["fairy"], "pic": "./pics/682.jpg", "anime_count": 12, "manga_count": 6, "matchups": {"0": ["dragon"], "25": [], "50": ["fighting", "bug", "dark"], "200": ["poison", "steel"], "400": []}, "stats": [["hp", 78], ["sp_def", 65], ["sp_atk", 63], ["defense", 60], ["attack", 52], ["speed", 23]], "stat_total": 341}

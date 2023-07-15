@@ -1,1 +1,1 @@
-{"dex_no": 160, "related": [158, 159, 160], "name": "Feraligatr", "color": "Blue", "gen_no": 2, "typing": ["Water"], "pic": "./pics/160.jpg"}
+{"dex_no": 160, "related": [158, 159, 160], "name": "Feraligatr", "color": "blue", "gen_no": 2, "typing": ["water"], "pic": "./pics/160.jpg", "anime_count": 17, "manga_count": 8, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["attack", 105], ["defense", 100], ["hp", 85], ["sp_def", 83], ["sp_atk", 79], ["speed", 78]], "stat_total": 530}

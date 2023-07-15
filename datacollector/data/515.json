@@ -1,1 +1,1 @@
-{"dex_no": 515, "related": [515, 516], "name": "Panpour", "color": "Blue", "gen_no": 5, "typing": ["Water"], "pic": "./pics/515.jpg"}
+{"dex_no": 515, "related": [515, 516], "name": "Panpour", "color": "blue", "gen_no": 5, "typing": ["water"], "pic": "./pics/515.jpg", "anime_count": 17, "manga_count": 6, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["speed", 64], ["attack", 53], ["sp_atk", 53], ["hp", 50], ["defense", 48], ["sp_def", 48]], "stat_total": 316}

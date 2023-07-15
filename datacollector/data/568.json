@@ -1,1 +1,1 @@
-{"dex_no": 568, "related": [568, 569], "name": "Trubbish", "color": "Green", "gen_no": 5, "typing": ["Poison"], "pic": "./pics/568.jpg"}
+{"dex_no": 568, "related": [568, 569], "name": "Trubbish", "color": "green", "gen_no": 5, "typing": ["poison"], "pic": "./pics/568.jpg", "anime_count": 17, "manga_count": 8, "matchups": {"0": [], "25": [], "50": ["grass", "fighting", "poison", "bug", "fairy"], "200": ["ground", "psychic"], "400": []}, "stats": [["speed", 65], ["defense", 62], ["sp_def", 62], ["hp", 50], ["attack", 50], ["sp_atk", 40]], "stat_total": 329}

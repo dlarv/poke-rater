@@ -1,1 +1,1 @@
-{"dex_no": 828, "related": [827, 828], "name": "Thievul", "color": "Brown", "gen_no": 8, "typing": ["Dark"], "pic": "./pics/828.jpg"}
+{"dex_no": 828, "related": [827, 828], "name": "Thievul", "color": "brown", "gen_no": 8, "typing": ["dark"], "pic": "./pics/828.jpg", "anime_count": 2, "manga_count": 1, "matchups": {"0": ["psychic"], "25": [], "50": ["ghost", "dark"], "200": ["fighting", "bug", "fairy"], "400": []}, "stats": [["sp_def", 92], ["speed", 90], ["sp_atk", 87], ["hp", 70], ["attack", 58], ["defense", 58]], "stat_total": 455}

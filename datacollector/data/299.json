@@ -1,1 +1,1 @@
-{"dex_no": 299, "related": [299, 476], "name": "Nosepass", "color": "Gray", "gen_no": 3, "typing": ["Rock"], "pic": "./pics/299.jpg"}
+{"dex_no": 299, "related": [299, 476], "name": "Nosepass", "color": "gray", "gen_no": 3, "typing": ["rock"], "pic": "./pics/299.jpg", "anime_count": 11, "manga_count": 4, "matchups": {"0": [], "25": [], "50": ["normal", "fire", "poison", "flying"], "200": ["water", "grass", "fighting", "ground", "steel"], "400": []}, "stats": [["defense", 135], ["sp_def", 90], ["attack", 45], ["sp_atk", 45], ["hp", 30], ["speed", 30]], "stat_total": 375}

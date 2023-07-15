@@ -1,1 +1,1 @@
-{"dex_no": 193, "related": [193, 469], "name": "Yanma", "color": "Red", "gen_no": 2, "typing": ["Bug", "Flying"], "pic": "./pics/193.jpg"}
+{"dex_no": 193, "related": [193, 469], "name": "Yanma", "color": "red", "gen_no": 2, "typing": ["bug", "flying"], "pic": "./pics/193.jpg", "anime_count": 18, "manga_count": 6, "matchups": {"0": ["ground"], "25": ["grass", "fighting"], "50": ["bug"], "200": ["fire", "electric", "ice", "flying"], "400": ["rock"]}, "stats": [["speed", 95], ["sp_atk", 75], ["hp", 65], ["attack", 65], ["defense", 45], ["sp_def", 45]], "stat_total": 390}

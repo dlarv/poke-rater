@@ -1,1 +1,1 @@
-{"dex_no": 273, "related": [273, 274, 275], "name": "Seedot", "color": "Brown", "gen_no": 3, "typing": ["Grass"], "pic": "./pics/273.jpg"}
+{"dex_no": 273, "related": [273, 274, 275], "name": "Seedot", "color": "brown", "gen_no": 3, "typing": ["grass"], "pic": "./pics/273.jpg", "anime_count": 23, "manga_count": 10, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["defense", 50], ["hp", 40], ["attack", 40], ["sp_atk", 30], ["sp_def", 30], ["speed", 30]], "stat_total": 220}

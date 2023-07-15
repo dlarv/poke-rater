@@ -1,1 +1,1 @@
-{"dex_no": 521, "related": [519, 520, 521], "name": "Unfezant", "color": "Gray", "gen_no": 5, "typing": ["Normal", "Flying"], "pic": "./pics/521.jpg"}
+{"dex_no": 521, "related": [519, 520, 521], "name": "Unfezant", "color": "gray", "gen_no": 5, "typing": ["normal", "flying"], "pic": "./pics/521.jpg", "anime_count": 5, "manga_count": 4, "matchups": {"0": ["ground", "ghost"], "25": [], "50": ["grass", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["attack", 115], ["speed", 93], ["hp", 80], ["defense", 80], ["sp_atk", 65], ["sp_def", 55]], "stat_total": 488}

@@ -1,1 +1,1 @@
-{"dex_no": 615, "related": null, "name": "Cryogonal", "color": "Blue", "gen_no": 5, "typing": ["Ice"], "pic": "./pics/615.jpg"}
+{"dex_no": 615, "related": null, "name": "Cryogonal", "color": "blue", "gen_no": 5, "typing": ["ice"], "pic": "./pics/615.jpg", "anime_count": 4, "manga_count": 3, "matchups": {"0": ["ground"], "25": [], "50": ["ice"], "200": ["fire", "fighting", "rock", "steel"], "400": []}, "stats": [["sp_def", 135], ["speed", 105], ["sp_atk", 95], ["hp", 80], ["attack", 50], ["defense", 50]], "stat_total": 515}

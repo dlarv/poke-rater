@@ -1,1 +1,1 @@
-{"dex_no": 431, "related": [431, 432], "name": "Glameow", "color": "Gray", "gen_no": 4, "typing": ["Normal"], "pic": "./pics/431.jpg"}
+{"dex_no": 431, "related": [431, 432], "name": "Glameow", "color": "gray", "gen_no": 4, "typing": ["normal"], "pic": "./pics/431.jpg", "anime_count": 11, "manga_count": 4, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["speed", 85], ["attack", 55], ["hp", 49], ["defense", 42], ["sp_atk", 42], ["sp_def", 37]], "stat_total": 310}

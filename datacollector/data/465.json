@@ -1,1 +1,1 @@
-{"dex_no": 465, "related": [114, 465], "name": "Tangrowth", "color": "Blue", "gen_no": 4, "typing": ["Grass"], "pic": "./pics/465.jpg"}
+{"dex_no": 465, "related": [114, 465], "name": "Tangrowth", "color": "blue", "gen_no": 4, "typing": ["grass"], "pic": "./pics/465.jpg", "anime_count": 5, "manga_count": 4, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["defense", 125], ["sp_atk", 110], ["hp", 100], ["attack", 100], ["sp_def", 50], ["speed", 50]], "stat_total": 535}

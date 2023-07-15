@@ -1,1 +1,1 @@
-{"dex_no": 737, "related": [736, 737, 738], "name": "Charjabug", "color": "Green", "gen_no": 7, "typing": ["Bug", "Electric"], "pic": "./pics/737.jpg"}
+{"dex_no": 737, "related": [736, 737, 738], "name": "Charjabug", "color": "green", "gen_no": 7, "typing": ["bug", "electric"], "pic": "./pics/737.jpg", "anime_count": 6, "manga_count": 3, "matchups": {"0": [], "25": [], "50": ["electric", "grass", "fighting", "steel"], "200": ["fire", "rock"], "400": []}, "stats": [["defense", 95], ["attack", 82], ["sp_def", 75], ["hp", 57], ["sp_atk", 55], ["speed", 36]], "stat_total": 400}

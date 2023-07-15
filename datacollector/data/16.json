@@ -1,1 +1,1 @@
-{"dex_no": 16, "related": [16, 17, 18], "name": "Pidgey", "color": "Brown", "gen_no": 1, "typing": ["Normal", "Flying"], "pic": "./pics/16.jpg"}
+{"dex_no": 16, "related": [16, 17, 18], "name": "Pidgey", "color": "brown", "gen_no": 1, "typing": ["normal", "flying"], "pic": "./pics/16.jpg", "anime_count": 93, "manga_count": 20, "matchups": {"0": ["ground", "ghost"], "25": [], "50": ["grass", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["speed", 56], ["attack", 45], ["hp", 40], ["defense", 40], ["sp_atk", 35], ["sp_def", 35]], "stat_total": 251}

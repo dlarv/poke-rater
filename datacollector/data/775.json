@@ -1,1 +1,1 @@
-{"dex_no": 775, "related": null, "name": "Komala", "color": "Blue", "gen_no": 7, "typing": ["Normal"], "pic": "./pics/775.jpg"}
+{"dex_no": 775, "related": null, "name": "Komala", "color": "blue", "gen_no": 7, "typing": ["normal"], "pic": "./pics/775.jpg", "anime_count": 2, "manga_count": 2, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 115], ["sp_def", 95], ["sp_atk", 75], ["hp", 65], ["defense", 65], ["speed", 65]], "stat_total": 480}

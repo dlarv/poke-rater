@@ -1,1 +1,1 @@
-{"dex_no": 245, "related": null, "name": "Suicune", "color": "Blue", "gen_no": 2, "typing": ["Water"], "pic": "./pics/245.jpg"}
+{"dex_no": 245, "related": null, "name": "Suicune", "color": "blue", "gen_no": 2, "typing": ["water"], "pic": "./pics/245.jpg", "anime_count": 16, "manga_count": 10, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["defense", 115], ["sp_def", 115], ["hp", 100], ["sp_atk", 90], ["speed", 85], ["attack", 75]], "stat_total": 580}

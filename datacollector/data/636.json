@@ -1,1 +1,1 @@
-{"dex_no": 636, "related": [636, 637], "name": "Larvesta", "color": "White", "gen_no": 5, "typing": ["Bug", "Fire"], "pic": "./pics/636.jpg"}
+{"dex_no": 636, "related": [636, 637], "name": "Larvesta", "color": "white", "gen_no": 5, "typing": ["bug", "fire"], "pic": "./pics/636.jpg", "anime_count": 2, "manga_count": 2, "matchups": {"0": [], "25": ["grass"], "50": ["ice", "fighting", "bug", "steel", "fairy"], "200": ["water", "flying"], "400": ["rock"]}, "stats": [["attack", 85], ["speed", 60], ["hp", 55], ["defense", 55], ["sp_def", 55], ["sp_atk", 50]], "stat_total": 360}

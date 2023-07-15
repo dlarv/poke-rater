@@ -1,1 +1,1 @@
-{"dex_no": 872, "related": [872, 873], "name": "Snom", "color": "White", "gen_no": 8, "typing": ["Ice", "Bug"], "pic": "./pics/872.jpg"}
+{"dex_no": 872, "related": [872, 873], "name": "Snom", "color": "white", "gen_no": 8, "typing": ["ice", "bug"], "pic": "./pics/872.jpg", "anime_count": 1, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["grass", "ice", "ground"], "200": ["flying", "steel"], "400": ["fire", "rock"]}, "stats": [["sp_atk", 45], ["defense", 35], ["hp", 30], ["sp_def", 30], ["attack", 25], ["speed", 20]], "stat_total": 185}

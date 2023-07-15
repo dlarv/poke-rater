@@ -1,1 +1,1 @@
-{"dex_no": 120, "related": [120, 121], "name": "Staryu", "color": "Brown", "gen_no": 1, "typing": ["Water"], "pic": "./pics/120.jpg"}
+{"dex_no": 120, "related": [120, 121], "name": "Staryu", "color": "brown", "gen_no": 1, "typing": ["water"], "pic": "./pics/120.jpg", "anime_count": 44, "manga_count": 12, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["speed", 85], ["sp_atk", 70], ["defense", 55], ["sp_def", 55], ["attack", 45], ["hp", 30]], "stat_total": 340}

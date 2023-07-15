@@ -1,1 +1,1 @@
-{"dex_no": 253, "related": [252, 253, 254], "name": "Grovyle", "color": "Green", "gen_no": 3, "typing": ["Grass"], "pic": "./pics/253.jpg"}
+{"dex_no": 253, "related": [252, 253, 254], "name": "Grovyle", "color": "green", "gen_no": 3, "typing": ["grass"], "pic": "./pics/253.jpg", "anime_count": 6, "manga_count": 5, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["speed", 95], ["sp_atk", 85], ["attack", 65], ["sp_def", 65], ["hp", 50], ["defense", 45]], "stat_total": 405}

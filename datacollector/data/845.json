@@ -1,1 +1,1 @@
-{"dex_no": 845, "related": null, "name": "Cramorant", "color": "Blue", "gen_no": 8, "typing": ["Flying", "Water"], "pic": "./pics/845.jpg"}
+{"dex_no": 845, "related": null, "name": "Cramorant", "color": "blue", "gen_no": 8, "typing": ["flying", "water"], "pic": "./pics/845.jpg", "anime_count": 3, "manga_count": 1, "matchups": {"0": ["ground"], "25": [], "50": ["fire", "water", "fighting", "bug", "steel"], "200": ["rock"], "400": ["electric"]}, "stats": [["sp_def", 95], ["attack", 85], ["sp_atk", 85], ["speed", 85], ["hp", 70], ["defense", 55]], "stat_total": 475}

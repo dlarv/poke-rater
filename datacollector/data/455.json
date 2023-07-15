@@ -1,1 +1,1 @@
-{"dex_no": 455, "related": null, "name": "Carnivine", "color": "Green", "gen_no": 4, "typing": ["Grass"], "pic": "./pics/455.jpg"}
+{"dex_no": 455, "related": null, "name": "Carnivine", "color": "green", "gen_no": 4, "typing": ["grass"], "pic": "./pics/455.jpg", "anime_count": 2, "manga_count": 8, "matchups": {"0": ["ground"], "25": [], "50": ["water", "electric", "grass"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["attack", 100], ["sp_atk", 90], ["hp", 74], ["defense", 72], ["sp_def", 72], ["speed", 46]], "stat_total": 454}

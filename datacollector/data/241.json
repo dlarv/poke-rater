@@ -1,1 +1,1 @@
-{"dex_no": 241, "related": null, "name": "Miltank", "color": "Pink", "gen_no": 2, "typing": ["Normal"], "pic": "./pics/241.jpg"}
+{"dex_no": 241, "related": null, "name": "Miltank", "color": "pink", "gen_no": 2, "typing": ["normal"], "pic": "./pics/241.jpg", "anime_count": 15, "manga_count": 15, "matchups": {"0": ["ghost", "ghost", "grass", "ghost"], "25": [], "50": ["fire", "ice"], "200": ["fighting", "fighting", "fighting"], "400": []}, "stats": [["defense", 105], ["speed", 100], ["hp", 95], ["attack", 80], ["sp_def", 70], ["sp_atk", 40]], "stat_total": 490}

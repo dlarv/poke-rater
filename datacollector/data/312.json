@@ -1,1 +1,1 @@
-{"dex_no": 312, "related": null, "name": "Minun", "color": "Yellow", "gen_no": 3, "typing": ["Electric"], "pic": "./pics/312.jpg"}
+{"dex_no": 312, "related": null, "name": "Minun", "color": "yellow", "gen_no": 3, "typing": ["electric"], "pic": "./pics/312.jpg", "anime_count": 14, "manga_count": 5, "matchups": {"0": ["electric"], "25": [], "50": ["electric", "flying", "steel", "flying", "steel"], "200": ["ground", "ground"], "400": []}, "stats": [["speed", 95], ["sp_def", 85], ["sp_atk", 75], ["hp", 60], ["defense", 50], ["attack", 40]], "stat_total": 405}

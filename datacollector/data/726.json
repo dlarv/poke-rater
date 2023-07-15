@@ -1,1 +1,1 @@
-{"dex_no": 726, "related": [725, 726, 727], "name": "Torracat", "color": "Red", "gen_no": 7, "typing": ["Fire"], "pic": "./pics/726.jpg"}
+{"dex_no": 726, "related": [725, 726, 727], "name": "Torracat", "color": "red", "gen_no": 7, "typing": ["fire"], "pic": "./pics/726.jpg", "anime_count": 1, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["fire", "grass", "ice", "bug", "steel", "fairy"], "200": ["water", "ground", "rock"], "400": []}, "stats": [["speed", 90], ["attack", 85], ["sp_atk", 80], ["hp", 65], ["defense", 50], ["sp_def", 50]], "stat_total": 420}

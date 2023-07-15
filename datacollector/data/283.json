@@ -1,1 +1,1 @@
-{"dex_no": 283, "related": [283, 284], "name": "Surskit", "color": "Blue", "gen_no": 3, "typing": ["Bug", "Water"], "pic": "./pics/283.jpg"}
+{"dex_no": 283, "related": [283, 284], "name": "Surskit", "color": "blue", "gen_no": 3, "typing": ["bug", "water"], "pic": "./pics/283.jpg", "anime_count": 15, "manga_count": 5, "matchups": {"0": [], "25": [], "50": ["water", "ice", "fighting", "ground", "steel"], "200": ["electric", "flying", "rock"], "400": []}, "stats": [["speed", 65], ["sp_def", 52], ["sp_atk", 50], ["hp", 40], ["defense", 32], ["attack", 30]], "stat_total": 269}

@@ -1,1 +1,1 @@
-{"dex_no": 702, "related": null, "name": "Dedenne", "color": "Yellow", "gen_no": 6, "typing": ["Electric", "Fairy"], "pic": "./pics/702.jpg"}
+{"dex_no": 702, "related": null, "name": "Dedenne", "color": "yellow", "gen_no": 6, "typing": ["electric", "fairy"], "pic": "./pics/702.jpg", "anime_count": 12, "manga_count": 4, "matchups": {"0": ["dragon"], "25": [], "50": ["electric", "fighting", "flying", "bug", "dark"], "200": ["poison", "ground"], "400": []}, "stats": [["speed", 101], ["sp_atk", 81], ["hp", 67], ["sp_def", 67], ["attack", 58], ["defense", 57]], "stat_total": 431}

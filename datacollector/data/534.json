@@ -1,1 +1,1 @@
-{"dex_no": 534, "related": [532, 533, 534], "name": "Conkeldurr", "color": "Brown", "gen_no": 5, "typing": ["Fighting"], "pic": "./pics/534.jpg"}
+{"dex_no": 534, "related": [532, 533, 534], "name": "Conkeldurr", "color": "brown", "gen_no": 5, "typing": ["fighting"], "pic": "./pics/534.jpg", "anime_count": 8, "manga_count": 4, "matchups": {"0": [], "25": [], "50": ["bug", "rock", "dark"], "200": ["flying", "psychic", "fairy"], "400": []}, "stats": [["attack", 140], ["hp", 105], ["defense", 95], ["sp_def", 65], ["sp_atk", 55], ["speed", 45]], "stat_total": 505}

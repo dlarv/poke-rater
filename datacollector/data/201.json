@@ -1,1 +1,1 @@
-{"dex_no": 201, "related": null, "name": "Unown", "color": "Black", "gen_no": 2, "typing": ["Psychic"], "pic": "./pics/201.jpg"}
+{"dex_no": 201, "related": null, "name": "Unown", "color": "black", "gen_no": 2, "typing": ["psychic"], "pic": "./pics/201.jpg", "anime_count": 11, "manga_count": 10, "matchups": {"0": ["ground"], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["attack", 72], ["sp_atk", 72], ["hp", 48], ["defense", 48], ["sp_def", 48], ["speed", 48]], "stat_total": 336}

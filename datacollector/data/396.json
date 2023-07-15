@@ -1,1 +1,1 @@
-{"dex_no": 396, "related": [396, 397, 398], "name": "Starly", "color": "Brown", "gen_no": 4, "typing": ["Normal", "Flying"], "pic": "./pics/396.jpg"}
+{"dex_no": 396, "related": [396, 397, 398], "name": "Starly", "color": "brown", "gen_no": 4, "typing": ["normal", "flying"], "pic": "./pics/396.jpg", "anime_count": 29, "manga_count": 7, "matchups": {"0": ["ground", "ghost"], "25": [], "50": ["grass", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["speed", 60], ["attack", 55], ["hp", 40], ["defense", 30], ["sp_atk", 30], ["sp_def", 30]], "stat_total": 245}

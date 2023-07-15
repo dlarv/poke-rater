@@ -1,1 +1,1 @@
-{"dex_no": 295, "related": [293, 294, 295], "name": "Exploud", "color": "Blue", "gen_no": 3, "typing": ["Normal"], "pic": "./pics/295.jpg"}
+{"dex_no": 295, "related": [293, 294, 295], "name": "Exploud", "color": "blue", "gen_no": 3, "typing": ["normal"], "pic": "./pics/295.jpg", "anime_count": 11, "manga_count": 2, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 104], ["attack", 91], ["sp_atk", 91], ["sp_def", 73], ["speed", 68], ["defense", 63]], "stat_total": 490}

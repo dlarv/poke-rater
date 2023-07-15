@@ -1,1 +1,1 @@
-{"dex_no": 488, "related": null, "name": "Cresselia", "color": "Yellow", "gen_no": 4, "typing": ["Psychic"], "pic": "./pics/488.jpg"}
+{"dex_no": 488, "related": null, "name": "Cresselia", "color": "yellow", "gen_no": 4, "typing": ["psychic"], "pic": "./pics/488.jpg", "anime_count": 5, "manga_count": 3, "matchups": {"0": ["ground"], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["hp", 120], ["sp_def", 120], ["defense", 110], ["speed", 85], ["sp_atk", 75], ["attack", 70]], "stat_total": 580}

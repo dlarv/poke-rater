@@ -1,1 +1,1 @@
-{"dex_no": 896, "related": null, "name": "Glastrier", "color": "White", "gen_no": 8, "typing": ["Ice"], "pic": "./pics/896.jpg"}
+{"dex_no": 896, "related": null, "name": "Glastrier", "color": "white", "gen_no": 8, "typing": ["ice"], "pic": "./pics/896.jpg", "anime_count": null, "manga_count": null, "matchups": {"0": [], "25": [], "50": ["ice"], "200": ["fire", "fighting", "rock", "steel"], "400": []}, "stats": [["attack", 145], ["defense", 130], ["sp_def", 110], ["hp", 100], ["sp_atk", 65], ["speed", 30]], "stat_total": 580}

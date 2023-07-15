@@ -1,1 +1,1 @@
-{"dex_no": 207, "related": [207, 472], "name": "Gligar", "color": "Purple", "gen_no": 2, "typing": ["Ground", "Flying"], "pic": "./pics/207.jpg"}
+{"dex_no": 207, "related": [207, 472], "name": "Gligar", "color": "purple", "gen_no": 2, "typing": ["ground", "flying"], "pic": "./pics/207.jpg", "anime_count": 8, "manga_count": 9, "matchups": {"0": ["electric", "ground"], "25": [], "50": ["fighting", "poison", "bug"], "200": ["water"], "400": ["ice"]}, "stats": [["defense", 105], ["speed", 85], ["attack", 75], ["hp", 65], ["sp_def", 65], ["sp_atk", 35]], "stat_total": 430}

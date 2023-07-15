@@ -1,1 +1,1 @@
-{"dex_no": 506, "related": [506, 507, 508], "name": "Lillipup", "color": "Brown", "gen_no": 5, "typing": ["Normal"], "pic": "./pics/506.jpg"}
+{"dex_no": 506, "related": [506, 507, 508], "name": "Lillipup", "color": "brown", "gen_no": 5, "typing": ["normal"], "pic": "./pics/506.jpg", "anime_count": 42, "manga_count": 6, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 60], ["speed", 55], ["hp", 45], ["defense", 45], ["sp_def", 45], ["sp_atk", 25]], "stat_total": 275}

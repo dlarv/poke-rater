@@ -1,1 +1,1 @@
-{"dex_no": 900, "related": [123, 212, 900], "name": "Kleavor", "color": "Brown", "gen_no": 8, "typing": ["Bug", "Rock"], "pic": "./pics/900.jpg"}
+{"dex_no": 900, "related": [123, 212, 900], "name": "Kleavor", "color": "brown", "gen_no": 8, "typing": ["bug", "rock"], "pic": "./pics/900.jpg", "anime_count": null, "manga_count": null, "matchups": {"0": [], "25": [], "50": ["normal", "poison"], "200": ["water", "rock", "steel"], "400": []}, "stats": [["attack", 135], ["defense", 95], ["speed", 85], ["hp", 70], ["sp_def", 70], ["sp_atk", 45]], "stat_total": 500}

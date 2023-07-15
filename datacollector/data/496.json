@@ -1,1 +1,1 @@
-{"dex_no": 496, "related": [495, 496, 497], "name": "Servine", "color": "Green", "gen_no": 5, "typing": ["Grass"], "pic": "./pics/496.jpg"}
+{"dex_no": 496, "related": [495, 496, 497], "name": "Servine", "color": "green", "gen_no": 5, "typing": ["grass"], "pic": "./pics/496.jpg", "anime_count": 3, "manga_count": 5, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["speed", 83], ["defense", 75], ["sp_def", 75], ["hp", 60], ["attack", 60], ["sp_atk", 60]], "stat_total": 413}

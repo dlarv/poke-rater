@@ -1,1 +1,1 @@
-{"dex_no": 846, "related": [846, 847], "name": "Arrokuda", "color": "Brown", "gen_no": 8, "typing": ["Water"], "pic": "./pics/846.jpg"}
+{"dex_no": 846, "related": [846, 847], "name": "Arrokuda", "color": "brown", "gen_no": 8, "typing": ["water"], "pic": "./pics/846.jpg", "anime_count": 2, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["speed", 66], ["attack", 63], ["hp", 41], ["defense", 40], ["sp_atk", 40], ["sp_def", 30]], "stat_total": 280}

@@ -1,1 +1,1 @@
-{"dex_no": 258, "related": [258, 259, 260], "name": "Mudkip", "color": "Blue", "gen_no": 3, "typing": ["Water"], "pic": "./pics/258.jpg"}
+{"dex_no": 258, "related": [258, 259, 260], "name": "Mudkip", "color": "blue", "gen_no": 3, "typing": ["water"], "pic": "./pics/258.jpg", "anime_count": 23, "manga_count": 7, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["attack", 70], ["hp", 50], ["defense", 50], ["sp_atk", 50], ["sp_def", 50], ["speed", 40]], "stat_total": 310}

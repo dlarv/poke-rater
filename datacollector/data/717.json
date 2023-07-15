@@ -1,1 +1,1 @@
-{"dex_no": 717, "related": null, "name": "Yveltal", "color": "Red", "gen_no": 6, "typing": ["Dark", "Flying"], "pic": "./pics/717.jpg"}
+{"dex_no": 717, "related": null, "name": "Yveltal", "color": "red", "gen_no": 6, "typing": ["dark", "flying"], "pic": "./pics/717.jpg", "anime_count": 4, "manga_count": 3, "matchups": {"0": ["ground", "psychic"], "25": [], "50": ["grass", "ghost", "dark"], "200": ["electric", "ice", "rock", "fairy"], "400": []}, "stats": [["attack", 131], ["sp_atk", 131], ["hp", 126], ["speed", 99], ["sp_def", 98], ["defense", 95]], "stat_total": 680}

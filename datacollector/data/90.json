@@ -1,1 +1,1 @@
-{"dex_no": 90, "related": [90, 91], "name": "Shellder", "color": "Purple", "gen_no": 1, "typing": ["Water"], "pic": "./pics/90.jpg"}
+{"dex_no": 90, "related": [90, 91], "name": "Shellder", "color": "purple", "gen_no": 1, "typing": ["water"], "pic": "./pics/90.jpg", "anime_count": 35, "manga_count": 9, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["defense", 100], ["attack", 65], ["sp_atk", 45], ["speed", 40], ["hp", 30], ["sp_def", 25]], "stat_total": 305}

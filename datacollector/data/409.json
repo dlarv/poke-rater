@@ -1,1 +1,1 @@
-{"dex_no": 409, "related": [408, 409], "name": "Rampardos", "color": "Blue", "gen_no": 4, "typing": ["Rock"], "pic": "./pics/409.jpg"}
+{"dex_no": 409, "related": [408, 409], "name": "Rampardos", "color": "blue", "gen_no": 4, "typing": ["rock"], "pic": "./pics/409.jpg", "anime_count": 3, "manga_count": 4, "matchups": {"0": [], "25": [], "50": ["normal", "fire", "poison", "flying"], "200": ["water", "grass", "fighting", "ground", "steel"], "400": []}, "stats": [["attack", 165], ["hp", 97], ["sp_atk", 65], ["defense", 60], ["speed", 58], ["sp_def", 50]], "stat_total": 495}

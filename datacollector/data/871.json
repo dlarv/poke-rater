@@ -1,1 +1,1 @@
-{"dex_no": 871, "related": null, "name": "Pincurchin", "color": "Purple", "gen_no": 8, "typing": ["Electric"], "pic": "./pics/871.jpg"}
+{"dex_no": 871, "related": null, "name": "Pincurchin", "color": "purple", "gen_no": 8, "typing": ["electric"], "pic": "./pics/871.jpg", "anime_count": 3, "manga_count": 1, "matchups": {"0": ["electric"], "25": [], "50": ["flying", "steel", "electric", "flying", "steel"], "200": ["ground", "ground"], "400": []}, "stats": [["attack", 101], ["defense", 95], ["sp_atk", 91], ["sp_def", 85], ["hp", 48], ["speed", 15]], "stat_total": 435}

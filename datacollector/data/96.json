@@ -1,1 +1,1 @@
-{"dex_no": 96, "related": [96, 97], "name": "Drowzee", "color": "Yellow", "gen_no": 1, "typing": ["Psychic"], "pic": "./pics/96.jpg"}
+{"dex_no": 96, "related": [96, 97], "name": "Drowzee", "color": "yellow", "gen_no": 1, "typing": ["psychic"], "pic": "./pics/96.jpg", "anime_count": 20, "manga_count": 11, "matchups": {"0": [], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["sp_def", 90], ["hp", 60], ["attack", 48], ["defense", 45], ["sp_atk", 43], ["speed", 42]], "stat_total": 328}

@@ -1,1 +1,1 @@
-{"dex_no": 610, "related": [610, 611, 612], "name": "Axew", "color": "Green", "gen_no": 5, "typing": ["Dragon"], "pic": "./pics/610.jpg"}
+{"dex_no": 610, "related": [610, 611, 612], "name": "Axew", "color": "green", "gen_no": 5, "typing": ["dragon"], "pic": "./pics/610.jpg", "anime_count": 6, "manga_count": 6, "matchups": {"0": [], "25": [], "50": ["fire", "water", "electric", "grass"], "200": ["ice", "dragon", "fairy"], "400": []}, "stats": [["attack", 87], ["defense", 60], ["speed", 57], ["hp", 46], ["sp_def", 40], ["sp_atk", 30]], "stat_total": 320}

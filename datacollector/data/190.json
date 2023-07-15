@@ -1,1 +1,1 @@
-{"dex_no": 190, "related": [190, 424], "name": "Aipom", "color": "Purple", "gen_no": 2, "typing": ["Normal"], "pic": "./pics/190.jpg"}
+{"dex_no": 190, "related": [190, 424], "name": "Aipom", "color": "purple", "gen_no": 2, "typing": ["normal"], "pic": "./pics/190.jpg", "anime_count": 31, "manga_count": 9, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["speed", 85], ["attack", 70], ["hp", 55], ["defense", 55], ["sp_def", 55], ["sp_atk", 40]], "stat_total": 360}

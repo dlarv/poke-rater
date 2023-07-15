@@ -1,1 +1,1 @@
-{"dex_no": 767, "related": [767, 768], "name": "Wimpod", "color": "Gray", "gen_no": 7, "typing": ["Bug", "Water"], "pic": "./pics/767.jpg"}
+{"dex_no": 767, "related": [767, 768], "name": "Wimpod", "color": "gray", "gen_no": 7, "typing": ["bug", "water"], "pic": "./pics/767.jpg", "anime_count": 6, "manga_count": 3, "matchups": {"0": [], "25": [], "50": ["water", "ice", "fighting", "ground", "steel"], "200": ["electric", "flying", "rock"], "400": []}, "stats": [["speed", 80], ["defense", 40], ["attack", 35], ["sp_def", 30], ["hp", 25], ["sp_atk", 20]], "stat_total": 230}

@@ -1,1 +1,1 @@
-{"dex_no": 919, "related": [919, 920], "name": "Nymble", "color": "Gray", "gen_no": 9, "typing": ["Bug"], "pic": "./pics/919.jpg"}
+{"dex_no": 919, "related": [919, 920], "name": "Nymble", "color": "gray", "gen_no": 9, "typing": ["bug"], "pic": "./pics/919.jpg", "anime_count": 0, "manga_count": 0, "matchups": {"0": [], "25": [], "50": ["grass", "fighting", "ground"], "200": ["fire", "flying", "rock"], "400": []}, "stats": [["attack", 46], ["speed", 45], ["defense", 40], ["hp", 33], ["sp_def", 25], ["sp_atk", 21]], "stat_total": 210}

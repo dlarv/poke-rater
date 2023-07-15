@@ -1,1 +1,1 @@
-{"dex_no": 114, "related": [114, 465], "name": "Tangela", "color": "Blue", "gen_no": 1, "typing": ["Grass"], "pic": "./pics/114.jpg"}
+{"dex_no": 114, "related": [114, 465], "name": "Tangela", "color": "blue", "gen_no": 1, "typing": ["grass"], "pic": "./pics/114.jpg", "anime_count": 20, "manga_count": 13, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["defense", 115], ["sp_atk", 100], ["hp", 65], ["speed", 60], ["attack", 55], ["sp_def", 40]], "stat_total": 435}

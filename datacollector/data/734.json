@@ -1,1 +1,1 @@
-{"dex_no": 734, "related": [734, 735], "name": "Yungoos", "color": "Brown", "gen_no": 7, "typing": ["Normal"], "pic": "./pics/734.jpg"}
+{"dex_no": 734, "related": [734, 735], "name": "Yungoos", "color": "brown", "gen_no": 7, "typing": ["normal"], "pic": "./pics/734.jpg", "anime_count": 18, "manga_count": 4, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 70], ["hp", 48], ["speed", 45], ["defense", 30], ["sp_atk", 30], ["sp_def", 30]], "stat_total": 253}

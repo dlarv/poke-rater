@@ -1,1 +1,1 @@
-{"dex_no": 289, "related": [287, 288, 289], "name": "Slaking", "color": "Brown", "gen_no": 3, "typing": ["Normal"], "pic": "./pics/289.jpg"}
+{"dex_no": 289, "related": [287, 288, 289], "name": "Slaking", "color": "brown", "gen_no": 3, "typing": ["normal"], "pic": "./pics/289.jpg", "anime_count": 8, "manga_count": 7, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 160], ["hp", 150], ["defense", 100], ["speed", 100], ["sp_atk", 95], ["sp_def", 65]], "stat_total": 670}

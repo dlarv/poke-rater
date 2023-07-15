@@ -1,1 +1,1 @@
-{"dex_no": 210, "related": [209, 210], "name": "Granbull", "color": "Purple", "gen_no": 2, "typing": ["Fairy"], "pic": "./pics/210.jpg"}
+{"dex_no": 210, "related": [209, 210], "name": "Granbull", "color": "purple", "gen_no": 2, "typing": ["fairy"], "pic": "./pics/210.jpg", "anime_count": 16, "manga_count": 5, "matchups": {"0": ["dragon"], "25": [], "50": ["fighting", "bug", "dark"], "200": ["poison", "steel"], "400": []}, "stats": [["attack", 120], ["hp", 90], ["defense", 75], ["sp_atk", 60], ["sp_def", 60], ["speed", 45]], "stat_total": 450}

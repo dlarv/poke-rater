@@ -1,1 +1,1 @@
-{"dex_no": 56, "related": [56, 57, 979], "name": "Mankey", "color": "Brown", "gen_no": 1, "typing": ["Fighting"], "pic": "./pics/56.jpg"}
+{"dex_no": 56, "related": [56, 57, 979], "name": "Mankey", "color": "brown", "gen_no": 1, "typing": ["fighting"], "pic": "./pics/56.jpg", "anime_count": 59, "manga_count": 15, "matchups": {"0": [], "25": [], "50": ["bug", "rock", "dark"], "200": ["flying", "psychic", "fairy"], "400": []}, "stats": [["attack", 80], ["speed", 70], ["sp_def", 45], ["hp", 40], ["defense", 35], ["sp_atk", 35]], "stat_total": 305}

@@ -1,1 +1,1 @@
-{"dex_no": 665, "related": [664, 665, 666], "name": "Spewpa", "color": "Black", "gen_no": 6, "typing": ["Bug"], "pic": "./pics/665.jpg"}
+{"dex_no": 665, "related": [664, 665, 666], "name": "Spewpa", "color": "black", "gen_no": 6, "typing": ["bug"], "pic": "./pics/665.jpg", "anime_count": 5, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["grass", "fighting", "ground"], "200": ["fire", "flying", "rock"], "400": []}, "stats": [["defense", 60], ["hp", 45], ["sp_def", 30], ["speed", 29], ["sp_atk", 27], ["attack", 22]], "stat_total": 213}

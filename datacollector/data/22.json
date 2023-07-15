@@ -1,1 +1,1 @@
-{"dex_no": 22, "related": [21, 22], "name": "Fearow", "color": "Brown", "gen_no": 1, "typing": ["Normal", "Flying"], "pic": "./pics/22.jpg"}
+{"dex_no": 22, "related": [21, 22], "name": "Fearow", "color": "brown", "gen_no": 1, "typing": ["normal", "flying"], "pic": "./pics/22.jpg", "anime_count": 48, "manga_count": 14, "matchups": {"0": ["ground", "ghost"], "25": [], "50": ["grass", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["speed", 100], ["attack", 90], ["hp", 65], ["defense", 65], ["sp_atk", 61], ["sp_def", 61]], "stat_total": 442}

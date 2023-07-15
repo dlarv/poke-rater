@@ -1,1 +1,1 @@
-{"dex_no": 357, "related": null, "name": "Tropius", "color": "Green", "gen_no": 3, "typing": ["Grass", "Flying"], "pic": "./pics/357.jpg"}
+{"dex_no": 357, "related": null, "name": "Tropius", "color": "green", "gen_no": 3, "typing": ["grass", "flying"], "pic": "./pics/357.jpg", "anime_count": 12, "manga_count": 4, "matchups": {"0": ["ground"], "25": ["grass"], "50": ["water", "fighting"], "200": ["fire", "poison", "flying", "rock"], "400": ["ice"]}, "stats": [["hp", 99], ["sp_def", 87], ["defense", 83], ["sp_atk", 72], ["attack", 68], ["speed", 51]], "stat_total": 460}

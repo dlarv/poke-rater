@@ -1,1 +1,1 @@
-{"dex_no": 271, "related": [270, 271, 272], "name": "Lombre", "color": "Green", "gen_no": 3, "typing": ["Water", "Grass"], "pic": "./pics/271.jpg"}
+{"dex_no": 271, "related": [270, 271, 272], "name": "Lombre", "color": "green", "gen_no": 3, "typing": ["water", "grass"], "pic": "./pics/271.jpg", "anime_count": 9, "manga_count": 9, "matchups": {"0": [], "25": ["water"], "50": ["ground", "steel"], "200": ["poison", "flying", "bug"], "400": []}, "stats": [["sp_def", 70], ["hp", 60], ["sp_atk", 60], ["attack", 50], ["defense", 50], ["speed", 50]], "stat_total": 340}

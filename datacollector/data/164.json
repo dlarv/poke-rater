@@ -1,1 +1,1 @@
-{"dex_no": 164, "related": [163, 164], "name": "Noctowl", "color": "Brown", "gen_no": 2, "typing": ["Normal", "Flying"], "pic": "./pics/164.jpg"}
+{"dex_no": 164, "related": [163, 164], "name": "Noctowl", "color": "brown", "gen_no": 2, "typing": ["normal", "flying"], "pic": "./pics/164.jpg", "anime_count": 18, "manga_count": 11, "matchups": {"0": ["ground", "ghost"], "25": [], "50": ["grass", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["hp", 100], ["sp_def", 96], ["sp_atk", 86], ["speed", 70], ["attack", 50], ["defense", 50]], "stat_total": 452}

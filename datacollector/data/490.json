@@ -1,1 +1,1 @@
-{"dex_no": 490, "related": null, "name": "Manaphy", "color": "Blue", "gen_no": 4, "typing": ["Water"], "pic": "./pics/490.jpg"}
+{"dex_no": 490, "related": null, "name": "Manaphy", "color": "blue", "gen_no": 4, "typing": ["water"], "pic": "./pics/490.jpg", "anime_count": 9, "manga_count": 6, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["hp", 100], ["attack", 100], ["defense", 100], ["sp_atk", 100], ["sp_def", 100], ["speed", 100]], "stat_total": 600}

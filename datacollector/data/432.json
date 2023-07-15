@@ -1,1 +1,1 @@
-{"dex_no": 432, "related": [431, 432], "name": "Purugly", "color": "Gray", "gen_no": 4, "typing": ["Normal"], "pic": "./pics/432.jpg"}
+{"dex_no": 432, "related": [431, 432], "name": "Purugly", "color": "gray", "gen_no": 4, "typing": ["normal"], "pic": "./pics/432.jpg", "anime_count": 10, "manga_count": 4, "matchups": {"0": ["ghost", "ghost", "ghost"], "25": [], "50": ["fire", "ice"], "200": ["fighting", "fighting", "fighting"], "400": []}, "stats": [["speed", 112], ["attack", 82], ["hp", 71], ["defense", 64], ["sp_atk", 64], ["sp_def", 59]], "stat_total": 452}

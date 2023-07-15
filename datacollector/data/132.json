@@ -1,1 +1,1 @@
-{"dex_no": 132, "related": null, "name": "Ditto", "color": "Purple", "gen_no": 1, "typing": ["Normal"], "pic": "./pics/132.jpg"}
+{"dex_no": 132, "related": null, "name": "Ditto", "color": "purple", "gen_no": 1, "typing": ["normal"], "pic": "./pics/132.jpg", "anime_count": 22, "manga_count": 23, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 48], ["attack", 48], ["defense", 48], ["sp_atk", 48], ["sp_def", 48], ["speed", 48]], "stat_total": 288}

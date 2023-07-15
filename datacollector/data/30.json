@@ -1,1 +1,1 @@
-{"dex_no": 30, "related": [29, 30, 31], "name": "Nidorina", "color": "Blue", "gen_no": 1, "typing": ["Poison"], "pic": "./pics/30.jpg"}
+{"dex_no": 30, "related": [29, 30, 31], "name": "Nidorina", "color": "blue", "gen_no": 1, "typing": ["poison"], "pic": "./pics/30.jpg", "anime_count": 24, "manga_count": 5, "matchups": {"0": [], "25": [], "50": ["grass", "fighting", "poison", "bug", "fairy"], "200": ["ground", "psychic"], "400": []}, "stats": [["hp", 70], ["defense", 67], ["attack", 62], ["speed", 56], ["sp_atk", 55], ["sp_def", 55]], "stat_total": 365}

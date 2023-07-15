@@ -1,1 +1,1 @@
-{"dex_no": 162, "related": [161, 162], "name": "Furret", "color": "Brown", "gen_no": 2, "typing": ["Normal"], "pic": "./pics/162.jpg"}
+{"dex_no": 162, "related": [161, 162], "name": "Furret", "color": "brown", "gen_no": 2, "typing": ["normal"], "pic": "./pics/162.jpg", "anime_count": 49, "manga_count": 6, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["speed", 90], ["hp", 85], ["attack", 76], ["defense", 64], ["sp_def", 55], ["sp_atk", 45]], "stat_total": 415}

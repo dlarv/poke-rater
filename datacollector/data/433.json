@@ -1,1 +1,1 @@
-{"dex_no": 433, "related": [433, 358], "name": "Chingling", "color": "Yellow", "gen_no": 4, "typing": ["Psychic"], "pic": "./pics/433.jpg"}
+{"dex_no": 433, "related": [433, 358], "name": "Chingling", "color": "yellow", "gen_no": 4, "typing": ["psychic"], "pic": "./pics/433.jpg", "anime_count": 6, "manga_count": 6, "matchups": {"0": ["ground"], "25": [], "50": ["fighting", "psychic"], "200": ["bug", "ghost", "dark"], "400": []}, "stats": [["sp_atk", 65], ["defense", 50], ["sp_def", 50], ["hp", 45], ["speed", 45], ["attack", 30]], "stat_total": 285}

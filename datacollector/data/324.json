@@ -1,1 +1,1 @@
-{"dex_no": 324, "related": null, "name": "Torkoal", "color": "Brown", "gen_no": 3, "typing": ["Fire"], "pic": "./pics/324.jpg"}
+{"dex_no": 324, "related": null, "name": "Torkoal", "color": "brown", "gen_no": 3, "typing": ["fire"], "pic": "./pics/324.jpg", "anime_count": 10, "manga_count": 7, "matchups": {"0": [], "25": [], "50": ["fire", "grass", "ice", "bug", "steel", "fairy"], "200": ["water", "ground", "rock"], "400": []}, "stats": [["defense", 140], ["attack", 85], ["sp_atk", 85], ["hp", 70], ["sp_def", 70], ["speed", 20]], "stat_total": 470}

@@ -1,1 +1,1 @@
-{"dex_no": 821, "related": [821, 822, 823], "name": "Rookidee", "color": "Blue", "gen_no": 8, "typing": ["Flying"], "pic": "./pics/821.jpg"}
+{"dex_no": 821, "related": [821, 822, 823], "name": "Rookidee", "color": "blue", "gen_no": 8, "typing": ["flying"], "pic": "./pics/821.jpg", "anime_count": 9, "manga_count": 1, "matchups": {"0": ["ground"], "25": [], "50": ["grass", "fighting", "bug"], "200": ["electric", "ice", "rock"], "400": []}, "stats": [["speed", 57], ["attack", 47], ["hp", 38], ["defense", 35], ["sp_def", 35], ["sp_atk", 33]], "stat_total": 245}

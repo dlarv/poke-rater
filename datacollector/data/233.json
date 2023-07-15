@@ -1,1 +1,1 @@
-{"dex_no": 233, "related": [137, 233, 474], "name": "Porygon2", "color": "Red", "gen_no": 2, "typing": ["Normal"], "pic": "./pics/233.jpg"}
+{"dex_no": 233, "related": [137, 233, 474], "name": "Porygon2", "color": "red", "gen_no": 2, "typing": ["normal"], "pic": "./pics/233.jpg", "anime_count": 3, "manga_count": 5, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["sp_atk", 105], ["sp_def", 95], ["defense", 90], ["hp", 85], ["attack", 80], ["speed", 60]], "stat_total": 515}

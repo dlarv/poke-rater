@@ -1,1 +1,1 @@
-{"dex_no": 753, "related": [753, 754], "name": "Fomantis", "color": "Pink", "gen_no": 7, "typing": ["Grass"], "pic": "./pics/753.jpg"}
+{"dex_no": 753, "related": [753, 754], "name": "Fomantis", "color": "pink", "gen_no": 7, "typing": ["grass"], "pic": "./pics/753.jpg", "anime_count": 2, "manga_count": null, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["attack", 55], ["sp_atk", 50], ["hp", 40], ["defense", 35], ["sp_def", 35], ["speed", 35]], "stat_total": 250}

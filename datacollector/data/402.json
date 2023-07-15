@@ -1,1 +1,1 @@
-{"dex_no": 402, "related": [401, 402], "name": "Kricketune", "color": "Red", "gen_no": 4, "typing": ["Bug"], "pic": "./pics/402.jpg"}
+{"dex_no": 402, "related": [401, 402], "name": "Kricketune", "color": "red", "gen_no": 4, "typing": ["bug"], "pic": "./pics/402.jpg", "anime_count": 6, "manga_count": 8, "matchups": {"0": [], "25": [], "50": ["grass", "fighting", "ground"], "200": ["fire", "flying", "rock"], "400": []}, "stats": [["attack", 85], ["hp", 77], ["speed", 65], ["sp_atk", 55], ["defense", 51], ["sp_def", 51]], "stat_total": 384}

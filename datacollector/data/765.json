@@ -1,1 +1,1 @@
-{"dex_no": 765, "related": null, "name": "Oranguru", "color": "White", "gen_no": 7, "typing": ["Normal", "Psychic"], "pic": "./pics/765.jpg"}
+{"dex_no": 765, "related": null, "name": "Oranguru", "color": "white", "gen_no": 7, "typing": ["normal", "psychic"], "pic": "./pics/765.jpg", "anime_count": 1, "manga_count": 3, "matchups": {"0": ["ghost"], "25": [], "50": ["psychic"], "200": ["bug", "dark"], "400": []}, "stats": [["sp_def", 110], ["hp", 90], ["sp_atk", 90], ["defense", 80], ["attack", 60], ["speed", 60]], "stat_total": 490}

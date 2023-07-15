@@ -1,1 +1,1 @@
-{"dex_no": 514, "related": [513, 514], "name": "Simisear", "color": "Red", "gen_no": 5, "typing": ["Fire"], "pic": "./pics/514.jpg"}
+{"dex_no": 514, "related": [513, 514], "name": "Simisear", "color": "red", "gen_no": 5, "typing": ["fire"], "pic": "./pics/514.jpg", "anime_count": 5, "manga_count": 2, "matchups": {"0": [], "25": [], "50": ["fire", "grass", "ice", "bug", "steel", "fairy"], "200": ["water", "ground", "rock"], "400": []}, "stats": [["speed", 101], ["attack", 98], ["sp_atk", 98], ["hp", 75], ["defense", 63], ["sp_def", 63]], "stat_total": 498}

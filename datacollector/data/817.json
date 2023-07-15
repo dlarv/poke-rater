@@ -1,1 +1,1 @@
-{"dex_no": 817, "related": [816, 817, 818], "name": "Drizzile", "color": "Blue", "gen_no": 8, "typing": ["Water"], "pic": "./pics/817.jpg"}
+{"dex_no": 817, "related": [816, 817, 818], "name": "Drizzile", "color": "blue", "gen_no": 8, "typing": ["water"], "pic": "./pics/817.jpg", "anime_count": 1, "manga_count": 1, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["sp_atk", 95], ["speed", 90], ["hp", 65], ["attack", 60], ["defense", 55], ["sp_def", 55]], "stat_total": 420}

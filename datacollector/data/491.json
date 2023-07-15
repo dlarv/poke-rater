@@ -1,1 +1,1 @@
-{"dex_no": 491, "related": null, "name": "Darkrai", "color": "Black", "gen_no": 4, "typing": ["Dark"], "pic": "./pics/491.jpg"}
+{"dex_no": 491, "related": null, "name": "Darkrai", "color": "black", "gen_no": 4, "typing": ["dark"], "pic": "./pics/491.jpg", "anime_count": 9, "manga_count": 7, "matchups": {"0": ["psychic"], "25": [], "50": ["ghost", "dark"], "200": ["fighting", "bug", "fairy"], "400": []}, "stats": [["sp_atk", 135], ["speed", 125], ["attack", 90], ["defense", 90], ["sp_def", 90], ["hp", 70]], "stat_total": 600}

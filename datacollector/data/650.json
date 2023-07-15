@@ -1,1 +1,1 @@
-{"dex_no": 650, "related": [650, 651, 652], "name": "Chespin", "color": "Green", "gen_no": 6, "typing": ["Grass"], "pic": "./pics/650.jpg"}
+{"dex_no": 650, "related": [650, 651, 652], "name": "Chespin", "color": "green", "gen_no": 6, "typing": ["grass"], "pic": "./pics/650.jpg", "anime_count": 13, "manga_count": 4, "matchups": {"0": [], "25": [], "50": ["water", "electric", "grass", "ground"], "200": ["fire", "ice", "poison", "flying", "bug"], "400": []}, "stats": [["defense", 65], ["attack", 61], ["hp", 56], ["sp_atk", 48], ["sp_def", 45], ["speed", 38]], "stat_total": 313}

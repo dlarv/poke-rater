@@ -1,1 +1,1 @@
-{"dex_no": 54, "related": [54, 55], "name": "Psyduck", "color": "Yellow", "gen_no": 1, "typing": ["Water"], "pic": "./pics/54.jpg"}
+{"dex_no": 54, "related": [54, 55], "name": "Psyduck", "color": "yellow", "gen_no": 1, "typing": ["water"], "pic": "./pics/54.jpg", "anime_count": 99, "manga_count": 32, "matchups": {"0": [], "25": [], "50": ["fire", "water", "ice", "steel"], "200": ["electric", "grass"], "400": []}, "stats": [["sp_atk", 65], ["speed", 55], ["attack", 52], ["hp", 50], ["sp_def", 50], ["defense", 48]], "stat_total": 320}

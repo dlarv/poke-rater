@@ -1,1 +1,1 @@
-{"dex_no": 173, "related": [173, 35, 36], "name": "Cleffa", "color": "Pink", "gen_no": 2, "typing": ["Fairy"], "pic": "./pics/173.jpg"}
+{"dex_no": 173, "related": [173, 35, 36], "name": "Cleffa", "color": "pink", "gen_no": 2, "typing": ["fairy"], "pic": "./pics/173.jpg", "anime_count": 16, "manga_count": 9, "matchups": {"0": ["dragon"], "25": [], "50": ["fighting", "bug", "dark"], "200": ["poison", "steel"], "400": []}, "stats": [["sp_def", 55], ["hp", 50], ["sp_atk", 45], ["defense", 28], ["attack", 25], ["speed", 15]], "stat_total": 218}

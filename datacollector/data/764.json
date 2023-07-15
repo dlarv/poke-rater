@@ -1,1 +1,1 @@
-{"dex_no": 764, "related": null, "name": "Comfey", "color": "Green", "gen_no": 7, "typing": ["Fairy"], "pic": "./pics/764.jpg"}
+{"dex_no": 764, "related": null, "name": "Comfey", "color": "green", "gen_no": 7, "typing": ["fairy"], "pic": "./pics/764.jpg", "anime_count": 11, "manga_count": 6, "matchups": {"0": ["dragon"], "25": [], "50": ["fighting", "bug", "dark"], "200": ["poison", "steel"], "400": []}, "stats": [["sp_def", 110], ["speed", 100], ["defense", 90], ["sp_atk", 82], ["attack", 52], ["hp", 51]], "stat_total": 485}

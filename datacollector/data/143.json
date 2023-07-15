@@ -1,1 +1,1 @@
-{"dex_no": 143, "related": [446, 143], "name": "Snorlax", "color": "Black", "gen_no": 1, "typing": ["Normal"], "pic": "./pics/143.jpg"}
+{"dex_no": 143, "related": [446, 143], "name": "Snorlax", "color": "black", "gen_no": 1, "typing": ["normal"], "pic": "./pics/143.jpg", "anime_count": 56, "manga_count": 38, "matchups": {"0": ["ghost", "ghost", "ghost"], "25": [], "50": ["fire", "ice"], "200": ["fighting", "fighting", "fighting"], "400": []}, "stats": [["hp", 160], ["attack", 110], ["sp_def", 110], ["defense", 65], ["sp_atk", 65], ["speed", 30]], "stat_total": 540}

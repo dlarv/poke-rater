@@ -1,1 +1,1 @@
-{"dex_no": 5, "related": [4, 5, 6], "name": "Charmeleon", "color": "Red", "gen_no": 1, "typing": ["Fire"], "pic": "./pics/5.jpg"}
+{"dex_no": 5, "related": [4, 5, 6], "name": "Charmeleon", "color": "red", "gen_no": 1, "typing": ["fire"], "pic": "./pics/5.jpg", "anime_count": 16, "manga_count": 7, "matchups": {"0": [], "25": [], "50": ["fire", "grass", "ice", "bug", "steel", "fairy"], "200": ["water", "ground", "rock"], "400": []}, "stats": [["sp_atk", 80], ["speed", 80], ["sp_def", 65], ["attack", 64], ["hp", 58], ["defense", 58]], "stat_total": 405}

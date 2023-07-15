@@ -1,1 +1,1 @@
-{"dex_no": 612, "related": [610, 611, 612], "name": "Haxorus", "color": "Yellow", "gen_no": 5, "typing": ["Dragon"], "pic": "./pics/612.jpg"}
+{"dex_no": 612, "related": [610, 611, 612], "name": "Haxorus", "color": "yellow", "gen_no": 5, "typing": ["dragon"], "pic": "./pics/612.jpg", "anime_count": 11, "manga_count": 5, "matchups": {"0": [], "25": [], "50": ["fire", "water", "electric", "grass"], "200": ["ice", "dragon", "fairy"], "400": []}, "stats": [["attack", 147], ["speed", 97], ["defense", 90], ["hp", 76], ["sp_def", 70], ["sp_atk", 60]], "stat_total": 540}

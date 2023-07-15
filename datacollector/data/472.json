@@ -1,1 +1,1 @@
-{"dex_no": 472, "related": [207, 472], "name": "Gliscor", "color": "Purple", "gen_no": 4, "typing": ["Ground", "Flying"], "pic": "./pics/472.jpg"}
+{"dex_no": 472, "related": [207, 472], "name": "Gliscor", "color": "purple", "gen_no": 4, "typing": ["ground", "flying"], "pic": "./pics/472.jpg", "anime_count": 4, "manga_count": 6, "matchups": {"0": ["electric", "ground"], "25": [], "50": ["fighting", "poison", "bug"], "200": ["water"], "400": ["ice"]}, "stats": [["defense", 125], ["attack", 95], ["speed", 95], ["hp", 75], ["sp_def", 75], ["sp_atk", 45]], "stat_total": 510}

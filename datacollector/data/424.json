@@ -1,1 +1,1 @@
-{"dex_no": 424, "related": [190, 424], "name": "Ambipom", "color": "Purple", "gen_no": 4, "typing": ["Normal"], "pic": "./pics/424.jpg"}
+{"dex_no": 424, "related": [190, 424], "name": "Ambipom", "color": "purple", "gen_no": 4, "typing": ["normal"], "pic": "./pics/424.jpg", "anime_count": 2, "manga_count": 3, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["speed", 115], ["attack", 100], ["hp", 75], ["defense", 66], ["sp_def", 66], ["sp_atk", 60]], "stat_total": 482}

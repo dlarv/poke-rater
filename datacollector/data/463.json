@@ -1,1 +1,1 @@
-{"dex_no": 463, "related": [108, 463], "name": "Lickilicky", "color": "Pink", "gen_no": 4, "typing": ["Normal"], "pic": "./pics/463.jpg"}
+{"dex_no": 463, "related": [108, 463], "name": "Lickilicky", "color": "pink", "gen_no": 4, "typing": ["normal"], "pic": "./pics/463.jpg", "anime_count": 8, "manga_count": 3, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 110], ["defense", 95], ["sp_def", 95], ["attack", 85], ["sp_atk", 80], ["speed", 50]], "stat_total": 515}
