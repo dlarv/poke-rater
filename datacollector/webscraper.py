@@ -8,8 +8,10 @@ Iter 1-1010 (pdb)
 - Get Generation
 - Get typing
 - Get evolution
-- Highest stats*
-- Weaknesses*
+- Stats
+- Weaknesses
+- Anime Count
+- Manga Count
 """
 import json
 import os

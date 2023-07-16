@@ -15,7 +15,7 @@ Filter rules:
 - Sort by type
 
 TODO:
-- PreEvos: related pokemon listed in dex order, not evo order
+- [x] PreEvos: related pokemon listed in dex order, not evo order
 - ListMode
 - Filter Rules
 - Autofill rules

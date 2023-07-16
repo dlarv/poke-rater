@@ -26,21 +26,23 @@ def compile_slides():
         # Pokemon was already read (e.g. pikachu=25, pichu=172)
         if i not in numbers:
             continue
-
         file_path = f"{PATH}/{i}.json"
-        numbers.remove(i)
+        # numbers.remove(i)
         with open(file_path, 'r', encoding='utf-8') as stream:
             # Get root pokemon
             pokemon = json.load(stream)
             related = pokemon['related']
-            group = { i: pokemon }
+            # group = { i: pokemon }
+            group = []
             output[slide_num] = group
             slide_num += 1
+            log_output = ""
 
-            log_output = f"({i:04d}) {pokemon['name']:<12}"
             # Pokemon does not evolve
             if related is None:
+                log_output = f"({i:04d}) {pokemon['name']:<12}"
                 print(log_output)
+                group.append(pokemon)
                 continue
 
             # Get evos
@@ -48,11 +50,16 @@ def compile_slides():
                 # evo was already read
                 if other not in numbers:
                     continue
+                if other == i:
+                    numbers.remove(i)
+                    group.append(pokemon)
+                    log_output += f" ({i:04d}) {pokemon['name']:<12}"
+                    continue
                 numbers.remove(other)
                 with open(f"{PATH}/{other}.json", 'r', encoding='utf-8') as other_stream:
                     # Write evo
                     other_pokemon = json.load(other_stream)
-                    group[other] = other_pokemon
+                    group.append(other_pokemon)
                     log_output += f" ({other:04d}) {other_pokemon['name']:<12}"
 
             print(log_output)
