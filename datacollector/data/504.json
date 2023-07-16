@@ -1,1 +1,0 @@
-{"dex_no": 504, "related": [504, 505], "name": "Patrat", "color": "brown", "gen_no": 5, "typing": ["normal"], "pic": "./pics/504.jpg", "anime_count": 58, "manga_count": 11, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 55], ["hp", 45], ["speed", 42], ["defense", 39], ["sp_def", 39], ["sp_atk", 35]], "stat_total": 255}

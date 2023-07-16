@@ -1,1 +1,0 @@
-{"dex_no": 440, "related": [440, 113, 242], "name": "Happiny", "color": "pink", "gen_no": 4, "typing": ["normal"], "pic": "./pics/440.jpg", "anime_count": 11, "manga_count": 2, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 100], ["sp_def", 65], ["speed", 30], ["sp_atk", 15], ["attack", 5], ["defense", 5]], "stat_total": 220}

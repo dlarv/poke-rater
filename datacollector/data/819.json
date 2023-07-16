@@ -1,1 +1,0 @@
-{"dex_no": 819, "related": [819, 820], "name": "Skwovet", "color": "brown", "gen_no": 8, "typing": ["normal"], "pic": "./pics/819.jpg", "anime_count": 9, "manga_count": 1, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 70], ["attack", 55], ["defense", 55], ["sp_atk", 35], ["sp_def", 35], ["speed", 25]], "stat_total": 275}

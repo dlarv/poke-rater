@@ -1,1 +1,0 @@
-{"dex_no": 735, "related": [734, 735], "name": "Gumshoos", "color": "brown", "gen_no": 7, "typing": ["normal"], "pic": "./pics/735.jpg", "anime_count": 3, "manga_count": 3, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["attack", 110], ["hp", 88], ["defense", 60], ["sp_def", 60], ["sp_atk", 55], ["speed", 45]], "stat_total": 418}

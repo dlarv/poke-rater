@@ -1,1 +1,0 @@
-{"dex_no": 820, "related": [819, 820], "name": "Greedent", "color": "brown", "gen_no": 8, "typing": ["normal"], "pic": "./pics/820.jpg", "anime_count": 3, "manga_count": 1, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 120], ["attack", 95], ["defense", 95], ["sp_def", 75], ["sp_atk", 55], ["speed", 20]], "stat_total": 460}

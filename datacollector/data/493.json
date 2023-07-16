@@ -1,1 +1,0 @@
-{"dex_no": 493, "related": null, "name": "Arceus", "color": "white", "gen_no": 4, "typing": ["normal"], "pic": "./pics/493.jpg", "anime_count": 5, "manga_count": 2, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 120], ["attack", 120], ["defense", 120], ["sp_atk", 120], ["sp_def", 120], ["speed", 120]], "stat_total": 720}

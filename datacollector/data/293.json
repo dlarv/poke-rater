@@ -1,1 +1,0 @@
-{"dex_no": 293, "related": [293, 294, 295], "name": "Whismur", "color": "pink", "gen_no": 3, "typing": ["normal"], "pic": "./pics/293.jpg", "anime_count": 19, "manga_count": 7, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 64], ["attack", 51], ["sp_atk", 51], ["speed", 28], ["defense", 23], ["sp_def", 23]], "stat_total": 240}

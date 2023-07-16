@@ -1,1 +1,0 @@
-{"dex_no": 676, "related": null, "name": "Furfrou", "color": "white", "gen_no": 6, "typing": ["normal"], "pic": "./pics/676.jpg", "anime_count": 34, "manga_count": 7, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["speed", 102], ["sp_def", 90], ["attack", 80], ["hp", 75], ["sp_atk", 65], ["defense", 60]], "stat_total": 472}

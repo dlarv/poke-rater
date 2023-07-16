@@ -1,1 +1,0 @@
-{"dex_no": 659, "related": [659, 660], "name": "Bunnelby", "color": "brown", "gen_no": 6, "typing": ["normal"], "pic": "./pics/659.jpg", "anime_count": 9, "manga_count": 4, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["speed", 57], ["hp", 38], ["defense", 38], ["attack", 36], ["sp_def", 36], ["sp_atk", 32]], "stat_total": 237}

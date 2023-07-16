@@ -1,1 +1,0 @@
-{"dex_no": 399, "related": [399, 400], "name": "Bidoof", "color": "brown", "gen_no": 4, "typing": ["normal"], "pic": "./pics/399.jpg", "anime_count": 26, "manga_count": 12, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 59], ["attack", 45], ["defense", 40], ["sp_def", 40], ["sp_atk", 35], ["speed", 31]], "stat_total": 250}

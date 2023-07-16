@@ -1,1 +1,0 @@
-{"dex_no": 288, "related": [287, 288, 289], "name": "Vigoroth", "color": "white", "gen_no": 3, "typing": ["normal"], "pic": "./pics/288.jpg", "anime_count": 9, "manga_count": 3, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["speed", 90], ["hp", 80], ["attack", 80], ["defense", 80], ["sp_atk", 55], ["sp_def", 55]], "stat_total": 440}

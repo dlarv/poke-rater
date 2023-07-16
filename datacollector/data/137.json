@@ -1,1 +1,0 @@
-{"dex_no": 137, "related": [137, 233, 474], "name": "Porygon", "color": "pink", "gen_no": 1, "typing": ["normal"], "pic": "./pics/137.jpg", "anime_count": 8, "manga_count": 5, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["sp_atk", 85], ["sp_def", 75], ["defense", 70], ["hp", 65], ["attack", 60], ["speed", 40]], "stat_total": 395}

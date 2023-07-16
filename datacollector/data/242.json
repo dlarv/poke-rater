@@ -1,1 +1,0 @@
-{"dex_no": 242, "related": [440, 113, 242], "name": "Blissey", "color": "pink", "gen_no": 2, "typing": ["normal"], "pic": "./pics/242.jpg", "anime_count": 9, "manga_count": 6, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["hp", 255], ["sp_def", 135], ["sp_atk", 75], ["speed", 55], ["attack", 10], ["defense", 10]], "stat_total": 540}

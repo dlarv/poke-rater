@@ -1,1 +1,0 @@
-{"dex_no": 235, "related": null, "name": "Smeargle", "color": "white", "gen_no": 2, "typing": ["normal"], "pic": "./pics/235.jpg", "anime_count": 38, "manga_count": 13, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["speed", 75], ["hp", 55], ["sp_def", 45], ["defense", 35], ["attack", 20], ["sp_atk", 20]], "stat_total": 250}

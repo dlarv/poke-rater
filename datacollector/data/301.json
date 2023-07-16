@@ -1,1 +1,0 @@
-{"dex_no": 301, "related": [300, 301], "name": "Delcatty", "color": "purple", "gen_no": 3, "typing": ["normal"], "pic": "./pics/301.jpg", "anime_count": 13, "manga_count": 3, "matchups": {"0": ["ghost"], "25": [], "50": [], "200": ["fighting"], "400": []}, "stats": [["speed", 90], ["hp", 70], ["attack", 65], ["defense", 65], ["sp_atk", 55], ["sp_def", 55]], "stat_total": 400}
