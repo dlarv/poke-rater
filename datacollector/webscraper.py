@@ -77,7 +77,6 @@ class Pokemon:
         '''Change end status to failure'''
         self.end_status = "FAILURE"
 
-
     def is_value_empty(self, val_name: str|tuple[str], force_update=False):
         '''Check if value should be set'''
         if isinstance(val_name, tuple):
@@ -94,7 +93,7 @@ class Pokemon:
         # Styleguide
         def format_children(parent):
             if isinstance(parent, str):
-                return parent.lower().replace(' ', '_')
+                return ''.join([ p.capitalize() for p in parent.lower().split('_') ])
             if isinstance(parent, (list, tuple)):
                 return [ format_children(child) for child in parent ]
             if isinstance(parent, dict):
@@ -134,6 +133,8 @@ def download_pic(name: str, num: int):
     cleaned_name = cleaned_name.replace('♀', '-f').replace('♂', '-m')
     # Fix type null
     cleaned_name = cleaned_name.replace(':', '')
+    # Fix farfetch'd+
+    cleaned_name = cleaned_name.replace("'", '')
 
     url = f"https://img.pokemondb.net/artwork/large/{cleaned_name}.jpg"
     db_path = f"{ART_DIR}/{num}.jpg"
@@ -165,7 +166,7 @@ def _open_webpages(num: int):
     try:
         bdb_page = requests.get(get_bdb_url(name), timeout=10)
         b_soup = BeautifulSoup(bdb_page.content, "html.parser")
-    except ConnectTimeout as err:
+    except (ConnectTimeout) as err:
         raise ConnectionError(f"ERROR: bulbapedia server request has timed out. Number={num}, Name={name}") from err
 
     return name, p_soup, b_soup
@@ -248,7 +249,8 @@ def _parse_stats(soup):
         rows = body.find_all('tr')
 
         for row in rows:
-            stat_name = row.find('th').text.replace('. ', '_')
+            stat_name = row.find('th').text.replace('. ', '')
+                    
             stat_num = int(row.find('td').text)
             stats.append((stat_name, stat_num))
 
@@ -310,13 +312,13 @@ def main():
     '''Main method'''
     log = open('log', 'a', encoding='utf-8')
     force_update = False
-    force_rewrite = False
+    force_rewrite = True
 
     # Max = 1010
     # Allows log to be filled if program unexpectably stopped
     skip_to = 0
-    for i in range(1):
-        i += 2
+    for i in range(1010):
+        i += 1
         pokemon = Pokemon(i)
         no_update = True
 

@@ -16,7 +16,7 @@ def single_file():
 
 def compile_slides():
     '''Compile jsons with slides'''
-    output = {}
+    output = []
     slide_num = 0
     numbers = [i + 1 for i in range(1010)]
     output_file = open('./slides.json', 'w', encoding='utf-8')
@@ -34,7 +34,7 @@ def compile_slides():
             related = pokemon['related']
             # group = { i: pokemon }
             group = []
-            output[slide_num] = group
+            output.append(group)
             slide_num += 1
             log_output = ""
 
