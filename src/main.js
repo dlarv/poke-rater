@@ -1,21 +1,23 @@
 const { invoke } = window.__TAURI__.tauri;
 
-let slides
-let maxSlide
-fetch('./slides.json')
-  .then((response) => response.json())
-  .then((json) => { 
-    slides = json; 
-    maxSlide = Object.keys(slides).length;
-  });
-
+let slides;
+let maxSlide;
 let slideIndex = 0;
 let minValue = 0;
 let maxValue = 5;
 
-let currentGroup
-
 const slideContainer = document.getElementById('SlideContainer');
+let currentGroup;
+
+async function load() {
+  var s = await fetch('./slides.json');
+  slides = await s.json();
+  maxSlide = Object.keys(slides).length;
+
+  document.getElementById('start-tab').click()
+  slideIndex = -1;
+  nextSlide();
+}
 
 function openTab(event, id) {
   // Declare all variables
@@ -36,27 +38,31 @@ function openTab(event, id) {
   // Show the current tab, and add an "active" class to the button that opened the tab
   document.getElementById(id).style.display = "block";
   event.currentTarget.className += " active";
-} 
+}
 
-function _createSlide(pokemon) {
+function _createSlide(pokemon, index) {
   console.log('Opened ' + pokemon['name'] + " (" + pokemon['dex_no'] + ")")
+
   var slide = document.createElement('div');
   slide.className = 'slide';
-  
+
   var img = document.createElement('img')
   img.setAttribute('src', './assets/pics/' + pokemon['dex_no'] + '.jpg')
   slide.appendChild(img)
 
   var opts = document.createElement('select');
+  opts.setAttribute('onchange', `slideValueChanged(event, ${index})`);
+
   var opt;
-  for(var i = 0; i < maxValue; i++) {
+  for (var i = 0; i < maxValue; i++) {
     opt = document.createElement('option');
     opt.setAttribute('value', i);
     opt.text = i;
+
     opts.appendChild(opt);
   }
-  slide.appendChild(opts);
 
+  slide.appendChild(opts);
   return slide;
 }
 
@@ -65,13 +71,15 @@ function nextSlide() {
   if (slideIndex >= maxSlide) {
     slideIndex = 0;
   }
+
   // Delete old children
   slideContainer.innerHTML = '';
   currentGroup = slides[slideIndex];
+
   // Attach new children
   var slide;
   for (var pokemon in currentGroup) {
-    slide = _createSlide(currentGroup[pokemon]);
+    slide = _createSlide(currentGroup[pokemon], pokemon);
     slideContainer.appendChild(slide);
   }
 }
@@ -84,11 +92,18 @@ function prevSlide() {
   // Delete old children
   slideContainer.innerHTML = '';
   currentGroup = slides[slideIndex];
+
   // Attach new children
   var slide;
   for (var pokemon in currentGroup) {
-    slide = _createSlide(currentGroup[pokemon]);
+    slide = _createSlide(currentGroup[pokemon], pokemon);
     slideContainer.appendChild(slide);
   }
 }
 
+function slideValueChanged(event, index) {
+  var pokemon = slides[slideIndex][index];
+  var value = Number(event.currentTarget.value);
+  
+  invoke('set_grade', {json: pokemon, grade: value});
+}

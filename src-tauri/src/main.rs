@@ -3,9 +3,9 @@
 
 pub mod pokemon;
 use std::{sync::Mutex, rc::Rc, ops::DerefMut};
-
+use serde_json;
 use pokemon::*;
-use tauri::State;
+use tauri::{State, generate_handler};
 
 const POKEMON_COUNT: usize = 1010;
 
@@ -13,8 +13,9 @@ const POKEMON_COUNT: usize = 1010;
 struct List(Mutex<PokemonList>);
 
 #[tauri::command]
-fn set_grade(state: State<List>, pokemon: Pokemon, grade: i32) {
-    
+fn set_grade(state: State<List>, json: Pokemon, grade: i32) {
+    // let pokemon: Pokemon = serde_json::from_str(json).unwrap();
+    println!("{} {}", json.name, grade)
 }
 
 fn main() {

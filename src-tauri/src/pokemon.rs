@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 use serde::Deserialize;
 #[derive(Deserialize)]
 pub enum PTypes { 
@@ -11,21 +13,22 @@ pub enum PColor {
     White, Black, Gray, Blue, Red, Green, Pink, Purple
 }
 #[derive(Deserialize)]
-pub enum StatNames { Atk, Def, SAtk, SDef, Spd, Hp }
+pub enum StatNames { Attack, Defense, SpAtk, SpDef, Speed, Hp }
 
 pub struct PokemonList {
     list: Vec<Pokemon>,
     grades: Vec<i32>
 }
+
 #[derive(Deserialize)]
 pub struct Pokemon {
-    name: String,
+    pub name: String,
+    pub dex_no: usize,
     color: PColor,
-    dex_no: usize,
     gen_no: i32,
     typing: (PTypes, PTypes),
     stats: Vec<(StatNames, i32)>,
-    weaknesses: Vec<(i32, Vec<PTypes>)>,
+    matchups: HashMap<i32, Vec<PTypes>>,
 }
 
 
