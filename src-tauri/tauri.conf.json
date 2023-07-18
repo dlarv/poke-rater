@@ -12,7 +12,20 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false,
+      "fs": {
+        "all": true,
+        "exists": true,
+        "readDir": true,
+        "readFile": true,
+        "removeDir": false,
+        "removeFile": false,
+        "renameFile": false,
+        "scope": [ "$APPLOCALDATA/*" ],
+        "writeFile": true
+      },
+      "path": {
+        "all": true
+      },
       "shell": {
         "all": false,
         "open": true
@@ -21,7 +34,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.tauri.dev",
+      "identifier": "Pokemon-Rater",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",

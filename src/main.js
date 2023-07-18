@@ -1,18 +1,65 @@
 const { invoke } = window.__TAURI__.tauri;
+const { writeTextFile, BaseDirectory }= window.__TAURI__.fs;
+const { dataDir } = window.__TAURI__.path;
 
 let slides;
 let maxSlide;
 let slideIndex = 0;
-let minValue = 0;
 let maxValue = 5;
+// First number set autofills all related
+let doAutoFill = true;
 
 const slideContainer = document.getElementById('SlideContainer');
 let currentGroup;
 
+const fileNameInput = document.getElementById('SetFileName')
+fileNameInput.addEventListener('input', () => {
+  invoke('set_gradebook_name', {name: fileNameInput.value});
+});
+
+document.addEventListener("keyup", function(event) {
+  if (event.key == 'Backspace') {
+    prevSlide();
+  }
+  else if (event.key == 'Space') {
+    event.preventDefault();
+    nextSlide();
+  }
+  else if (doAutoFill && event.key >= '0' && event.key <= '9') {
+    var num = Number(event.key)
+    autoFillGrades(num);
+  }
+});
+
+function autoFillGrades(grade) {
+  var selectElements = document.getElementsByTagName("select");
+  grade = Math.min(grade, maxValue - 1)
+  for(var i = 0; i < selectElements.length; i++) {
+    selectElements[i].value = grade;
+    slideValueChanged({currentTarget: {value: grade}}, i);
+  }
+  doAutoFill = false;
+}
+
+async function _initList() {
+  // Extract pokemon objects from 'related' array 
+  // Pass to rust
+  var total = [];
+  for(var i in slides) {
+    for(var j in slides[i]) {
+      pokemon = slides[i][j];
+      total.push(pokemon);
+    }
+  }
+  await invoke('init_list', {list: total})
+}
 async function load() {
   var s = await fetch('./slides.json');
   slides = await s.json();
   maxSlide = Object.keys(slides).length;
+
+  // console.log(slides)
+  await _initList()
 
   document.getElementById('start-tab').click()
   slideIndex = -1;
@@ -42,6 +89,7 @@ function openTab(event, id) {
 
 function _createSlide(pokemon, index) {
   console.log('Opened ' + pokemon['name'] + " (" + pokemon['dex_no'] + ")")
+  doAutoFill = true;
 
   var slide = document.createElement('div');
   slide.className = 'slide';
@@ -52,17 +100,23 @@ function _createSlide(pokemon, index) {
 
   var opts = document.createElement('select');
   opts.setAttribute('onchange', `slideValueChanged(event, ${index})`);
-
+  // Forward & Back button are tabindex=8 & 9
+  opts.setAttribute('tabindex', Number(index) + 1)
   var opt;
   for (var i = 0; i < maxValue; i++) {
     opt = document.createElement('option');
     opt.setAttribute('value', i);
     opt.text = i;
-
     opts.appendChild(opt);
   }
 
   slide.appendChild(opts);
+
+  if('grade' in pokemon) {
+    console.log(pokemon.grade)
+    opts.value = pokemon.grade;
+  } 
+
   return slide;
 }
 
@@ -82,6 +136,7 @@ function nextSlide() {
     slide = _createSlide(currentGroup[pokemon], pokemon);
     slideContainer.appendChild(slide);
   }
+  document.getElementsByTagName('select')[0].focus();
 }
 
 function prevSlide() {
@@ -104,6 +159,14 @@ function prevSlide() {
 function slideValueChanged(event, index) {
   var pokemon = slides[slideIndex][index];
   var value = Number(event.currentTarget.value);
-  
-  invoke('set_grade', {json: pokemon, grade: value});
+  pokemon.grade = value;
+  invoke('set_grade', { json: pokemon, grade: value });
+
+  document.getElementById("NextSlideButton").focus();
+}
+
+async function saveGradebook() {
+  var gradebook = await invoke('get_gradebook');
+  var fileName = await invoke('get_gradebook_name')
+  await writeTextFile(`${fileName}`, gradebook, { dir: BaseDirectory.AppLocalData });
 }

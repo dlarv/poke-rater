@@ -1,8 +1,6 @@
 Comprehensively rate every pokemon (as of Gen 9) and see stats about that data.
 Is it worth the time investment to find out that poison types from Hoenn are your favorite? IDK, its your time really.
 
-
-
 1. User rates pokemon
 2. App saves ranking file (or pipes it directly to #3)
 3. App loads ranking file
@@ -16,7 +14,7 @@ Filter rules:
 
 TODO:
 - [x] PreEvos: related pokemon listed in dex order, not evo order
-- ListMode
 - Filter Rules
 - Autofill rules
-- Save/set Rank 
+- [x] Save/set Rank 
+- [ ] Keep grade book in frontend until time to analyze

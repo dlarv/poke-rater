@@ -3,6 +3,16 @@ import os
 import json
 PATH = f"{os.path.dirname(__file__)}/data"
 
+# ERRORS:
+# - Burmy (wormadam not in related)
+# - Eeveeloutions: (turn all related -> null)
+# - Cursola
+# - Obstagoon
+# - Runigrigus
+# - Clodsire
+# - Sneasler
+# - Charizard: Redotherformsmayhaveothercolors.
+
 def single_file():
     '''Compile everything to one json file'''
     output = {}
