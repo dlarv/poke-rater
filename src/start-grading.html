@@ -6,7 +6,7 @@
 
         <!-- Temp script for tab functionality -->
     </head>
-    <body onload="load()" onunload="saveGradebook()">
+    <body onload="load()">
         <div class="header-ribbon">
             <h1 style="text-align: center;">Pokemon Rater</h1>
             <div class="tabbar">
@@ -50,14 +50,12 @@
         
         <div id="Settings" class="tabcontent">
             <div class="control-box">
-                <form>
-                    <label>
-                        File Name:                     
-                        <input id="SetFileName" value="">
-                    </label>
-                    <a href="homepage"><button>Back</button></a>
-                    <button onclick="saveGradebook()">Save</button>
-                </form>
+                <label>
+                    File Name:                     
+                    <input id="SetFileName" value="default">
+                </label>
+                <a href="homepage"><button>Back</button></a>
+                <button onclick="saveGradebook()">Save</button>
             </div>
             <div id="AutoFill-RulesContainer">
                 <!-- Rule grade priority -->

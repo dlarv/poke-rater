@@ -5,19 +5,23 @@ const { dataDir } = window.__TAURI__.path;
 let slides;
 let maxSlide;
 let slideIndex = 0;
-const maxValue = 5;
-let allValues = [ 0, 1, 2, 3, 4 ]
+
+const maxGrade = 5;
+let allGrades = [ 0, 1, 2, 3, 4 ]
 const maxGen = 9;
+let allTypes;
+
 // First number set autofills all related
 let doAutoFill = true;
-let allTypes;
 
 const slideContainer = document.getElementById('SlideContainer');
 let currentGroup;
 
-const fileNameInput = document.getElementById('SetFileName')
+const fileNameInput = document.getElementById('SetFileName');
+let fileName = fileNameInput.value;
 fileNameInput.addEventListener('input', () => {
-  invoke('set_gradebook_name', {name: fileNameInput.value});
+  // invoke('set_gradebook_name', {name: fileNameInput.value});
+  fileName = fileNameInput.value;
 });
 
 document.getElementById("Slide-Mode").addEventListener("keyup", function(event) {
@@ -37,8 +41,6 @@ document.getElementById("Slide-Mode").addEventListener("keyup", function(event) 
   }
 });
 
-const autoFillContainer = document.getElementById("AutoFill-RulesContainer")
-const autoFillAddNew = document.getElementById("AutoFill-AddNew")
 const autoFillRulesList = document.getElementById("AutoFill-List")
 let autoFillRules = []
 
@@ -65,7 +67,7 @@ function openTab(event, id) {
 
 function autoFillGrades(grade) {
   var selectElements = document.getElementsByTagName("select");
-  grade = Math.min(grade, maxValue - 1)
+  grade = Math.min(grade, maxGrade - 1)
   for(var i = 0; i < selectElements.length; i++) {
     selectElements[i].value = grade;
     slideValueChanged({currentTarget: {value: grade}}, i);
@@ -147,18 +149,7 @@ async function applyAutoFillRules() {
   nextSlide();
 }
 
-async function _initList() {
-  // Extract pokemon objects from 'related' array 
-  // Pass to rust
-  var total = [];
-  for(var i in slides) {
-    for(var j in slides[i]) {
-      pokemon = slides[i][j];
-      total.push(pokemon);
-    }
-  }
-  await invoke('init_list', {list: total})
-}
+
 async function load() {
   var s = await fetch('./slides.json');
   slides = await s.json();
@@ -166,10 +157,10 @@ async function load() {
 
   var autoFillGrades = document.getElementById("AutoFill-Grade")
   var opt;
-  for(var i = 0; i < maxValue; i++) {
+  for(var i = 0; i < maxGrade; i++) {
     opt = document.createElement('option')
     opt.setAttribute('value', i);
-    opt.textContent = allValues[i];
+    opt.textContent = allGrades[i];
     autoFillGrades.appendChild(opt);
   }
 
@@ -199,10 +190,10 @@ function _createSlide(pokemon, index) {
   // Forward & Back button are tabindex=8 & 9
   opts.setAttribute('tabindex', Number(index) + 1)
   var opt;
-  for (var i = 0; i < maxValue; i++) {
+  for (var i = 0; i < maxGrade; i++) {
     opt = document.createElement('option');
     opt.setAttribute('value', i);
-    opt.text = allValues[i];
+    opt.text = allGrades[i];
     opts.appendChild(opt);
   }
 
@@ -244,6 +235,7 @@ function prevSlide() {
   slideContainer.innerHTML = '';
   currentGroup = slides[slideIndex];
 
+
   // Attach new children
   var slide;
   for (var pokemon in currentGroup) {
@@ -262,7 +254,35 @@ function slideValueChanged(event, index) {
 }
 
 async function saveGradebook() {
-  var gradebook = await invoke('get_gradebook');
-  var fileName = await invoke('get_gradebook_name')
+  // var gradebook = await invoke('get_gradebook');
+  // var fileName = await invoke('get_gradebook_name');
+  var gradebook = []
+  for (var i in slides) {
+    for (var j in slides[i]) {
+      var grade = slides[i][j].grade;
+      if (!grade) {
+        grade = 0;
+      }
+      gradebook.push(grade)
+    }
+  }
+  
+  gradebook = gradebook.join(',');
+  console.log(fileName, gradebook)
   await writeTextFile(`${fileName}`, gradebook, { dir: BaseDirectory.AppLocalData });
+}
+
+
+// DEPRECATED?
+async function _initList() {
+  // Extract pokemon objects from 'related' array 
+  // Pass to rust
+  var total = [];
+  for (var i in slides) {
+    for (var j in slides[i]) {
+      pokemon = slides[i][j];
+      total.push(pokemon);
+    }
+  }
+  await invoke('init_list', { list: total })
 }
