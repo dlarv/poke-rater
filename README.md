@@ -14,7 +14,6 @@ Filter rules:
 
 TODO:
 - [x] PreEvos: related pokemon listed in dex order, not evo order
-- Filter Rules
-- Autofill rules
+- [x] Autofill rules
 - [x] Save/set Rank 
 - [ ] Keep grade book in frontend until time to analyze

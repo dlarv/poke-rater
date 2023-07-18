@@ -59,7 +59,50 @@
                     <button onclick="saveGradebook()">Save</button>
                 </form>
             </div>
-            
+            <div id="AutoFill-RulesContainer">
+                <!-- Rule grade priority -->
+                <span id="AutoFill-AddNew">
+                    <!-- Rule1 -->
+                    <select id="AutoFill-Rule1" value="none" onchange="autoFillRuleSelected(this, 'AutoFill-Value1')">
+                        <option value="none">Rule 1</option>
+                        <option value="gen">Generation</option>
+                        <option value="type">Type</option>
+                    </select>
+                    <select id="AutoFill-Value1"></select>
+                    <label>
+                        AND
+                        <input id="AutoFill-UseRule2" type="checkbox" value="false">
+                    </label>
+                    <!-- Rule2 -->
+                    <select id="AutoFill-Rule2" value="none" onchange="autoFillRuleSelected(this, 'AutoFill-Value2')">
+                        <option value="none">Rule 2</option>
+                        <option value="gen">Generation</option>
+                        <option value="type">Type</option>
+                    </select>
+                    <select id="AutoFill-Value2"></select>
+                    <!-- Grade -->
+                    <select id="AutoFill-Grade"></select>
+                    <!-- Priority -->
+                    <label>
+                        priority
+                        <input id="AutoFill-Priority" value="0" type="number">
+                    </label>
+                    <!-- Add/Apply -->
+                    <button onclick="addAutoFillRule(
+                        document.getElementById('AutoFill-Rule1').value,
+                        document.getElementById('AutoFill-Rule2').value,
+                        document.getElementById('AutoFill-Value1').value,
+                        document.getElementById('AutoFill-Value2').value,
+                        document.getElementById('AutoFill-UseRule2').checked,
+                        document.getElementById('AutoFill-Grade').value,
+                        document.getElementById('AutoFill-Priority').value
+                    )">Add</button>
+                    <button onclick="applyAutoFillRules()">Apply</button>
+                </span>
+                <div id="AutoFill-List">
+
+                </div>
+            </div>
         </div>
 
         <dialog class="select-gradebook">

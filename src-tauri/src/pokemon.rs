@@ -1,7 +1,9 @@
 use std::collections::HashMap;
 use serde::{Deserialize, Serialize};
+use strum_macros::EnumIter;
 
-#[derive(Deserialize, Serialize, Debug)]
+
+#[derive(Deserialize, Serialize, Debug, EnumIter, PartialEq)]
 pub enum PTypes { 
     Normal, Grass, Water, Fire, Electric, 
     Fighting, Flying, Poison, Ground, Psychic,
@@ -15,6 +17,15 @@ pub enum PColor {
 #[derive(Deserialize, Serialize, Debug)]
 pub enum StatNames { Attack, Defense, SpAtk, SpDef, Speed, Hp }
 
+#[derive(Deserialize)]
+pub struct AutofillRules {
+    pub type_rule1: Option<PTypes>,
+    pub type_rule2: Option<PTypes>,
+    pub gen_rule1: Option<i32>,
+    pub gen_rule2: Option<i32>,
+    pub grade: i32
+}
+
 pub struct PokemonList {
     pub name: String,
     pub list: Vec<Pokemon>,
@@ -23,6 +34,7 @@ pub struct PokemonList {
 
 #[derive(Deserialize, Serialize, Debug)]
 pub struct Pokemon {
+    pub grade: Option<i32>,
     pub name: String,
     pub dex_no: usize,
     color: PColor,
@@ -67,6 +79,12 @@ impl PokemonList {
 
 impl Pokemon {
     // fn new()
+    pub fn is_typing(&self, typing: &PTypes) -> bool {
+        return self.typing.contains(&typing);
+    }
+    pub fn is_gen(&self, gen: i32) -> bool {
+        return self.gen_no == gen;
+    }
 }
 impl PartialEq for Pokemon {
     fn eq(&self, other: &Self) -> bool {
