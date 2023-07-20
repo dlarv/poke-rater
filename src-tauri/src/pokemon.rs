@@ -3,18 +3,18 @@ use serde::{Deserialize, Serialize};
 use strum_macros::EnumIter;
 
 
-#[derive(Deserialize, Serialize, Debug, EnumIter, PartialEq)]
+#[derive(Deserialize, Serialize, Debug, EnumIter, PartialEq, Clone, Copy)]
 pub enum PTypes { 
     Normal, Grass, Water, Fire, Electric, 
     Fighting, Flying, Poison, Ground, Psychic,
     Rock, Ice, Bug, Dragon, 
     Ghost, Dark, Steel, Fairy
 }
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone, Copy)]
 pub enum PColor {
     White, Black, Gray, Blue, Red, Green, Pink, Purple, Brown, Yellow
 }
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone, Copy)]
 pub enum StatNames { Attack, Defense, SpAtk, SpDef, Speed, Hp }
 
 #[derive(Deserialize)]
@@ -26,13 +26,14 @@ pub struct AutofillRules {
     pub grade: i32
 }
 
-pub struct PokemonList {
+pub struct _PokemonList {
     pub name: String,
     pub list: Vec<Pokemon>,
-    grades: Vec<i32>
+    grades: Vec<i32>,
+
 }
 
-#[derive(Deserialize, Serialize, Debug)]
+#[derive(Deserialize, Serialize, Debug, Clone)]
 pub struct Pokemon {
     pub grade: Option<i32>,
     pub name: String,
@@ -45,9 +46,9 @@ pub struct Pokemon {
 }
 
 
-impl PokemonList {
-    pub fn new(count: usize) -> PokemonList {
-        return PokemonList {
+impl _PokemonList {
+    pub fn new(count: usize) -> _PokemonList {
+        return _PokemonList {
             name: String::from("default"),
             list: Vec::with_capacity(count),
             grades: Vec::with_capacity(count)
@@ -89,5 +90,18 @@ impl Pokemon {
 impl PartialEq for Pokemon {
     fn eq(&self, other: &Self) -> bool {
         return self.dex_no == other.dex_no;
+    }
+}
+impl Eq for Pokemon {
+    fn assert_receiver_is_total_eq(&self) {}
+}
+impl PartialOrd for Pokemon {
+    fn partial_cmp(&self, other: &Self) -> Option<std::cmp::Ordering> {
+        return self.dex_no.partial_cmp(&other.dex_no);
+    }
+}
+impl Ord for Pokemon {
+    fn cmp(&self, other: &Self) -> std::cmp::Ordering {
+        return self.dex_no.cmp(&other.dex_no);
     }
 }

@@ -3,48 +3,53 @@
 
 pub mod pokemon;
 use std::{sync::Mutex, rc::Rc, ops::DerefMut};
-use serde_json;
 use pokemon::*;
 use tauri::{State, generate_handler};
 use strum::IntoEnumIterator;
 
 const POKEMON_COUNT: usize = 1010;
 
+type PokemonList = Vec<Pokemon>;
+
 //TODO Learn how to have a global var here
 struct List(Mutex<PokemonList>);
 
 #[tauri::command]
-fn init_list(state: State<List>, list: Vec<Pokemon>) {
-    state.0.lock().unwrap().init(list);
+fn init_list(state: State<List>, slides: Vec<Vec<Pokemon>>) -> Vec<Vec<usize>>{
+    // Receives pokemon in slide order
+    // Sort into dex_no order
+    // Return slide order 
+    
+    let mut list = state.0.lock().unwrap();
+    let mut slide_order: Vec<Vec<usize>> = Vec::with_capacity(slides.len());
+    let mut current_slide: Vec<usize>;
+
+    for slide in slides {
+        current_slide = Vec::with_capacity(slide.len());
+        
+        for pokemon in slide {
+            current_slide.push(pokemon.dex_no);
+            list.push(pokemon);
+        }
+
+        slide_order.push(current_slide);
+    }
+    list.sort();
+    return slide_order;
 }
 
 #[tauri::command]
-fn send_pokemon(state: State<List>, p: Pokemon) {
-    println!("{}", p.name);
-    state.0.lock().unwrap().list.push(p);
+fn get_pokemon_at(state: State<List>, dex_no: usize) -> Pokemon {
+    // let output = state.0.lock().unwrap()[dex_no - 1].clone();
+    return state.0.lock().unwrap()[dex_no - 1].clone();
 }
 
 #[tauri::command]
-fn set_grade(state: State<List>, json: Pokemon, grade: i32) {
-    // let pokemon: Pokemon = serde_json::from_str(json).unwrap();
-    state.0.lock().unwrap().set_grade(json, grade);
+fn set_grade(state: State<List>, dex_no: usize, grade: i32) {
+    let pokemon = &mut state.0.lock().unwrap()[dex_no - 1];
+    pokemon.grade = Some(grade);
+    println!("Pokemon: {} | Grade: {}", pokemon.name, grade);
 }
-
-#[tauri::command]
-fn get_gradebook(state: State<List>) -> String {
-    return state.0.lock().unwrap().get_gradebook();
-}
-
-#[tauri::command]
-fn get_gradebook_name(state: State<List>) -> String {
-    return state.0.lock().unwrap().name.clone();
-}
-
-#[tauri::command]
-fn set_gradebook_name(state: State<List>, name: String) {
-    state.0.lock().unwrap().name = name;
-}
-
 #[tauri::command]
 fn get_all_types() -> Vec<PTypes> {
     return PTypes::iter().collect();
@@ -72,31 +77,38 @@ fn is_rule_match(pokemon: &Pokemon, rule: &AutofillRules) -> bool {
 }
 
 #[tauri::command]
-fn autofill(mut slides: Vec<Vec<Pokemon>>, rules: Vec<AutofillRules>) -> Vec<Vec<Pokemon>> {
-    for slide in &mut slides {
-        for pokemon in slide {
-            for rule in &rules {
-                if is_rule_match(pokemon, rule) {
-                    pokemon.grade = Some(rule.grade);
-                }
+fn autofill(state: State<List>, rules: Vec<AutofillRules>) {
+    let mut list = state.0.lock().unwrap();
+    
+    let mut pokemon: &mut Pokemon;
+    for i in 0..list.len() {
+        pokemon = &mut list[i];
+        for rule in &rules {
+            if is_rule_match(pokemon, rule) {
+                pokemon.grade = Some(rule.grade);
             }
         }
     }
-    return slides;
+}
+
+#[tauri::command]
+fn get_gradebook(state: State<List>, cursor: usize) -> String {
+    let list = state.0.lock().unwrap();
+    let mut output: Vec<String> = list.iter().map(|x|x.grade.unwrap_or(-1).to_string()).collect();
+    output[cursor - 1].insert(0, '|');
+    return output.join(",");
 }
 
 fn main() {
     tauri::Builder::default()
-        .manage(List(PokemonList::new(POKEMON_COUNT).into()))
+        .manage(List(PokemonList::new().into()))
         .invoke_handler(tauri::generate_handler![
             init_list,
-            send_pokemon,
-            set_grade,
-            get_gradebook,
-            get_gradebook_name,
-            set_gradebook_name,
             get_all_types,
             autofill,
+            get_pokemon_at,
+            set_grade,
+            get_gradebook,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
