@@ -10,9 +10,9 @@ use strum::IntoEnumIterator;
 const POKEMON_COUNT: usize = 1010;
 
 type PokemonList = Vec<Pokemon>;
+type Slides = Option<Vec<Vec<usize>>>;
 
-//TODO Learn how to have a global var here
-struct List(Mutex<PokemonList>);
+struct List(Mutex<PokemonList>, Mutex<Slides>);
 
 #[tauri::command]
 fn init_list(state: State<List>, slides: Vec<Vec<Pokemon>>) -> Vec<Vec<usize>>{
@@ -20,7 +20,12 @@ fn init_list(state: State<List>, slides: Vec<Vec<Pokemon>>) -> Vec<Vec<usize>>{
     // Sort into dex_no order
     // Return slide order 
     
+    if let Some(s) = state.1.lock().unwrap().clone() {
+        return s;
+    }
+
     let mut list = state.0.lock().unwrap();
+
     let mut slide_order: Vec<Vec<usize>> = Vec::with_capacity(slides.len());
     let mut current_slide: Vec<usize>;
 
@@ -35,13 +40,14 @@ fn init_list(state: State<List>, slides: Vec<Vec<Pokemon>>) -> Vec<Vec<usize>>{
         slide_order.push(current_slide);
     }
     list.sort();
+    *state.1.lock().unwrap() = Some(slide_order.clone());
     return slide_order;
 }
 
 #[tauri::command]
 fn get_pokemon_at(state: State<List>, dex_no: usize) -> Pokemon {
-    // let output = state.0.lock().unwrap()[dex_no - 1].clone();
-    return state.0.lock().unwrap()[dex_no - 1].clone();
+    let output = state.0.lock().unwrap()[dex_no - 1].clone();
+    return output;
 }
 
 #[tauri::command]
@@ -126,7 +132,7 @@ fn read_file(state: State<List>, csv: String) -> usize {
 
 fn main() {
     tauri::Builder::default()
-        .manage(List(PokemonList::new().into()))
+        .manage(List(PokemonList::new().into(), None.into()))
         .invoke_handler(tauri::generate_handler![
             init_list,
             get_all_types,

@@ -4,16 +4,16 @@ const { dataDir } = window.__TAURI__.path;
 
 const slideContainer = document.getElementById('SlideContainer');
 const maxGen = 9;
-const fileNameInput = document.getElementById('SetFileName');
-const autoFillRulesList = document.getElementById("AutoFill-List")
+const fileNameInputEl = document.getElementById('SetFileName');
+const autoFillRulesListEl = document.getElementById("AutoFill-List")
 
 // Elements/Listeners
-let fileName = fileNameInput.value;
-fileNameInput.addEventListener('input', () => {
-  fileName = fileNameInput.value;
+let fileName = fileNameInputEl.value;
+fileNameInputEl.addEventListener('input', () => {
+  fileName = fileNameInputEl.value;
 });
 
-document.getElementById("Slide-Mode").addEventListener("keyup", function (event) {
+document.getElementById("SlideMode").addEventListener("keyup", function (event) {
   if (slideContainer.style.display == 'hidden') {
     return;
   }
@@ -71,8 +71,27 @@ async function load() {
   // Keep slide data here
   var data = await fetch('./slides.json');
   data = await data.json();
+  console.log(slides);
   slides = await invoke('init_list', { slides: data });
   maxSlide = Object.keys(slides).length;
+
+  var filePathSaved = window.localStorage.getItem('filePath');
+  if (filePathSaved != null) {
+    await read(filePathSaved);
+    window.localStorage.setItem('filePath', null);
+  }
+  else {
+    var fileNameSaved = window.localStorage.getItem("fileName");
+    if ( fileNameSaved != null) {
+      fileName = fileNameSaved;
+      fileNameInputEl.value = fileName;
+    }
+    var gradeLabelSaved = window.localStorage.getItem("gradeLabels")
+    if (gradeLabelSaved != null) {
+      gradeDescriptions = Array.from(gradeLabelSaved);
+      maxGrade = gradeDescriptions.length;
+    }
+  }
 
   var autoFillGrades = document.getElementById("AutoFill-Grade");
   var opt;
@@ -175,7 +194,7 @@ function addAutoFillRule(rule1, rule2, val1, val2, useRule2, grade, priority) {
   ruleContainer.textContent += ` = Grade: ${grade} | Priority: ${priority}`;
 
   autoFillRules.push(rule);
-  autoFillRulesList.appendChild(ruleContainer);
+  autoFillRulesListEl.appendChild(ruleContainer);
 }
 
 async function applyAutoFillRules() {

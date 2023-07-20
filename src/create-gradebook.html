@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <head>
+        <title>Start New gradebook</title>
+        <link rel="stylesheet" href="./styles.css">
+        <script type="text/javascript" src="/create_gradebook.js" defer></script>
+    </head>
+    <body>
+        <h1 style="text-align: center;">New gradebook</h1>
+    
+        <div class="control-box">    
+            <button style="margin-bottom: 30px;" onclick="startGrading()">Start</button>
+            <label>
+                Name:
+                <input id="FileName" type="text">
+            </label>
+                
+            <label style="display: flex; flex-direction: row; padding: 5px; height: 32px">
+                <span style="padding: 8px 5px; height: 100%;">Max: </span>
+
+                <input id="MaxGradeValue" type="number" value=5 min="2" style="width: 25%; height: 100%; margin: 0;">
+
+                <select id="PresetSelector" style="height: auto; margin-top: 5px" aria-valuetext="none">
+                    <option value="none">Select Presets</option>
+                    <option value="tierlist">tierlist</option>
+                    <option value="5">5 Scale</option>
+                    <option value="10">10 Scale</option>
+                </select>
+            </label>
+            <div id="GradeLabelList" style="overflow-y: scroll;">
+                
+            </div>
+            <div>
+
+            </div>
+        </div>
+    </body>
+</html>
