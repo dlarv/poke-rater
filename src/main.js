@@ -26,6 +26,7 @@ document.getElementById("SlideMode").addEventListener("keyup", function (event) 
   }
   else if (doAutoFill && event.key >= '0' && event.key <= '9') {
     var num = Number(event.key)
+    // Grades arent typically 0-index
     autoFillGrades(num);
   }
 });
@@ -35,11 +36,11 @@ let autoFillRules = []
 let slides;
 let grades;
 let maxSlide;
-let slideIndex = 0;
+let slideIndex = -1;
 let currentPokemonGroup;
 
 let maxGrade = 5;
-let gradeDescriptions = [ 0, 1, 2, 3, 4 ]
+let gradeLabels = [ 1, 2, 3, 4, 5 ];
 let typesList;
 
 // First number entered is applied to other related
@@ -71,66 +72,79 @@ async function load() {
   // Keep slide data here
   var data = await fetch('./slides.json');
   data = await data.json();
-  console.log(slides);
   slides = await invoke('init_list', { slides: data });
   maxSlide = Object.keys(slides).length;
 
+  // Local data
   var filePathSaved = window.localStorage.getItem('filePath');
-  if (filePathSaved != null) {
+  if (filePathSaved) {
     await read(filePathSaved);
-    window.localStorage.setItem('filePath', null);
   }
-  else {
-    var fileNameSaved = window.localStorage.getItem("fileName");
-    if ( fileNameSaved != null) {
-      fileName = fileNameSaved;
-      fileNameInputEl.value = fileName;
-    }
-    var gradeLabelSaved = window.localStorage.getItem("gradeLabels")
-    if (gradeLabelSaved != null) {
-      gradeDescriptions = Array.from(gradeLabelSaved);
-      maxGrade = gradeDescriptions.length;
-    }
+  var fileNameSaved = window.localStorage.getItem("fileName");
+  if (fileNameSaved) {
+    fileName = fileNameSaved;
+    fileNameInputEl.value = fileName;
+  }
+  var gradeLabelSaved = window.localStorage.getItem('gradeLabels')
+  if (gradeLabelSaved) {
+    gradeLabels = gradeLabelSaved.split(',');
+    maxGrade = gradeLabels.length;
   }
 
+  // Autofill screen
   var autoFillGrades = document.getElementById("AutoFill-Grade");
+  autoFillGrades.innerHTML = "";
   var opt;
   for (var i = 0; i < maxGrade; i++) {
     opt = document.createElement('option');
     opt.setAttribute('value', i);
-    opt.textContent = gradeDescriptions[i];
+    opt.textContent = gradeLabels[i];
     autoFillGrades.appendChild(opt);
   }
 
   typesList = await invoke('get_all_types');
 
   document.getElementById('start-tab').click();
-  slideIndex = -1;
   nextSlide();
 }
 async function read(fileName) {
-  var contents = await readTextFile(fileName, { dir: BaseDirectory.AppLocalData });
-  var startSlide = await invoke('read_file', { csv: contents });
-  
+  console.log(`Reading ${fileName}.csv`);
+  var contents = await readTextFile(`${fileName}.csv`, { dir: BaseDirectory.AppLocalData });
+  contents = contents.split('\n');
+
+  var gradeCsv;
+  if(contents.length == 1) {
+    gradeCsv = contents[0];
+  }
+  else {
+    gradeLabels = contents[0].split(',');
+    window.localStorage.setItem('gradeLabels', gradeLabels.toString());
+    gradeCsv = contents.slice(1).toString();
+  }
+  var startSlide = await invoke('read_file', { csv: gradeCsv });
   for (var i in slides) {
-    if (startSlide in slides[i]) {
-      slideIndex = startSlide - 1;
+    
+    if (slides[i].includes(startSlide)) {
+      slideIndex = i - 1;
       break;
     }
   }
-  await nextSlide();
+  console.log(slideIndex);
+  window.localStorage.setItem("fileName", fileName);
+  window.localStorage.removeItem('filePath');
 }
 
 // Autofill rules
 function autoFillGrades(grade) {
-  var selectElements = document.getElementsByTagName("select");
-  grade = Math.min(grade, maxGrade - 1)
-
+  var selectElements = slideContainer.getElementsByTagName("select");
+  grade = Math.min(grade, maxGrade);
   for(var i = 0; i < selectElements.length; i++) {
     selectElements[i].value = grade;
     setGrade({currentTarget: {value: grade}}, i);
   }
   doAutoFill = false;
+  document.getElementById("NextSlideButton").focus();
+
 }
 
 function autoFillRuleSelected(obj, id) {
@@ -224,13 +238,16 @@ function _addPokemonToSlide(pokemon, index) {
   var opts = document.createElement('select');
   //!! First pokemon grade is set twice
   opts.setAttribute('onchange', `setGrade(event, ${index})`);
-  // Forward & Back button are tabindex=8 & 9
-  opts.setAttribute('tabindex', Number(index) + 1)
+  // Forward & Back button are tabindex=2 & 1
+  opts.setAttribute('tabindex', Number(index) + 3)
+
+
   var opt;
   for (var i = 0; i < maxGrade; i++) {
     opt = document.createElement('option');
-    opt.setAttribute('value', i);
-    opt.text = gradeDescriptions[i];
+    // Grades aren't 0-index
+    opt.setAttribute('value', i + 1);
+    opt.text = gradeLabels[i];
     opts.appendChild(opt);
   }
 
@@ -239,16 +256,25 @@ function _addPokemonToSlide(pokemon, index) {
   if('grade' in pokemon) {
     opts.value = pokemon.grade;
   } 
-
+  opts.addEventListener("keyup", function (event) {
+    console.log('here')
+    if (!doAutoFill && event.key >= '0' && event.key <= '9') {
+      var grade = Number(event.key)
+      grade = Math.min(grade, maxGrade)
+      this.value = grade;
+      // this.text = this.options[this.selectedIndex].text;
+    }
+  });
   return slide;
 }
 
 async function nextSlide() {
-  slideIndex += 1;
+  slideIndex = Number(slideIndex)+ 1;
+
   if (slideIndex >= maxSlide) {
     slideIndex = 0;
   }
-
+  console.log("index = " + slideIndex);
   // Delete old children
   slideContainer.innerHTML = '';
   currentPokemonGroup = slides[slideIndex];
@@ -291,15 +317,16 @@ async function prevSlide() {
 async function setGrade(event, index) {
   var num = Number(currentPokemonGroup[index]);
   var value = Number(event.currentTarget.value);
-
   await invoke('set_grade', { dexNo: num, grade: value });
-  document.getElementById("NextSlideButton").focus();
 }
 
 async function saveGradebook() {
   var gradebook = await invoke('get_gradebook', { cursor: currentPokemonGroup[0] });
+  var labels = gradeLabels.toString();
   
-  await writeTextFile(`${fileName}`, gradebook, { dir: BaseDirectory.AppLocalData });
+  
+  await writeTextFile(`${fileName}.csv`, `${labels}\n${gradebook}`, { dir: BaseDirectory.AppLocalData });
   console.log(`Saved '${fileName}'`)
+  alert("Saved gradebook");
 }
 

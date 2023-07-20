@@ -4,7 +4,6 @@ const gradeLabelListEl = document.getElementById("GradeLabelList");
 const fileNameEl = document.getElementById("FileName");
 
 let maxGrade = maxGradeEl.value;
-let gradeLabels = []
 
 presetSelectorEl.addEventListener("change", (event) => {
     var preset = event.currentTarget.value;
@@ -12,7 +11,7 @@ presetSelectorEl.addEventListener("change", (event) => {
 
     if (preset == "tierlist") {
         maxGradeEl.value = 6;
-         ["S", "A", "B", "C", "D", "F"].forEach(label => {
+         ["F", "D", "C", "B", "A", "S"].forEach(label => {
             addGradeLabel(label);
         });
     }
@@ -27,6 +26,15 @@ presetSelectorEl.addEventListener("change", (event) => {
         for (var label of Array(10).keys()) {
             addGradeLabel(label + 1);
         }
+    }
+    else if (preset == "vibes") {
+        maxGradeEl.value = 6;
+        addGradeLabel("Ew");
+        addGradeLabel("Meh");
+        addGradeLabel("Has some appeal");
+        addGradeLabel("I could see it on my team");
+        addGradeLabel("I want it on my team");
+        addGradeLabel("Absolute favorite");
     }
     maxGrade = maxGradeEl.value;
 });
@@ -50,10 +58,17 @@ maxGradeEl.addEventListener('change', (event) => {
     maxGrade = newMaxNum;
 });
 
+function init() {
+    fileNameEl.value = "default";
+    maxGradeEl.value = 5;
+    for (var label of Array(5).keys()) {
+        addGradeLabel(label + 1);
+    }
+}
 
+//!! Need way to find proper label. User changes to .value don't apply until they submit
 function removeGradeLabel(labelEl, label) {
     var index = gradeLabels.findIndex((value) => value == label);
-    console.log(index)
     gradeLabels.splice(index, 1);
 
     console.log(gradeLabels)
@@ -65,6 +80,7 @@ function addGradeLabel(label) {
     var el = document.createElement('span');
     var inputEl = document.createElement('input');
     inputEl.setAttribute('value', label);
+
     el.appendChild(inputEl);
 
     var delEl = document.createElement('button');
@@ -73,11 +89,16 @@ function addGradeLabel(label) {
     el.appendChild(delEl);
 
     gradeLabelListEl.appendChild(el);
-    gradeLabels.push(label);
 }
 
 async function startGrading() {
-    window.localStorage.setItem('gradeLabels', gradeLabels.toString());
+    var gradeLabels = [];
+    for (var label of gradeLabelListEl.childNodes) {
+        console.log(label)
+        gradeLabels.push(label.firstChild.value);
+    }
     window.localStorage.setItem('fileName', fileNameEl.value);
+    window.localStorage.setItem('gradeLabels', gradeLabels.toString());
+
     window.location.replace('start-grading.html')
 }

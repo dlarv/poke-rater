@@ -2,21 +2,19 @@
     <head>
         <title>Load gradebook File</title>
         <link rel="stylesheet" href="./styles.css">
+        <script type="text/javascript" src="/load_gradebook.js" defer></script>
     </head>
-    <body>
+    <body onload="getCsvFiles()">
         <h1 style="text-align: center;">Load</h1>
     
         <div class="control-box">
-            <form>
-                <label>
-                    Load gradebook file:
-                    <input type="file">
-                </label>
-                <span>
-                    <input type="submit">
-                    <button><a href="homepage.html">Back</a></button>
-                </span>            
-            </form>
+            <span>
+                <a href="create-gradebook.html"><button>Create New</button></a>
+                <button id="OpenFile" onclick="startGrading()">Open</button>
+            </span>
+            <div id="FileList">
+
+            </div>
         </div>
     </body>
 </html

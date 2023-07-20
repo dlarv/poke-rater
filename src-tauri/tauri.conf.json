@@ -20,7 +20,7 @@
         "removeDir": false,
         "removeFile": false,
         "renameFile": false,
-        "scope": [ "$APPLOCALDATA/*" ],
+        "scope": [ "$APPLOCALDATA/", "$APPLOCALDATA/*" ],
         "writeFile": true
       },
       "path": {
@@ -29,6 +29,9 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "dialog": {
+        "all": true
       }
     },
     "bundle": {

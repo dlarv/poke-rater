@@ -4,11 +4,12 @@
         <link rel="stylesheet" href="./styles.css">
         <script type="text/javascript" src="/create_gradebook.js" defer></script>
     </head>
-    <body>
+    <body onload="init()">
         <h1 style="text-align: center;">New gradebook</h1>
     
         <div class="control-box">    
-            <button style="margin-bottom: 30px;" onclick="startGrading()">Start</button>
+            <button onclick="startGrading()">Start</button>
+            <a href="/index.html" style="margin-bottom: 30px;" "><button>Back</button></a>
             <label>
                 Name:
                 <input id="FileName" type="text">
@@ -21,16 +22,14 @@
 
                 <select id="PresetSelector" style="height: auto; margin-top: 5px" aria-valuetext="none">
                     <option value="none">Select Presets</option>
-                    <option value="tierlist">tierlist</option>
+                    <option value="tierlist">Tier List</option>
                     <option value="5">5 Scale</option>
                     <option value="10">10 Scale</option>
+                    <option value="vibes">Dlarv Vibes</option>
                 </select>
             </label>
             <div id="GradeLabelList" style="overflow-y: scroll;">
                 
-            </div>
-            <div>
-
             </div>
         </div>
     </body>
