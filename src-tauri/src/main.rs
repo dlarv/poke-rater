@@ -99,6 +99,31 @@ fn get_gradebook(state: State<List>, cursor: usize) -> String {
     return output.join(",");
 }
 
+#[tauri::command]
+fn read_file(state: State<List>, csv: String) -> usize {
+    /*!
+     * Takes csv, where items are grades in dex order.
+     * Item with '|' char is starting number.
+     * Return that number or 0
+     */
+    const CURSOR: char = '|';
+    let mut list = state.0.lock().unwrap();
+    let grades = csv.split(',');
+    let mut start_pos: usize = 0;
+
+    for grade in grades.enumerate() {
+        if grade.1.contains(CURSOR) {
+            start_pos = grade.0;
+            list[grade.0].grade = Some(grade.1.replace(CURSOR, "").parse::<i32>().unwrap_or(0));
+        } 
+        else {
+            list[grade.0].grade = Some(grade.1.parse::<i32>().unwrap_or(0));
+        }
+    }
+
+    return start_pos;
+}
+
 fn main() {
     tauri::Builder::default()
         .manage(List(PokemonList::new().into()))
@@ -109,6 +134,7 @@ fn main() {
             get_pokemon_at,
             set_grade,
             get_gradebook,
+            read_file,
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");

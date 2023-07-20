@@ -90,7 +90,16 @@ async function load() {
   nextSlide();
 }
 async function read(fileName) {
-  let contents = await readTextFile(fileName, { dir: BaseDirectory.AppLocalData });
+  var contents = await readTextFile(fileName, { dir: BaseDirectory.AppLocalData });
+  var startSlide = await invoke('read_file', { csv: contents });
+  
+  for (var i in slides) {
+    if (startSlide in slides[i]) {
+      slideIndex = startSlide - 1;
+      break;
+    }
+  }
+  await nextSlide();
 }
 
 // Autofill rules
@@ -271,7 +280,7 @@ async function setGrade(event, index) {
 async function saveGradebook() {
   var gradebook = await invoke('get_gradebook', { cursor: currentPokemonGroup[0] });
   
-  console.log(fileName, gradebook)
   await writeTextFile(`${fileName}`, gradebook, { dir: BaseDirectory.AppLocalData });
+  console.log(`Saved '${fileName}'`)
 }
 
