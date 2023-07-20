@@ -7,11 +7,18 @@ Iter 1-1010 (pdb)
     - Get color from bbp
 - Get Generation
 - Get typing
+    - Is dual*
 - Get evolution
+    - Related
+    - Count*
 - Stats
 - Weaknesses
 - Anime Count
 - Manga Count
+- #Forms*
+    - Regional
+    - Convergent
+    - Forms (like castform, etc)
 """
 import json
 import os

@@ -72,7 +72,10 @@ async function load() {
   // Keep slide data here
   var data = await fetch('./slides.json');
   data = await data.json();
+  console.log(data);
   slides = await invoke('init_list', { slides: data });
+
+
   maxSlide = Object.keys(slides).length;
 
   // Local data

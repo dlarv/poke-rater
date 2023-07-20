@@ -12,6 +12,8 @@ PATH = f"{os.path.dirname(__file__)}/data"
 # - Clodsire
 # - Sneasler
 # - Charizard: Redotherformsmayhaveothercolors.
+#
+# Some manga/anime appearances are null, must be 0
 
 def single_file():
     '''Compile everything to one json file'''

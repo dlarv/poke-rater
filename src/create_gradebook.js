@@ -93,7 +93,7 @@ function addGradeLabel(label) {
 
 async function startGrading() {
     var gradeLabels = [];
-    for (var label of gradeLabelListEl.childNodes) {
+    for (var label of gradeLabelListEl.children) {
         console.log(label)
         gradeLabels.push(label.firstChild.value);
     }
