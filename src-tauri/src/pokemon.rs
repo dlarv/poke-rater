@@ -1,36 +1,34 @@
 use std::collections::HashMap;
-use serde::{Deserialize, Serialize};
+use std::hash::Hash;
+use serde::{Deserialize, Serialize, de::Visitor};
 use strum_macros::EnumIter;
 
 
-#[derive(Deserialize, Serialize, Debug, EnumIter, PartialEq, Clone, Copy)]
+pub const GEN_COUNT: usize = 9;
+pub const TYPING_COUNT: usize = 18;
+pub const COLOR_COUNT: usize = 10;
+
+#[derive(Deserialize, Serialize, Debug, EnumIter, PartialEq, Clone, Copy, Hash, Eq)]
 pub enum PTypes { 
     Normal, Grass, Water, Fire, Electric, 
     Fighting, Flying, Poison, Ground, Psychic,
     Rock, Ice, Bug, Dragon, 
     Ghost, Dark, Steel, Fairy
 }
-#[derive(Deserialize, Serialize, Debug, Clone, Copy)]
+#[derive(Deserialize, Serialize, Debug, Clone, Copy, EnumIter, PartialEq, Eq, Hash)]
 pub enum PColor {
     White, Black, Gray, Blue, Red, Green, Pink, Purple, Brown, Yellow
 }
-#[derive(Deserialize, Serialize, Debug, Clone, Copy)]
-pub enum StatNames { Attack, Defense, SpAtk, SpDef, Speed, Hp }
+#[derive(Deserialize, Serialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
+pub enum StatNames { Attack, Defense, SpAtk, SpDef, Speed, Hp } 
 
 #[derive(Deserialize)]
 pub struct AutofillRules {
     pub type_rule1: Option<PTypes>,
     pub type_rule2: Option<PTypes>,
-    pub gen_rule1: Option<i32>,
-    pub gen_rule2: Option<i32>,
+    pub gen_rule1: Option<usize>,
+    pub gen_rule2: Option<usize>,
     pub grade: i32
-}
-
-pub struct _PokemonList {
-    pub name: String,
-    pub list: Vec<Pokemon>,
-    grades: Vec<i32>,
-
 }
 
 #[derive(Deserialize, Serialize, Debug, Clone)]
@@ -38,53 +36,87 @@ pub struct Pokemon {
     pub grade: Option<i32>,
     pub name: String,
     pub dex_no: usize,
-    color: PColor,
-    gen_no: i32,
-    typing: Vec<PTypes>,
-    stats: Vec<(StatNames, i32)>,
-    matchups: HashMap<i32, Vec<PTypes>>,
+    pub color: PColor,
+    pub gen_no: usize,
+    pub typing: Vec<PTypes>,
+    pub stats: Vec<(StatNames, i32)>,
+    pub matchups: HashMap<i32, Vec<PTypes>>,
+    pub manga_count: usize,
+    pub anime_count: usize,
+}
+
+// total, count
+#[derive(Clone, Debug)]
+pub struct AvgValue<T> (HashMap<T, (i32, i32)>) where T: Clone + Hash + Eq;
+
+#[derive(Clone, Debug)]
+pub struct AvgValuePerGrade<T: Clone + Hash + Eq> {
+    pub grades: Vec<AvgValue<T>>,
+}
+
+#[derive(Debug)]
+pub struct AnalysisResults {
+       // Count: #pokemon w/ trait, total: sum(grades)
+    pub gen_count: [i32; GEN_COUNT],
+    pub gen_totals: [i32; GEN_COUNT],
+    pub typing_count: [i32; TYPING_COUNT],
+    pub typing_totals: [i32; TYPING_COUNT],
+    pub color_count: [i32; COLOR_COUNT],
+    pub color_totals: [i32; COLOR_COUNT],
+
+    // (dual-total, dual-count, single-total, single-count)
+    pub dual_single_ratio: (i32, i32, i32, i32),
+    pub manga_total: Vec<i32>, 
+    pub manga_count: Vec<i32>, 
+    pub anime_total: Vec<i32>, 
+    pub anime_count: Vec<i32>, 
+
+    pub stats_data: AvgValuePerGrade<StatNames>,
+    pub matchup_data: AvgValuePerGrade<PTypes>,
 }
 
 
-impl _PokemonList {
-    pub fn new(count: usize) -> _PokemonList {
-        return _PokemonList {
-            name: String::from("default"),
-            list: Vec::with_capacity(count),
-            grades: Vec::with_capacity(count)
+impl<T: Clone + Hash + Eq> AvgValuePerGrade<T> {
+    pub fn new(max_grade: usize) -> AvgValuePerGrade<T>{
+        let avg: HashMap<T, (i32, i32)> = HashMap::new();
+        let data: Vec<AvgValue<T>> = vec![AvgValue(avg); max_grade];
+
+        return AvgValuePerGrade {
+            grades: data,
         };
     }
 
-    pub fn init(&mut self, list: Vec<Pokemon>) {
-        self.grades = vec![0; list.len()];
-        self.list = list;
-    }
-
-    pub fn set_grade(&mut self, pokemon: Pokemon, grade: i32) {
-        let num: usize = pokemon.dex_no - 1;
-        println!("{}: {}", pokemon.name, grade);
-        if self.list[num] != pokemon {
-            self.list[num] = pokemon;
-        }
-        self.grades[num] = grade;
-    }
-
-    pub fn get_gradebook(&self) -> String {
-        return self.grades.iter().map(|x| x.to_string() + ",").collect();
-    }
-    pub fn set_name(&mut self, name: String) {
-        self.name = name;
+    pub fn add_value(&mut self, grade: usize, value_type: T, value: i32) {
+        match self.grades[grade].0.get_mut(&value_type) {
+            Some(g) => {
+                g.0 += value;
+                g.1 += 1;
+            },
+            None => { 
+                self.grades[grade].0.insert(value_type, (value, 1));
+            }
+        };
     }
 }
 
+impl AnalysisResults {
+    pub fn get_gen_average(&self, index: usize) -> f32 {
+        let avg: f32 = (self.gen_totals[index] as f32) / (self.gen_count[index] as f32);
+        return avg;
+    }
+    pub fn get_typing_average(&self, typing: PTypes) -> f32 {
+        let avg: f32 = (self.typing_totals[typing as usize] as f32) / (self.typing_count[typing as usize] as f32);
+        return avg;
+    }
+}
 
 impl Pokemon {
     // fn new()
     pub fn is_typing(&self, typing: &PTypes) -> bool {
         return self.typing.contains(&typing);
     }
-    pub fn is_gen(&self, gen: i32) -> bool {
-        return self.gen_no == gen;
+    pub fn is_gen(&self, gen: &usize) -> bool {
+        return &self.gen_no == gen;
     }
 }
 impl PartialEq for Pokemon {
