@@ -2,11 +2,10 @@
     <head>
         <title>Start Grading</title>
         <link rel="stylesheet" href="./styles.css">
-        <script type="text/javascript" src="./main.js" defer></script>
-
-        <!-- Temp script for tab functionality -->
+        <script type="text/javascript" src="./grading.js" defer></script>
     </head>
     <body onload="load()">
+        <!-- HEADER INFO -->
         <div class="header-ribbon">
             <h1 style="text-align: center;">Pokemon Rater</h1>
             <div class="tabbar">
@@ -15,7 +14,7 @@
             </div>
         </div>
             
-        <!-- Tab content -->
+        <!-- Pokemon Slides -->
         <div id="SlideMode" class="tabcontent">
             <!-- Show pokemon by 'related' groupings -->
             <div id="SlideContainer" class="slide-container">
@@ -48,13 +47,14 @@
             </div>
         </div>
         
+        <!-- SETTINGS -->
         <div id="Settings" class="tabcontent">
             <div class="control-box">
                 <label>
                     File Name:                     
                     <input id="SetFileName" value="default">
                 </label>
-                <a href="index"><button>Back</button></a>
+                <a href="index.html"><button>Back</button></a>
                 <button onclick="saveGradebook()">Save</button>
             </div>
             <div id="AutoFill-RulesContainer">
@@ -102,9 +102,5 @@
                 </div>
             </div>
         </div>
-
-        <dialog class="select-gradebook">
-            <!-- Display list of loaded gradebooks the user can resume -->
-        </dialog>
     </body>
 </html>

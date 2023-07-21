@@ -4,10 +4,12 @@ const gradeLabelListEl = document.getElementById("GradeLabelList");
 const fileNameEl = document.getElementById("FileName");
 
 let maxGrade = maxGradeEl.value;
+let gradeLabels = [];
 
 presetSelectorEl.addEventListener("change", (event) => {
     var preset = event.currentTarget.value;
     gradeLabelListEl.innerHTML = "";
+    gradeLabels = []
 
     if (preset == "tierlist") {
         maxGradeEl.value = 6;
@@ -61,17 +63,19 @@ maxGradeEl.addEventListener('change', (event) => {
 function init() {
     fileNameEl.value = "default";
     maxGradeEl.value = 5;
+    window.localStorage.removeItem("gradeLabels");
+
     for (var label of Array(5).keys()) {
         addGradeLabel(label + 1);
     }
 }
 
-//!! Need way to find proper label. User changes to .value don't apply until they submit
-function removeGradeLabel(labelEl, label) {
-    var index = gradeLabels.findIndex((value) => value == label);
+function removeGradeLabel(labelEl) {
+    var parent = labelEl.parentNode
+    var index = Array.from(parent.parentNode.children).indexOf(parent);
+
     gradeLabels.splice(index, 1);
 
-    console.log(gradeLabels)
     labelEl.parentNode.remove();
     maxGrade -= 1;
 } 
@@ -84,21 +88,23 @@ function addGradeLabel(label) {
     el.appendChild(inputEl);
 
     var delEl = document.createElement('button');
-    delEl.setAttribute('onclick', `removeGradeLabel(this, ${label})`);
+    delEl.setAttribute('onclick', `removeGradeLabel(this)`);
     delEl.textContent = "Delete";
+    // used to find button even if text has been modified
+    // delEl.setAttribute('')
     el.appendChild(delEl);
 
     gradeLabelListEl.appendChild(el);
+    gradeLabels.push(label);
 }
 
-async function startGrading() {
+async function openGradingPage() {
     var gradeLabels = [];
     for (var label of gradeLabelListEl.children) {
-        console.log(label)
         gradeLabels.push(label.firstChild.value);
     }
     window.localStorage.setItem('fileName', fileNameEl.value);
     window.localStorage.setItem('gradeLabels', gradeLabels.toString());
 
-    window.location.replace('start-grading.html')
+    window.location.replace('grading.html')
 }

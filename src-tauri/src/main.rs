@@ -1,18 +1,19 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
-
 pub mod pokemon;
-use std::{sync::Mutex, rc::Rc, ops::DerefMut, collections::HashMap, hash::Hash};
+pub mod data;
+
 use pokemon::*;
-use tauri::{State, generate_handler};
+use data::*;
+use std::sync::Mutex;
+use tauri::{State, Manager};
 use strum::IntoEnumIterator;
 
-const POKEMON_COUNT: usize = 1010;
 
 type PokemonList = Vec<Pokemon>;
 type Slides = Option<Vec<Vec<usize>>>;
-
 struct List(Mutex<PokemonList>, Mutex<Slides>);
+
 
 #[tauri::command]
 fn init_list(state: State<List>, slides: Vec<Vec<Pokemon>>) -> Vec<Vec<usize>>{
@@ -58,7 +59,7 @@ fn set_grade(state: State<List>, dex_no: usize, grade: i32) {
 }
 
 #[tauri::command]
-fn get_all_types() -> Vec<PTypes> {
+fn list_ptypes() -> Vec<PTypes> {
     return PTypes::iter().collect();
 }
 
@@ -78,15 +79,16 @@ fn autofill(state: State<List>, rules: Vec<AutofillRules>) {
 }
 
 #[tauri::command]
-fn get_gradebook(state: State<List>, cursor: usize) -> String {
+fn get_gradebook_csv(state: State<List>, slide_index: usize) -> String {
     let list = state.0.lock().unwrap();
     let mut output: Vec<String> = list.iter().map(|x|x.grade.unwrap_or(0).to_string()).collect();
-    output[cursor - 1].insert(0, '|');
+    output[slide_index - 1].insert(0, '|');
     return output.join(",");
 }
 
+
 #[tauri::command]
-fn read_file(state: State<List>, csv: String) -> usize {
+fn parse_csv_file(state: State<List>, csv: String) -> usize {
     /*!
      * Takes csv, where items are grades in dex order.
      * Item with '|' char is starting number.
@@ -112,26 +114,6 @@ fn read_file(state: State<List>, csv: String) -> usize {
     }
     return start_pos;
 }
-fn is_rule_match(pokemon: &Pokemon, rule: &AutofillRules) -> bool {
-    let mut is_match = true;
-    is_match = match &rule.type_rule1 {
-        Some(r) => pokemon.is_typing(r) && is_match,
-        None => is_match
-    };
-    is_match = match &rule.gen_rule1 {
-        Some(r) => pokemon.is_gen(r) && is_match,
-        None => is_match
-    };
-    is_match = match &rule.type_rule2 {
-        Some(r) => pokemon.is_typing(r) && is_match,
-        None => is_match
-    };
-    is_match = match &rule.gen_rule2 {
-        Some(r) => pokemon.is_gen(r) && is_match,
-        None => is_match
-    };
-    return is_match;
-}
 
 
 #[tauri::command]
@@ -156,6 +138,30 @@ fn analyze(state: State<List>, max_grade: i32) {
      */
     let list = state.0.lock().unwrap();
     run_analysis(&list, max_grade);
+}
+
+/* Private functions */
+
+/// Check if pokemon fulfills rules
+fn is_rule_match(pokemon: &Pokemon, rule: &AutofillRules) -> bool {
+    let mut is_match = true;
+    is_match = match &rule.type_rule1 {
+        Some(r) => pokemon.is_typing(r) && is_match,
+        None => is_match
+    };
+    is_match = match &rule.gen_rule1 {
+        Some(r) => pokemon.is_gen(r) && is_match,
+        None => is_match
+    };
+    is_match = match &rule.type_rule2 {
+        Some(r) => pokemon.is_typing(r) && is_match,
+        None => is_match
+    };
+    is_match = match &rule.gen_rule2 {
+        Some(r) => pokemon.is_gen(r) && is_match,
+        None => is_match
+    };
+    return is_match;
 }
 
 fn run_analysis(list: &Vec<Pokemon>, max_grade: i32) -> AnalysisResults {
@@ -252,27 +258,35 @@ fn main() {
         .manage(List(PokemonList::new().into(), None.into()))
         .invoke_handler(tauri::generate_handler![
             init_list,
-            get_all_types,
+            list_ptypes,
             autofill,
             get_pokemon_at,
             set_grade,
-            get_gradebook,
-            read_file,
+            get_gradebook_csv,
+            parse_csv_file,
             analyze,
         ])
+        .setup(|app| {
+            #[cfg(debug_assertions)] // only include this code on debug builds
+            {
+              let window = app.get_window("main").unwrap();
+              window.open_devtools();
+            }
+            Ok(())
+        })
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
+
 #[cfg(test)]
 mod tests {
     use super::*;
-    use std::{io::{BufReader, Read}, fs::{File, self}, fmt::format, env};
+    use std::{io::Read, fs::{File, self}};
     use serde_json;
 
     const PATH_ROOT: &str = "test-csvs";
     const JSON_PATH: &str = "test-csvs/slides.json";
     
-    struct List(Mutex<Vec<Pokemon>>);
     /*
      * 1. Basic 'values-make sense'
      * 2. CSV.len() < Pokemon Total

@@ -6,7 +6,6 @@ TODO:
 - [ ] Missing pictures
 - [ ] Plusle/minun etc
 - [ ] Autosave
-- [ ] Documentation
 - [x] Moved pokemon data to backend
 - [x] PreEvos: related pokemon listed in dex order, not evo order
 - [x] Autofill rules

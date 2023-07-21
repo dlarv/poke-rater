@@ -46,6 +46,7 @@ let typesList;
 // First number entered is applied to other related
 let doAutoFill = true;
 
+// Called by grading.html
 function openTab(event, id) {
   // Declare all variables
   var i, tabcontent, tablinks;
@@ -67,14 +68,11 @@ function openTab(event, id) {
   event.currentTarget.className += " active";
 }
 
+
 async function load() {
-  // Send pokemon data to rust
-  // Keep slide data here
   var data = await fetch('./slides.json');
   data = await data.json();
-  console.log(data);
   slides = await invoke('init_list', { slides: data });
-
 
   maxSlide = Object.keys(slides).length;
 
@@ -105,11 +103,12 @@ async function load() {
     autoFillGrades.appendChild(opt);
   }
 
-  typesList = await invoke('get_all_types');
+  typesList = await invoke('list_ptypes');
 
   document.getElementById('start-tab').click();
   nextSlide();
 }
+// Get csv of grades in dex order
 async function read(fileName) {
   console.log(`Reading ${fileName}.csv`);
   var contents = await readTextFile(`${fileName}.csv`, { dir: BaseDirectory.AppLocalData });
@@ -124,7 +123,7 @@ async function read(fileName) {
     window.localStorage.setItem('gradeLabels', gradeLabels.toString());
     gradeCsv = contents.slice(1).toString();
   }
-  var startSlide = await invoke('read_file', { csv: gradeCsv });
+  var startSlide = await invoke('parse_csv_file', { csv: gradeCsv });
   for (var i in slides) {
     
     if (slides[i].includes(startSlide)) {
@@ -132,12 +131,11 @@ async function read(fileName) {
       break;
     }
   }
-  console.log(slideIndex);
   window.localStorage.setItem("fileName", fileName);
   window.localStorage.removeItem('filePath');
 }
 
-// Autofill rules
+// Apply grade to all related pokemon
 function autoFillGrades(grade) {
   var selectElements = slideContainer.getElementsByTagName("select");
   grade = Math.min(grade, maxGrade);
@@ -150,6 +148,7 @@ function autoFillGrades(grade) {
 
 }
 
+// Append <option> elements to autofill <select>
 function autoFillRuleSelected(obj, id) {
   var valueContainer = document.getElementById(id);
   var opt;
@@ -172,6 +171,7 @@ function autoFillRuleSelected(obj, id) {
   }
 }
 
+// Create new autofill rule element
 function addAutoFillRule(rule1, rule2, val1, val2, useRule2, grade, priority) {
   if (!val1 && !val2) {
     return;
@@ -198,7 +198,7 @@ function addAutoFillRule(rule1, rule2, val1, val2, useRule2, grade, priority) {
     ruleContainer.textContent += " && "
   }
   if ((useRule2 || !val1) && val2) {
-    ruleContainer.textContent += val2;
+    ruleContainer.textContent += val1;
     
     if (rule2 == 'type') {
       var val = val2.replace(' Type', '')
@@ -208,25 +208,42 @@ function addAutoFillRule(rule1, rule2, val1, val2, useRule2, grade, priority) {
     }
 
   }
-  ruleContainer.textContent += ` = Grade: ${grade} | Priority: ${priority}`;
+  ruleContainer.textContent += ` = Grade: ${gradeLabels[rule.grade]} | Priority: ${rule.priority}`;
+  var deleteButtonEl = document.createElement('button')
+  deleteButtonEl.setAttribute('onclick', 'removeAutoFillRule(this)')
+  deleteButtonEl.textContent = "Delete";
+  ruleContainer.appendChild(deleteButtonEl);
 
+  ruleContainer.setAttribute("class", "autofill-rule")
   autoFillRules.push(rule);
   autoFillRulesListEl.appendChild(ruleContainer);
+  console.log(autoFillRules);
 }
 
+async function removeAutoFillRule(el) {
+  var parent = el.parentNode
+  var index = Array.from(parent.parentNode.children).indexOf(parent);
+
+  autoFillRules.splice(index, 1);
+
+  el.parentNode.remove();
+}
+
+// Apply rules to pokemon list
 async function applyAutoFillRules() {
   // Sort in ascending order based on priority
   autoFillRules.sort((a, b) => Number(a.priority) - Number(b.priority));
 
   await invoke('autofill', { rules: autoFillRules });
-  
+  alert("Applied autofill rules");
+
   // Apply new grades to current slide (reload slide)
   slideIndex -= 1;
   nextSlide();
 
 }
 
-// Slides
+// Create element holding pokemon
 function _addPokemonToSlide(pokemon, index) {
   console.log('Opened ' + pokemon['name'] + " (" + pokemon['dex_no'] + ")")
   doAutoFill = true;
@@ -260,12 +277,10 @@ function _addPokemonToSlide(pokemon, index) {
     opts.value = pokemon.grade;
   } 
   opts.addEventListener("keyup", function (event) {
-    console.log('here')
     if (!doAutoFill && event.key >= '0' && event.key <= '9') {
       var grade = Number(event.key)
       grade = Math.min(grade, maxGrade)
       this.value = grade;
-      // this.text = this.options[this.selectedIndex].text;
     }
   });
   return slide;
@@ -277,7 +292,6 @@ async function nextSlide() {
   if (slideIndex >= maxSlide) {
     slideIndex = 0;
   }
-  console.log("index = " + slideIndex);
   // Delete old children
   slideContainer.innerHTML = '';
   currentPokemonGroup = slides[slideIndex];
@@ -324,7 +338,7 @@ async function setGrade(event, index) {
 }
 
 async function saveGradebook() {
-  var gradebook = await invoke('get_gradebook', { cursor: currentPokemonGroup[0] });
+  var gradebook = await invoke('get_gradebook_csv', { cursor: currentPokemonGroup[0] });
   var labels = gradeLabels.toString();
   
   

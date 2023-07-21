@@ -6,19 +6,17 @@ const openFileButtonEl = document.getElementById("OpenFile");
 openFileButtonEl.setAttribute('disabled', 'true');
 let selectedFile;
 
-
-async function startGrading() {
+async function openGradingPage() {
     window.localStorage.setItem('filePath', selectedFile);
-    window.location.replace('start-grading.html');
+    window.location.replace('grading.html');
 }
 
-async function getCsvFiles() {
+async function listCsvFiles() {
     let files = await readDir('', { dir: BaseDirectory.AppLocalData });
     let csvFiles = [];
     var el;
     var index = 1;
     for (var file of files) {
-        console.log(file)
         if (file.name.endsWith(".csv")) {
             file = file.name.replace('.csv', '');
             csvFiles.push(file);
