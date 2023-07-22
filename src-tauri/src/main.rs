@@ -181,10 +181,10 @@ fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
 
         // pokemon with a perfect grade
         if grade == (num_grades - 1) as f64 {
-            perfect_scores.push(format!("{} ({:04})", pokemon.name, pokemon.dex_no))
+            perfect_scores.push(String::from(&pokemon.name))
         }
-        else if (grade == 0.0) {
-            worst_scores.push(format!("{} ({:04})", pokemon.name, pokemon.dex_no))
+        else if grade == 0.0 {
+            worst_scores.push(String::from(&pokemon.name))
         }
 
         // avg-grade/generation

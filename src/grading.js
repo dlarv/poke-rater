@@ -59,7 +59,7 @@ document.addEventListener('keydown', function (event) {
     doAutoFill = false
   }
   else if (event.key == '.') {
-    doAutoFill = true
+    doAutoFill = !doAutoFill
   }
 })
 

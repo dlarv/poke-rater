@@ -10,31 +10,85 @@
             <h1 style="text-align: center;">Pokemon Rater</h1>
             <a href="index.html"><button>Back</button></a>
             <div class="tabbar">
-                <button id="start-tab" class="tablinks" onclick="openTab(event, 'General-Slide')" tabindex="-1">General</button>
-                <button class="tablinks" onclick="openTab(event, 'Generation-Slide')" tabindex="-1">Generation</button>
-                <button class="tablinks" onclick="openTab(event, 'Typing-Slide')" tabindex="-1">Typing</button>
-                <button class="tablinks" onclick="openTab(event, 'Combat-Slide')" tabindex="-1">Combat</button>
+                <button  class="tablinks" onclick="openTab(event, 'Media-Tab')" tabindex="-1">Media</button>
+                <button  class="tablinks" onclick="openTab(event, 'Perfect-Tab')" tabindex="-1">Perfect Scores</button>
+                <button  class="tablinks" onclick="openTab(event, 'Worst-Tab')" tabindex="-1">Worst Scores</button>
+                <button id="start-tab" class="tablinks" onclick="openTab(event, 'Looks-Tab')" tabindex="-1">Aesthetics</button>
+                <button class="tablinks" onclick="openTab(event, 'Generation-Tab')" tabindex="-1">Generation</button>
+                <button class="tablinks" onclick="openTab(event, 'Typing-Tab')" tabindex="-1">Typing</button>
+                <button class="tablinks" onclick="openTab(event, 'Combat-Tab')" tabindex="-1">Combat</button>
             </div>
         </div>
 
-        <!-- Anime/Manga: avg-#appearances/grade  
-            Perfect Score: #max-grade
-            Color: avg-grade/color
-        -->
         <div  style="display: flex; flex-direction: column;">
-            <div class="tabcontent" id="General-Slide"><h2>General</h2></div>
+            <!-- 
+                Anime/Manga: avg-#appearances/grade  
+                Color: avg-grade/color
+            -->
+            <div class="tabcontent" id="Media-Tab">
+                <h2>Appearances in Anime and Manga</h2>
+                <!-- <p>The average number of episodes each </p> -->
+                <div style="display: flex; flex-direction: row;">
+                    <table>
+                        <tbody id="Media-Table">
+                            <tr>
+                                <th>Grade</th>
+                                <th>Anime</th>
+                                <th>Manga</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        
+            <div class="tabcontent" id="Looks-Tab">
+                <h2>Aesthetics</h2>
+                <div>
+                    <h3>Dex Color</h3>
+                    <div id="Looks-Tab-Container" class="slide-container">
+                        
+                    </div>
+                </div>
+            </div>
 
-            <!-- Generation: avg-grade/gen -->
-            <div class="tabcontent" id="Generation-Slide"><h2>Generation</h2></div>
+            <!-- Favorites: List of pokemon with perfect score -->
+            <div class="tabcontent" id="Perfect-Tab">
+                <h2>Perfect Scores</h2>
+                <p id="Perfect-Tab-Info">These Pokemon got the highest grade possible:</p>
+                <div id="Perfect-Tab-Slide-Container" class="slide-container">
+                    <div id="Perfect-Tab-Slide-1" class="slide"></div>
+                    <div id="Perfect-Tab-Slide-2" class="slide"></div>
+                    <div id="Perfect-Tab-Slide-3" class="slide"></div>
+                    <div id="Perfect-Tab-Slide-4" class="slide"></div>
+                    <div id="Perfect-Tab-Slide-5" class="slide"></div>
+                </div>
+            </div>
+            <!-- List of pokemon with the worst score -->
+            <div class="tabcontent" id="Worst-Tab">
+                <h2>Worst Scores</h2>
+                <p id="Worst-Tab-Info">These Pokemon got the lowest grade possible:</p>
+                    <div id="Worst-Tab-Slide-Container" class="slide-container">
+                        <div id="Worst-Tab-Slide-1" class="slide"></div>
+                        <div id="Worst-Tab-Slide-2" class="slide"></div>
+                        <div id="Worst-Tab-Slide-3" class="slide"></div>
+                        <div id="Worst-Tab-Slide-4" class="slide"></div>
+                        <div id="Worst-Tab-Slide-5" class="slide"></div>
+                    </div>
+            </div>
+            <!-- 
+                Generation: avg-grade/gen 
+                Dynamically generated
+            -->
+            <div class="tabcontent" id="Generation-Tab"><h2>Generation</h2></div>
 
             <!-- Typing: avg-grade/type && Dual/Single types: avg-grade/#types -->
-            <div class="tabcontent" id="Typing-Slide">
+            <div class="tabcontent" id="Typing-Tab">
                 <h2>Typing</h2>
                 <div id="Num-Types"></div>
                 <div class="slide-container">
-                    <div id="Slide-1" class="slide" ></div>
-                    <div id="Slide-2" class="slide" ></div>
-                    <div id="Slide-3" class="slide" ></div>
+                    <div id="Typing-Tab-Slide-1" class="slide" ></div>
+                    <div id="Typing-Tab-Slide-2" class="slide" ></div>
+                    <div id="Typing-Tab-Slide-3" class="slide" ></div>
                 </div>
             </div>
 
@@ -42,7 +96,7 @@
                  - avg-stat-num/stat-name/grade
                 Weaknesses 
                  - avg-matchup/type/grade -->
-            <div class="tabcontent" id="Combat-Slide"><h2>Combat</h2></div>
+            <div class="tabcontent" id="Combat-Tab"><h2>Combat</h2></div>
         </div>
     </body>
 </html>
