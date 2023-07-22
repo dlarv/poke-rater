@@ -3,9 +3,10 @@ Is it worth the time investment to find out that poison types from Hoenn are you
 
 TODO:
 - [ ] Styling
-- [ ] Missing pictures
-- [ ] Plusle/minun etc
-- [ ] Autosave
+- [ ] Display analytics
+- [x] Autosave
+- [x] Missing pictures
+- [x] Plusle/minun etc
 - [x] Moved pokemon data to backend
 - [x] PreEvos: related pokemon listed in dex order, not evo order
 - [x] Autofill rules

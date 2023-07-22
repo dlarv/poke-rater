@@ -16,13 +16,13 @@ pub enum PTypes {
     Ghost, Dark, Steel, Fairy
 }
 #[derive(Deserialize, Serialize, Debug, Clone, Copy, EnumIter, PartialEq, Eq, Hash)]
-pub enum PColor {
+pub enum PColors {
     White, Black, Gray, Blue, Red, Green, Pink, Purple, Brown, Yellow
 }
 #[derive(Deserialize, Serialize, Debug, Clone, Copy, PartialEq, Eq, Hash, EnumIter)]
 pub enum StatNames { Attack, Defense, SpAtk, SpDef, Speed, Hp } 
 
-#[derive(Deserialize)]
+#[derive(Deserialize, Serialize)]
 pub struct AutofillRules {
     pub type_rule1: Option<PTypes>,
     pub type_rule2: Option<PTypes>,
@@ -31,42 +31,18 @@ pub struct AutofillRules {
     pub grade: i32
 }
 
-
-
 // total, count
-#[derive(Clone, Debug)]
-pub struct AvgValue<T> (HashMap<T, (i32, i32)>) where T: Clone + Hash + Eq;
+#[derive(Clone, Debug, Serialize)]
+pub struct AvgValue<T> (HashMap<T, (f64, f64)>) where T: Clone + Hash + Eq + Serialize;
 
-#[derive(Clone, Debug)]
-pub struct AvgValuePerGrade<T: Clone + Hash + Eq> {
+#[derive(Clone, Debug, Serialize)]
+pub struct AvgValuePerGrade<T: Clone + Hash + Eq + Serialize> {
     pub grades: Vec<AvgValue<T>>,
 }
 
-#[derive(Debug)]
-pub struct AnalysisResults {
-       // Count: #pokemon w/ trait, total: sum(grades)
-    pub gen_count: [i32; GEN_COUNT],
-    pub gen_totals: [i32; GEN_COUNT],
-    pub typing_count: [i32; TYPING_COUNT],
-    pub typing_totals: [i32; TYPING_COUNT],
-    pub color_count: [i32; COLOR_COUNT],
-    pub color_totals: [i32; COLOR_COUNT],
-
-    // (dual-total, dual-count, single-total, single-count)
-    pub dual_single_ratio: (i32, i32, i32, i32),
-    pub manga_total: Vec<i32>, 
-    pub manga_count: Vec<i32>, 
-    pub anime_total: Vec<i32>, 
-    pub anime_count: Vec<i32>, 
-
-    pub stats_data: AvgValuePerGrade<StatNames>,
-    pub matchup_data: AvgValuePerGrade<PTypes>,
-}
-
-
-impl<T: Clone + Hash + Eq> AvgValuePerGrade<T> {
+impl<T: Clone + Hash + Eq + Serialize> AvgValuePerGrade<T> {
     pub fn new(max_grade: usize) -> AvgValuePerGrade<T>{
-        let avg: HashMap<T, (i32, i32)> = HashMap::new();
+        let avg: HashMap<T, (f64, f64)> = HashMap::new();
         let data: Vec<AvgValue<T>> = vec![AvgValue(avg); max_grade];
 
         return AvgValuePerGrade {
@@ -74,26 +50,48 @@ impl<T: Clone + Hash + Eq> AvgValuePerGrade<T> {
         };
     }
 
-    pub fn add_value(&mut self, grade: usize, value_type: T, value: i32) {
+    pub fn add_value(&mut self, grade: usize, value_type: T, value: f64) {
         match self.grades[grade].0.get_mut(&value_type) {
             Some(g) => {
                 g.0 += value;
-                g.1 += 1;
+                g.1 += 1.0;
             },
             None => { 
-                self.grades[grade].0.insert(value_type, (value, 1));
+                self.grades[grade].0.insert(value_type, (value, 1.0));
             }
         };
     }
+
+    pub fn get_result(&mut self) -> Vec<HashMap<T, f64>> {
+        let mut output: Vec<HashMap<T, f64>> = Vec::new();
+        let mut average:HashMap<T, f64>;
+        for grade in &self.grades {
+            average = HashMap::new();
+            
+            for val in &grade.0 {
+                average.insert(val.0.clone(), val.1.0 as f64 / val.1.1 as f64);
+            }
+
+            output.push(average);
+        }
+        return output;
+    }
 }
 
-impl AnalysisResults {
-    pub fn get_gen_average(&self, index: usize) -> f32 {
-        let avg: f32 = (self.gen_totals[index] as f32) / (self.gen_count[index] as f32);
-        return avg;
-    }
-    pub fn get_typing_average(&self, typing: PTypes) -> f32 {
-        let avg: f32 = (self.typing_totals[typing as usize] as f32) / (self.typing_count[typing as usize] as f32);
-        return avg;
-    }
+
+
+#[derive(Debug, Serialize)]
+pub struct AnalysisOutput {
+    pub perfect_scores: Vec<String>,
+    pub worst_scores: Vec<String>,
+    pub gen_average: Vec<f64>,
+    pub typing_average: Vec<(PTypes, f64)>,
+    pub color_average: Vec<(PColors, f64)>,
+    pub dual_type_average: f64,
+    pub single_type_average: f64,
+    pub manga_average: Vec<f64>,
+    pub anime_average: Vec<f64>,
+
+    pub stats_data: Vec<HashMap<StatNames, f64>>,
+    pub matchup_data: Vec<HashMap<PTypes, f64>>,
 }

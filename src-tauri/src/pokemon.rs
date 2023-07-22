@@ -7,7 +7,7 @@ pub struct Pokemon {
     pub grade: Option<i32>,
     pub name: String,
     pub dex_no: usize,
-    pub color: PColor,
+    pub color: PColors,
     pub gen_no: usize,
     pub typing: Vec<PTypes>,
     pub stats: Vec<(StatNames, i32)>,

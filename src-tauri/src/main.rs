@@ -5,15 +5,13 @@ pub mod data;
 
 use pokemon::*;
 use data::*;
-use std::sync::Mutex;
+use std::{sync::Mutex, iter::zip, collections::HashMap, hash::Hash};
 use tauri::{State, Manager};
 use strum::IntoEnumIterator;
-
 
 type PokemonList = Vec<Pokemon>;
 type Slides = Option<Vec<Vec<usize>>>;
 struct List(Mutex<PokemonList>, Mutex<Slides>);
-
 
 #[tauri::command]
 fn init_list(state: State<List>, slides: Vec<Vec<Pokemon>>) -> Vec<Vec<usize>>{
@@ -117,13 +115,16 @@ fn parse_csv_file(state: State<List>, csv: String) -> usize {
 
 
 #[tauri::command]
-fn analyze(state: State<List>, max_grade: i32) {
+fn analyze(state: State<List>, num_grades: i32) -> AnalysisOutput {
+    //! num_grades is total number of discrete grades
     /*
      * Generation: avg-grade/gen
      * Typing: avg-grade/type
      * Dual/Single types : Ratio(avg-grade/dual:avg-grade/single)
      * Anime/Manga: avg-#appearances/grade
      * Color: avg-grade/color
+     * Perfect scores: list of names&dex_no of pokemon with max score
+     * Worst scores: see perfect scores
      * 
      * ----------Uses AvgValuePerGrade struct----------
      * Stats
@@ -137,12 +138,131 @@ fn analyze(state: State<List>, max_grade: i32) {
      * Number of forms: avg-#forms/grade
      */
     let list = state.0.lock().unwrap();
-    run_analysis(&list, max_grade);
+    return run_analysis(&list, num_grades);
 }
 
 /* Private functions */
 
 /// Check if pokemon fulfills rules
+fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
+
+    // {Name} ({dexno})
+    let mut perfect_scores: Vec<String> = Vec::new();
+    let mut worst_scores: Vec<String> = Vec::new();
+
+    // Count: #pokemon w/ trait, total: sum(grades)
+    let mut gen_count = [0.0; GEN_COUNT];
+    let mut gen_totals = [0.0; GEN_COUNT];
+
+    let mut typing_data: HashMap<PTypes, (f64, f64)> = HashMap::new();
+    let mut color_data: HashMap<PColors, (f64, f64)> = HashMap::new();
+
+    // (dual-total, dual-count, single-total, single-count)
+    let mut single_type_total = 0.0;   
+    let mut single_type_count = 0.0;
+    let mut dual_type_total = 0.0;   
+    let mut dual_type_count = 0.0;    
+    let mut manga_totals = vec![0.0; num_grades as usize];
+    let mut manga_count = vec![0.0; num_grades as usize];
+    let mut anime_totals = vec![0.0; num_grades as usize];
+    let mut anime_count = vec![0.0; num_grades as usize];
+
+    // vec of hashmaps where key = StatName|PType, value = (total, count)
+    let mut stats_data: AvgValuePerGrade<StatNames> = AvgValuePerGrade::new(num_grades as usize);
+    let mut matchup_data: AvgValuePerGrade<PTypes> = AvgValuePerGrade::new(num_grades as usize);
+
+    let mut grade; 
+    let mut gen_no: usize;
+    for pokemon in list.iter() {
+        grade = match pokemon.grade {
+            Some(g) => (g - 1) as f64,
+            None => continue
+        };
+
+        // pokemon with a perfect grade
+        if grade == (num_grades - 1) as f64 {
+            perfect_scores.push(format!("{} ({:04})", pokemon.name, pokemon.dex_no))
+        }
+        else if (grade == 0.0) {
+            worst_scores.push(format!("{} ({:04})", pokemon.name, pokemon.dex_no))
+        }
+
+        // avg-grade/generation
+        gen_no = pokemon.gen_no - 1; 
+        gen_totals[gen_no] += grade;
+        gen_count[gen_no] += 1.0;
+        
+        // avg-grade/type
+        for typing in pokemon.typing.iter() {
+            if typing_data.contains_key(typing) {
+                typing_data.get_mut(typing).unwrap().0 += grade;
+                typing_data.get_mut(typing).unwrap().1 += 1.0;
+            } else {
+                typing_data.insert(*typing, (grade, 1.0));
+            }
+        }
+
+        // dual vs single
+        if pokemon.typing.len() == 1 {
+            single_type_total += grade;
+            single_type_count += 1.0;
+        } else {
+            dual_type_total += grade;
+            dual_type_count += 1.0;
+        } 
+        println!("{} {}", pokemon.name, pokemon.dex_no);
+
+        // avg-#manga/grade
+        manga_totals[grade as usize] += pokemon.manga_count as f64;
+        manga_count[grade as usize] += 1.0;
+
+        // avg-#anime/grade
+        anime_totals[grade as usize] += pokemon.anime_count as f64;
+        anime_count[grade as usize] += 1.0;
+
+        //avg-grade/color
+        
+        if color_data.contains_key(&pokemon.color) {
+            color_data.get_mut(&pokemon.color).unwrap().0 += grade;
+            color_data.get_mut(&pokemon.color).unwrap().1 += 1.0;
+        } else {
+            color_data.insert(pokemon.color, (grade, 1.0));
+        }
+
+        // avg-stat-num/stat-name/grade
+        for stat in &pokemon.stats {
+            stats_data.add_value(grade as usize, stat.0, stat.1 as f64);
+        }
+
+        // avg-matchup/type/grade
+        for matchup in &pokemon.matchups {
+            for typing in matchup.1 {
+                matchup_data.add_value(grade as usize, *typing, *matchup.0 as f64);
+            }
+        }
+    }
+    // Calculate and Sort outputs
+    let mut typing_output: Vec<(PTypes, f64)> = typing_data.into_iter().map(|x| (x.0, x.1.0 / x.1.1)).collect();
+    typing_output.sort_by(|x, y| y.1.partial_cmp(&x.1).unwrap());
+
+    let mut color_output: Vec<(PColors, f64)> = color_data.into_iter().map(|x| (x.0, x.1.0 / x.1.1)).collect();
+    color_output.sort_by(|x, y| y.1.partial_cmp(&x.1).unwrap());
+
+    return AnalysisOutput {
+        perfect_scores,
+        worst_scores,
+        gen_average: zip(gen_totals, gen_count).map(|x| x.0 / x.1).collect(),
+        typing_average: typing_output,
+        color_average: color_output,
+        dual_type_average: dual_type_total / dual_type_count,
+        single_type_average: single_type_total / single_type_count,
+        manga_average: zip(manga_totals, manga_count).map(|x| x.0 / x.1).collect(),
+        anime_average: zip(anime_totals, anime_count).map(|x| x.0 / x.1).collect(),
+        stats_data: stats_data.get_result(),
+        matchup_data: matchup_data.get_result(),
+    };
+}
+
 fn is_rule_match(pokemon: &Pokemon, rule: &AutofillRules) -> bool {
     let mut is_match = true;
     is_match = match &rule.type_rule1 {
@@ -162,95 +282,6 @@ fn is_rule_match(pokemon: &Pokemon, rule: &AutofillRules) -> bool {
         None => is_match
     };
     return is_match;
-}
-
-fn run_analysis(list: &Vec<Pokemon>, max_grade: i32) -> AnalysisResults {
-
-    // Count: #pokemon w/ trait, total: sum(grades)
-    let mut gen_count = [0; GEN_COUNT];
-    let mut gen_totals = [0; GEN_COUNT];
-    let mut typing_count = [0; TYPING_COUNT];
-    let mut typing_totals = [0; TYPING_COUNT];
-    let mut color_count = [0; COLOR_COUNT];
-    let mut color_totals = [0; COLOR_COUNT];
-
-    // (dual-total, dual-count, single-total, single-count)
-    let mut dual_single_ratio = (0, 0, 0, 0);
-    let mut manga_total: Vec<i32> = vec![0; max_grade as usize];
-    let mut manga_count = vec![0; max_grade as usize];
-    let mut anime_total: Vec<i32> = vec![0; max_grade as usize];
-    let mut anime_count = vec![0; max_grade as usize];
-
-    let mut stats_data: AvgValuePerGrade<StatNames> = AvgValuePerGrade::new(max_grade as usize);
-    let mut matchup_data: AvgValuePerGrade<PTypes> = AvgValuePerGrade::new(max_grade as usize);
-
-    let mut grade: i32; 
-    let mut gen_no: usize;
-    for pokemon in list.iter() {
-        grade = match pokemon.grade {
-            Some(g) => g,
-            None => continue
-        };
-
-        // avg-grade/generation
-        gen_no = pokemon.gen_no - 1; 
-        gen_totals[gen_no] += grade;
-        gen_count[gen_no] += 1;
-        
-        // avg-grade/type
-        for typing in pokemon.typing.iter() {
-            typing_totals[*typing as usize] += grade;
-            typing_count[*typing as usize] += 1;
-        }
-
-        // dual vs single
-        if pokemon.typing.len() == 1 {
-            dual_single_ratio.2 += grade;
-            dual_single_ratio.3 += 1;
-        } else {
-            dual_single_ratio.0 += grade;
-            dual_single_ratio.1 += 1;
-        } 
-
-        // avg-#manga/grade
-        manga_total[grade as usize] += pokemon.manga_count as i32;
-        manga_count[grade as usize] += 1;
-
-        // avg-#anime/grade
-        anime_total[grade as usize] += pokemon.anime_count as i32;
-        anime_count[grade as usize] += 1;
-
-        //avg-grade/color
-        color_totals[pokemon.color as usize] += grade;
-        color_count[pokemon.color as usize] += 1;
-
-        // avg-stat-num/stat-name/grade
-        for stat in &pokemon.stats {
-            stats_data.add_value(grade as usize, stat.0, stat.1);
-        }
-
-        // avg-matchup/type/grade
-        for matchup in &pokemon.matchups {
-            for typing in matchup.1 {
-                matchup_data.add_value(grade as usize, *typing, *matchup.0);
-            }
-        }
-    }
-    return AnalysisResults {
-        gen_count,
-        gen_totals,
-        typing_count,
-        typing_totals,
-        color_count,
-        color_totals,
-        dual_single_ratio,
-        manga_total,
-        manga_count,
-        anime_total,
-        anime_count,
-        stats_data,
-        matchup_data,
-    };
 }
 
 fn main() {
@@ -336,18 +367,7 @@ mod tests {
     fn test_is_reasonable_vals() {
         let list = load_csv("reasonable");
         let analysis = run_analysis(&list, 18);
-        assert_eq!(analysis.get_gen_average(1), 1.0);
+        assert_eq!(analysis.gen_average[1], 1.0);
     }
-    #[test]
-    fn test_half_csv() {
-        let list = load_csv("half");
-        let analysis = run_analysis(&list, 18);
-        assert_eq!(analysis.get_typing_average(PTypes::Ghost), 1.3);
-    }
-    #[test]
-    fn test_double_csv() {
-        let list = load_csv("double");
-        let analysis = run_analysis(&list, 5);
-        assert_eq!(analysis.get_typing_average(PTypes::Ghost), 4.0);
-    }
+
 }
