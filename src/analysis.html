@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+    <head>
+        <title>Show Analysis</title>
+        <link rel="stylesheet" href="./styles.css">
+        <script type="text/javascript" src="./analysis.js" defer></script>
+
+    </head>
+    <body onload="load(); ">
+        <div class="header-ribbon">
+            <h1 style="text-align: center;">Pokemon Rater</h1>
+            <a href="index.html"><button>Back</button></a>
+            <div class="tabbar">
+                <button id="start-tab" class="tablinks" onclick="openTab(event, 'General-Slide')" tabindex="-1">General</button>
+                <button class="tablinks" onclick="openTab(event, 'Generation-Slide')" tabindex="-1">Generation</button>
+                <button class="tablinks" onclick="openTab(event, 'Typing-Slide')" tabindex="-1">Typing</button>
+                <button class="tablinks" onclick="openTab(event, 'Combat-Slide')" tabindex="-1">Combat</button>
+            </div>
+        </div>
+
+        <!-- Anime/Manga: avg-#appearances/grade  
+            Perfect Score: #max-grade
+            Color: avg-grade/color
+        -->
+        <div  style="display: flex; flex-direction: column;">
+            <div class="tabcontent" id="General-Slide"><h2>General</h2></div>
+
+            <!-- Generation: avg-grade/gen -->
+            <div class="tabcontent" id="Generation-Slide"><h2>Generation</h2></div>
+
+            <!-- Typing: avg-grade/type && Dual/Single types: avg-grade/#types -->
+            <div class="tabcontent" id="Typing-Slide">
+                <h2>Typing</h2>
+                <div id="Num-Types"></div>
+                <div class="slide-container">
+                    <div id="Slide-1" class="slide" ></div>
+                    <div id="Slide-2" class="slide" ></div>
+                    <div id="Slide-3" class="slide" ></div>
+                </div>
+            </div>
+
+            <!-- Stats
+                 - avg-stat-num/stat-name/grade
+                Weaknesses 
+                 - avg-matchup/type/grade -->
+            <div class="tabcontent" id="Combat-Slide"><h2>Combat</h2></div>
+        </div>
+    </body>
+</html>

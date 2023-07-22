@@ -1,26 +1,46 @@
 const { invoke } = window.__TAURI__.tauri;
-const { writeTextFile, readTextFile, BaseDirectory }= window.__TAURI__.fs;
+const { writeTextFile, readTextFile, exists, BaseDirectory }= window.__TAURI__.fs;
 const { dataDir } = window.__TAURI__.path;
 
-const slideContainer = document.getElementById('SlideContainer');
 const maxGen = 9;
+const slideContainer = document.getElementById('SlideContainer');
 const fileNameInputEl = document.getElementById('SetFileName');
 const autoFillRulesListEl = document.getElementById("AutoFill-List")
-
+const nextSlideButton = document.getElementById("NextSlideButton");
+const gradeLabelsDisplayEl = document.getElementById("GradeLabelDisplay");
 // Elements/Listeners
+/*
+ Options:
+ 1. Don't let user rename file
+ 2. Add a button next to input element
+  - Function called when its clicked
+  - Function called when open button inside create-gradebook.html is clicked 
+*/
 let fileName = fileNameInputEl.value;
+async function setFileName(name) {
+  if (await exists(`${name}.csv`, { dir: BaseDirectory.AppLocalData })) {
+    var doOverwrite = await confirm(`'${name}.csv' already exists. Would you like to overwrite it?`)
+
+    if (!doOverwrite) {
+      name = fileName;
+    } 
+  }
+  fileName = name;
+  fileNameInputEl.value = name;
+}
 fileNameInputEl.addEventListener('input', () => {
   fileName = fileNameInputEl.value;
 });
 
-document.getElementById("SlideMode").addEventListener("keyup", function (event) {
+document.addEventListener("keydown", function (event) {
   if (slideContainer.style.display == 'hidden') {
     return;
   }
-  if (event.key == 'Backspace') {
+  if (event.key == 'ArrowLeft') {
+    event.preventDefault();
     prevSlide();
   }
-  else if (event.key == 'Space') {
+  else if (event.key == ' ' || event.key == 'ArrowRight') {
     event.preventDefault();
     nextSlide();
   }
@@ -28,6 +48,18 @@ document.getElementById("SlideMode").addEventListener("keyup", function (event) 
     var num = Number(event.key)
     // Grades arent typically 0-index
     autoFillGrades(num);
+  } 
+  else if (event.key == 'Enter') {
+    if(document.activeElement !== nextSlideButton) {
+      event.preventDefault();
+      nextSlideButton.focus();
+    }
+  }
+  else if (event.key == 'Tab') {
+    doAutoFill = false;
+  }
+  else if (event.key == '.') {
+    doAutoFill = true;
   }
 });
 
@@ -42,6 +74,7 @@ let currentPokemonGroup;
 let maxGrade = 5;
 let gradeLabels = [ 1, 2, 3, 4, 5 ];
 let typesList;
+let showGradeLabelDisplay = true;
 
 // First number entered is applied to other related
 let doAutoFill = true;
@@ -68,7 +101,6 @@ function openTab(event, id) {
   event.currentTarget.className += " active";
 }
 
-
 async function load() {
   var data = await fetch('./slides.json');
   data = await data.json();
@@ -77,20 +109,23 @@ async function load() {
   maxSlide = Object.keys(slides).length;
 
   // Local data
+  
   var filePathSaved = window.localStorage.getItem('filePath');
   if (filePathSaved) {
     await read(filePathSaved);
   }
   var fileNameSaved = window.localStorage.getItem("fileName");
   if (fileNameSaved) {
+    // setFileName(fileNameSaved);
+    fileNameInputEl.value = fileNameSaved;
     fileName = fileNameSaved;
-    fileNameInputEl.value = fileName;
   }
   var gradeLabelSaved = window.localStorage.getItem('gradeLabels')
   if (gradeLabelSaved) {
     gradeLabels = gradeLabelSaved.split(',');
     maxGrade = gradeLabels.length;
   }
+  renderGradeLabelsDisplay();
 
   // Autofill screen
   var autoFillGrades = document.getElementById("AutoFill-Grade");
@@ -114,6 +149,9 @@ async function read(fileName) {
   var contents = await readTextFile(`${fileName}.csv`, { dir: BaseDirectory.AppLocalData });
   contents = contents.split('\n');
 
+  window.localStorage.setItem("fileName", fileName);
+  window.localStorage.removeItem('filePath');
+  
   var gradeCsv;
   if(contents.length == 1) {
     gradeCsv = contents[0];
@@ -131,8 +169,23 @@ async function read(fileName) {
       break;
     }
   }
-  window.localStorage.setItem("fileName", fileName);
-  window.localStorage.removeItem('filePath');
+
+}
+
+// Draw grade labels for non-numeric grades
+function renderGradeLabelsDisplay() {
+  var isDigit = gradeLabels.find((value) => value.match(/^[0-9]+$/) == null);
+  if (!showGradeLabelDisplay || !isDigit) { 
+    return;
+  }
+
+  var display;
+  for (var label in gradeLabels) {
+    display = document.createElement('p');
+    display.textContent = `${label}:  ${gradeLabels[label]}`;
+    gradeLabelsDisplayEl.appendChild(display);
+  }
+
 }
 
 // Apply grade to all related pokemon
@@ -144,8 +197,7 @@ function autoFillGrades(grade) {
     setGrade({currentTarget: {value: grade}}, i);
   }
   doAutoFill = false;
-  document.getElementById("NextSlideButton").focus();
-
+  nextSlideButton.focus();
 }
 
 // Append <option> elements to autofill <select>
@@ -281,6 +333,7 @@ function _addPokemonToSlide(pokemon, index) {
       var grade = Number(event.key)
       grade = Math.min(grade, maxGrade)
       this.value = grade;
+      setGrade({ currentTarget: { value: grade } }, index)
     }
   });
   return slide;
@@ -306,6 +359,7 @@ async function nextSlide() {
     slideContainer.appendChild(slide);
   }
   document.getElementsByTagName('select')[0].focus();
+  writeToFs();
 }
 
 async function prevSlide() {
@@ -334,16 +388,26 @@ async function prevSlide() {
 async function setGrade(event, index) {
   var num = Number(currentPokemonGroup[index]);
   var value = Number(event.currentTarget.value);
+  console.log("Set " + num + " to " + value)
   await invoke('set_grade', { dexNo: num, grade: value });
 }
 
+function startAnalysis() {
+  window.localStorage.setItem('maxGrade', maxGrade);
+  window.location.replace('analysis.html');
+
+}
+
+// Called by button, gives alert to notify user of successful save
 async function saveGradebook() {
-  var gradebook = await invoke('get_gradebook_csv', { cursor: currentPokemonGroup[0] });
-  var labels = gradeLabels.toString();
-  
-  
-  await writeTextFile(`${fileName}.csv`, `${labels}\n${gradebook}`, { dir: BaseDirectory.AppLocalData });
-  console.log(`Saved '${fileName}'`)
+  await writeToFs();
   alert("Saved gradebook");
 }
 
+async function writeToFs() {
+  var gradebook = await invoke('get_gradebook_csv', { slideIndex: currentPokemonGroup[0] });
+  var labels = gradeLabels.toString();
+
+  await writeTextFile(`${fileName}.csv`, `${labels}\n${gradebook}`, { dir: BaseDirectory.AppLocalData });
+  console.log(`Saved '${fileName}'`)
+}

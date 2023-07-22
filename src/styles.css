@@ -119,6 +119,18 @@ select {
     width: 200px;
 }
 
+.analysis-container {
+    background-color: rgb(var(--dark-bg));
+    height: auto;
+    width: auto;
+    padding: 1%;
+    margin: 1%;
+    text-align: center;
+}
+.analysis-body {
+    margin: 0 40%;
+}
+
  /* Style the tab */
 .tabbar {
     overflow: hidden;

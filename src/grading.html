@@ -40,7 +40,9 @@
                     </select>
                 </div>
             </div>
-
+            <div id="GradeLabelDisplay">
+                
+            </div>
             <div class="slide-controls">
                 <button onclick="prevSlide()" tabindex="1"><</button>
                 <button id="NextSlideButton" onclick="nextSlide()" tabindex="2">></button>
@@ -54,8 +56,9 @@
                     File Name:                     
                     <input id="SetFileName" value="default">
                 </label>
-                <a href="index.html"><button>Back</button></a>
                 <button onclick="saveGradebook()">Save</button>
+                <button onclick="startAnalysis()">Start Analysis</button>
+                <a href="index.html"><button>Back</button></a>
             </div>
             <div id="AutoFill-RulesContainer">
                 <!-- Rule grade priority -->
