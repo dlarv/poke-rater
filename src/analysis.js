@@ -17,7 +17,7 @@ const colorValues = {
 const generalSlideEl = document.getElementById('Media-Tab');
 const generationSlideEl = document.getElementById('Generation-Tab');
 const typingSlideEl = document.getElementById('Typing-Tab');
-const combatSlideEl = document.getElementById('Combat-Tab')
+const matchupSlideEl = document.getElementById('Matchup-Tab')
 const looksSlideEl = document.getElementById("Looks-Tab")
 
 // TODO: function used by 2 pages, write in one place and export (DRY)
@@ -58,6 +58,8 @@ async function load() {
     renderLooksSlide(data['color_average'])
     renderGenerationSlide(data['gen_average'])
     renderTypingSlide(data['dual_type_average'], data['single_type_average'], data['typing_average'])
+    renderMatchupSlide(data['matchup_data'])
+    renderStatSlide(data['stats_data'])
     document.getElementById('start-tab').click()
 }
 
@@ -294,3 +296,64 @@ function renderTypingSlide(dualTypes, singleTypes, typeAverages) {
 
 }
 
+function renderMatchupSlide(data) {
+    var titleRowEl = document.getElementById("Matchup-Tab-Header-Row")
+    var tableBody = document.getElementById("Matchup-Table")
+    var cell
+
+    // Build header
+    for (var type of Object.keys(data[0])) {
+        cell = document.createElement('th')
+        cell.textContent = type
+        titleRowEl.appendChild(cell)
+    }
+    tableBody.appendChild(titleRowEl)
+
+    var row
+    for (var grade in data) {
+        row = document.createElement('tr')
+        tableBody.appendChild(row)
+
+        // Grade column
+        cell = document.createElement('td')
+        cell.textContent = Number(grade) + 1
+        row.appendChild(cell)
+
+        for (var matchup in data[grade]) {
+            cell = document.createElement('td')
+            cell.textContent = data[grade][matchup]
+            row.appendChild(cell)
+        }
+    }
+}
+
+function renderStatSlide(data) {
+    var titleRowEl = document.getElementById("Stat-Tab-Header-Row")
+    var tableBody = document.getElementById("Stat-Table")
+    var cell
+
+    // Build header
+    for (var type of Object.keys(data[0])) {
+        cell = document.createElement('th')
+        cell.textContent = type
+        titleRowEl.appendChild(cell)
+    }
+    tableBody.appendChild(titleRowEl)
+
+    var row
+    for (var grade in data) {
+        row = document.createElement('tr')
+        tableBody.appendChild(row)
+
+        // Grade column
+        cell = document.createElement('td')
+        cell.textContent = Number(grade) + 1
+        row.appendChild(cell)
+
+        for (var matchup in data[grade]) {
+            cell = document.createElement('td')
+            cell.textContent = data[grade][matchup]
+            row.appendChild(cell)
+        }
+    }
+}
