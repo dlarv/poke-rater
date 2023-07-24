@@ -3,12 +3,12 @@ import json
 #pylint: disable=W1514
 
 def generate_gen_test(pokemon):
-    '''Grade = 0-8 based on pokemon.gen_no'''
-    return str(pokemon['gen_no'] - 1)
+    '''Grade = 1-9 based on pokemon.gen_no'''
+    return str(pokemon['gen_no'])
 
 def generate_typing_test(pokemon, results):
     '''
-        Grade = 0-17 based on pokemon.typing
+        Grade = 1-18 based on pokemon.typing
         Dual types default to first type listed
     '''
     scores = [
@@ -27,24 +27,24 @@ def generate_typing_test(pokemon, results):
 
 
 
-    return str(grade)
+    return str(grade + 1)
 
 def generate_num_types_test(pokemon):
-    '''Return 0|1 for single|dual'''
-    return str(len(pokemon['typing']) - 1)
+    '''Return 1|2 for single|dual'''
+    return str(len(pokemon['typing']))
 
 def generate_color_test(pokemon):
-    '''Return 0-9 based on color (alphabetized)'''
+    '''Return 1-10 based on color (alphabetized)'''
     colors = [
         'Black', 'Blue', 'Brown', 'Gray', 'Green', 'Pink', 'Purple', 'Red', 
         'White', 'Yellow'
     ]
-    return str(colors.index(pokemon['color']))
+    return str(colors.index(pokemon['color']) + 1)
 
 def generate_top_test(pokemon):
     '''
-    All grass baby starters and box legends = perfect(2)
-    All fire max starters and psuedo = worst(0)
+    All grass baby starters and box legends = perfect(3)
+    All fire max starters and psuedo = worst(1)
     '''
     perfects = (
         'Bulbasaur', 'Chickorita', 'Suicune',  'Treecko', 'Rayquaza', 'Turtwig', 
@@ -55,10 +55,10 @@ def generate_top_test(pokemon):
         'Salamence', 'Infernape', 'Garchomp'
     )
     if pokemon['name'] in perfects:
-        return '2'
+        return '3'
     if pokemon['name'] in worst:
-        return '0'
-    return '1'
+        return '1'
+    return '2'
 
 def generate_matchup_test(pokemon):
     '''
@@ -69,12 +69,12 @@ def generate_matchup_test(pokemon):
     '''
     typing = pokemon['typing']
     if typing == ['Normal']:
-        return '3'
+        return '4'
     if typing == ['Ghost']:
-        return '2'
+        return '3'
     if 'Dragon' in typing and ('Grass' in typing or 'Ground' in typing or 'Flying' in typing):
-        return '1'
-    return '0'
+        return '2'
+    return '1'
 
 def generate_stats_test(pokemon, count: list):
     '''
@@ -93,11 +93,11 @@ def generate_stats_test(pokemon, count: list):
 
     if h_atk:
         count[0] += 1
-        return '2'
+        return '3'
     if h_def:
         count[1] += 1
-        return '1'
-    return '0'
+        return '2'
+    return '1'
 
 
 def main():

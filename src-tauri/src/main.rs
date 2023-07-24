@@ -174,7 +174,7 @@ fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
     let mut gen_no: usize;
     for pokemon in list.iter() {
         grade = match pokemon.grade {
-            Some(g) => g as f64,
+            Some(g) => (g - 1) as f64,
             None => continue
         };
 
@@ -499,13 +499,13 @@ mod tests {
 
 
         // All Dragon +(flying|ground|grass) are 1
+        assert_eq!(analysis.matchup_data[1][&PTypes::Dragon], 200.0);
         assert_eq!(analysis.matchup_data[1][&PTypes::Ice], 400.0);
-        assert_eq!(analysis.matchup_data[2][&PTypes::Dragon], 200.0);
     }
-    // #[test]
+    #[test]
     fn test_stats() {
-        let list = load_csv("generation");
-        let analysis = run_analysis(&list, 9);
+        let list = load_csv("stats");
+        let analysis = run_analysis(&list,3);
         
         // att > 150 -> 3
         println!("{}", analysis.stats_data[2][&StatNames::Attack]);
