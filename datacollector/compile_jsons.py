@@ -11,9 +11,11 @@ PATH = f"{os.path.dirname(__file__)}/data"
 # - Runigrigus
 # - Clodsire
 # - Sneasler
+
 # - Charizard: Redotherformsmayhaveothercolors.
 #
 # Farfetchd pic didn't download
+# Pokemon with unique forms did not download pic correctly
 # Some manga/anime appearances are null, must be 0
 
 def single_file():

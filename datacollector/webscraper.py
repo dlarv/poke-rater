@@ -279,9 +279,12 @@ def _parse_matchups(soup):
     '''Parse type matchup data from pdb'''
     matchups = { '0': [], '25': [], '50': [], '200': [], '400': [] }
 
+    # For pokemon with alt forms, only collect basic data for now
+    # class="sv-tabs-panel active"
+    tab = soup.find('div', class_="sv-tabs-panel active")
     # First word e.g. "Normal → Poison/Grass"
     for key, vals in matchups.items():
-        for matchup in soup.find_all('td', f"type-fx-{key}"):
+        for matchup in tab.find_all('td', f"type-fx-{key}"):
             vals.append(matchup['title'].split(' ')[0])
 
     return matchups
@@ -323,7 +326,7 @@ def main():
 
     # Max = 1010
     # Allows log to be filled if program unexpectably stopped
-    skip_to = 0
+    skip_to = 488
     for i in range(1010):
         i += 1
         pokemon = Pokemon(i)
@@ -355,7 +358,7 @@ def main():
             pokemon.manga_count = m_count
 
         # Get type matchups
-        if pokemon.is_value_empty('matchups', force_update):
+        if pokemon.is_value_empty('matchups', True):
             no_update = False
             try:
                 matchups = _parse_matchups(p_soup)
@@ -445,135 +448,5 @@ def main():
         _log(log, pokemon.write_log())
     log.close()
 
-def _main():
-    '''Main method'''
-    log = open('log', 'a', encoding='utf-8')
-    # Max=1010
-    for i in range (1010):
-        i += 1
-
-        # Check if work was already done
-        if os.path.exists(f"./data/{i}.json"):
-            print(f"Work already done, Skipping #{i}")
-            continue
-
-        # Current pokemon obj
-        pkmn = Pokemon(i)
-
-        try:
-            pdb_page = requests.get(get_pdb_url(i), timeout=10)
-            p_soup = BeautifulSoup(pdb_page.content, "html.parser")
-
-            # Get name
-            # inside only <h1>
-            pkmn.name  = p_soup.find('h1').text.strip()
-        except ConnectTimeout:
-            msg = f"ERROR: pokemondb server request has timed out. Number={i}\n"
-            print(msg)
-            log.write(msg)
-            continue
-        except AttributeError:
-            msg = f"ERROR: Could not find element. Did not get name for: Number={i}\n"
-            print(msg)
-            log.write(msg)
-            continue
-        
-        log.write(f"LOG: Starting {pkmn.name} #{i}\n")
-
-        # Get color from bulbapedia
-        try:
-            bdb_page = requests.get(get_bdb_url(pkmn.name), timeout=10)
-            b_soup = BeautifulSoup(bdb_page.content, "html.parser")
-            # Parent inside td b a(title=List of Pokémon by color)
-
-            title = b_soup.find('a', title='List of Pokémon by color')
-            parent = title.parent.parent.parent
-            color = parent.find_all('td')[1].text.strip()
-            pkmn.color = color
-        except ConnectTimeout:
-            msg = f"WARN: bulbapedia server request has timed out. Did not get color for: Number={i}, Name={pkmn.name}\n"
-            print(msg)
-            log.write(msg)
-            pkmn.color = None
-        except AttributeError:
-            msg = f"WARN: Did not get color for: Number={i}, Name={pkmn.name}\n"
-            print(msg)
-            log.write(msg)
-            pkmn.color = None
-
-        try:
-            # Get first <p> element from pdb
-            # Contains gen#, type
-            first_para = p_soup.find('p')
-
-            # Get gen#
-            # Inside <first_para> abbr
-            gen_no = p_soup.find('abbr').text.strip()
-            gen_no = int("".join([digit for digit in gen_no if digit.isdigit()]))
-            pkmn.gen_no = gen_no
-
-            # Get Type
-            # inside <first_para> a.itype
-            typing = first_para.find_all('a', class_='itype')
-
-            # Check if dual type
-            if len(typing) > 1:
-                typing = (typing[0].text.strip(), typing[1].text.strip())
-            else:
-                typing = (typing[0].text.strip(), )
-
-            pkmn.typing = typing
-        except (AttributeError, ValueError):
-            msg = f"WARN: Did not get type for: Number={i}, Name={pkmn.name}\n"
-            print(msg)
-            log.write(msg)
-            pkmn.typing = None
-
-
-        try:
-            # Get evolutions
-            # inside div.infocard-list-evo
-            # if dne, pokemon doesn't evolve
-            evo_list = p_soup.find('div', class_='infocard-list-evo')
-
-            # Check if no evos
-            if evo_list is None:
-                pkmn.related = None
-            else:
-                evos = evo_list.find_all('div', class_='infocard')
-                for evo in evos:
-                    data_card = evo.find('span', class_='infocard-lg-data')
-                    num = data_card.find('small').text.replace('#', '').strip()
-                    pkmn.related.append(int(num))
-        except Exception as e:
-            msg = f"WARN: {e}. Did not get evolutions for: Number={i}, Name={pkmn.name}\n"
-            print(msg)
-            log.write(msg)
-            pkmn.related = None
-            
-        # Get official artwork
-        try:
-            pkmn.pic = download_pic(pkmn.name, i)
-        except ConnectTimeout:
-            msg = f"WARN: pokemondb server request has timed out. Did not download pic for: Number={i}, Name={pkmn.name}\n"
-            print(msg)
-            log.write(msg)
-            pkmn.pic = None
-
-        if pkmn.pic is None:
-            msg = f"Could not get pic for: Number={i}, Name={pkmn.name}\n"
-            print(msg)
-            log.write(msg)
-
-        try:
-            pkmn.serialize()
-        except Exception:
-            msg = f"Could not save json for: Number={i}, Name={pkmn.name}\n"
-            print(msg)
-            log.write(msg)
-
-        log.write(f"LOG: Finished {pkmn.name} #{i}\n")
-
-    log.close()
 if __name__ == '__main__':
     main()
