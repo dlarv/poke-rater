@@ -89,12 +89,12 @@ fn get_gradebook_csv(state: State<List>, slide_index: usize) -> String {
 fn parse_csv_file(state: State<List>, csv: String) -> usize {
     /*!
      * Takes csv, where items are grades in dex order.
-     * Item with '|' char is starting number.
+     * Item with "|" char is starting number.
      * Return that number or 0
      */
     const CURSOR: char = '|';
     let mut list = state.0.lock().unwrap();
-    let grades = csv.split(',');
+    let grades = csv.split(",");
     let mut start_pos: usize = 0;
 
     for grade in grades.enumerate() {
@@ -134,7 +134,6 @@ fn analyze(state: State<List>, num_grades: i32) -> AnalysisOutput {
      * 
      * ----------Unimplemented in .json----------
      * Number of evolutions: avg-#evo/grade
-     * 
      * Number of forms: avg-#forms/grade
      */
     let list = state.0.lock().unwrap();
@@ -175,7 +174,7 @@ fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
     let mut gen_no: usize;
     for pokemon in list.iter() {
         grade = match pokemon.grade {
-            Some(g) => (g - 1) as f64,
+            Some(g) => g as f64,
             None => continue
         };
 
@@ -210,7 +209,7 @@ fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
             dual_type_total += grade;
             dual_type_count += 1.0;
         } 
-        println!("{} {}", pokemon.name, pokemon.dex_no);
+        // println!("{} {}", pokemon.name, pokemon.dex_no);
 
         // avg-#manga/grade
         manga_totals[grade as usize] += pokemon.manga_count as f64;
@@ -317,12 +316,7 @@ mod tests {
 
     const PATH_ROOT: &str = "test-csvs";
     const JSON_PATH: &str = "test-csvs/slides.json";
-    
-    /*
-     * 1. Basic 'values-make sense'
-     * 2. CSV.len() < Pokemon Total
-     * 3. CSV.len() > Pokemon Total
-     */
+
 
     fn load_pokemon_json() -> Vec<Pokemon> {
         let file = fs::read_to_string(JSON_PATH).expect("Could not open slides.json");
@@ -352,7 +346,7 @@ mod tests {
 
         let csv = file.split("\n").last().expect("Could not split newlines").to_string();
 
-        let grades = csv.split(',');
+        let grades = csv.split(",");
         
         for grade in grades.enumerate() {
             if grade.0 == POKEMON_COUNT {
@@ -364,10 +358,162 @@ mod tests {
     }
 
     #[test]
-    fn test_is_reasonable_vals() {
-        let list = load_csv("reasonable");
-        let analysis = run_analysis(&list, 18);
+    fn test_generation_avg() {
+        let list = load_csv("generation");
+        let analysis = run_analysis(&list, 9);
+        assert_eq!(analysis.gen_average[0], 0.0);
         assert_eq!(analysis.gen_average[1], 1.0);
+        assert_eq!(analysis.gen_average[2], 2.0);
+        assert_eq!(analysis.gen_average[3], 3.0);
+        assert_eq!(analysis.gen_average[4], 4.0);
+        assert_eq!(analysis.gen_average[5], 5.0);
+        assert_eq!(analysis.gen_average[6], 6.0);
+        assert_eq!(analysis.gen_average[7], 7.0);
+        assert_eq!(analysis.gen_average[8], 8.0);
     }
 
+    #[test]
+    fn test_typing_avg() {
+        let list = load_csv("typing");
+        let analysis = run_analysis(&list, 18);
+        for avg in analysis.typing_average {
+            match avg.0 {
+                PTypes::Normal => 
+                    assert_eq!(avg.1, 0.5846153846153846),
+                PTypes::Grass => 
+                    assert_eq!(avg.1, 2.7049180327868854),
+                PTypes::Water => 
+                    assert_eq!(avg.1, 2.9285714285714284),
+                PTypes::Fire => 
+                    assert_eq!(avg.1, 4.5375),
+                PTypes::Electric => 
+                    assert_eq!(avg.1, 4.705882352941177),
+                PTypes::Fighting => 
+                    assert_eq!(avg.1, 5.819444444444445),
+                PTypes::Flying => 
+                    assert_eq!(avg.1, 6.302752293577981),
+                PTypes::Poison =>   
+                    assert_eq!(avg.1, 7.0),
+                PTypes::Ground => 
+                    assert_eq!(avg.1, 7.8133333333333335),
+                PTypes::Psychic => 
+                    assert_eq!(avg.1, 8.535353535353535),
+                PTypes::Rock => 
+                    assert_eq!(avg.1, 9.63013698630137),
+                PTypes::Ice => 
+                    assert_eq!(avg.1, 9.9375),
+                PTypes::Bug => 
+                    assert_eq!(avg.1, 11.467391304347826),
+                PTypes::Dragon =>
+                    assert_eq!(avg.1, 10.507692307692308),
+                PTypes::Ghost => 
+                    assert_eq!(avg.1, 11.370967741935484),
+                PTypes::Dark => 
+                    assert_eq!(avg.1, 11.666666666666666),
+                PTypes::Steel => 
+                    assert_eq!(avg.1, 12.698412698412698),
+                PTypes::Fairy => 
+                    assert_eq!(avg.1, 11.777777777777779)
+            }
+        }
+    }
+
+    #[test]
+    fn test_numtypes_avg() {
+        let list = load_csv("numtypes");
+        let analysis = run_analysis(&list, 2);
+        assert_eq!(analysis.dual_type_average, 1.0);
+        assert_eq!(analysis.single_type_average, 0.0);
+    }
+
+    #[test]
+    fn test_color_avg() {
+        let list = load_csv("color");
+        let analysis = run_analysis(&list, 18);
+        for color in analysis.color_average {
+            match color.0 {
+                PColors::White => 
+                    assert_eq!(color.1, 8.0),
+                PColors::Black => 
+                    assert_eq!(color.1, 0.0),
+                PColors::Gray => 
+                    assert_eq!(color.1, 3.0),
+                PColors::Blue => 
+                    assert_eq!(color.1, 1.0),
+                PColors::Red => 
+                    assert_eq!(color.1, 7.0),
+                PColors::Green => 
+                    assert_eq!(color.1, 4.0),
+                PColors::Pink => 
+                    assert_eq!(color.1, 5.0),
+                PColors::Purple => 
+                    assert_eq!(color.1, 6.0),
+                PColors::Brown => 
+                    assert_eq!(color.1, 2.0),
+                PColors::Yellow => 
+                    assert_eq!(color.1, 9.0),
+            }
+        }
+    }
+
+    #[test]
+    fn test_best_worst() {
+        let list = load_csv("best_worst");
+        let analysis = run_analysis(&list, 3);
+        let perfect_scores = ["Bulbasaur", "Chickorita", "Suicune","Treecko","Rayquaza", "Turtwig","Giratina"];
+        let worst_scores = ["Charizard", "Dragonite", "Typhlosion","Tyranitar", "Blaziken", "Metagross","Salamence", "Infernape", "Garchomp"];
+
+        for perfect in analysis.perfect_scores {
+            assert!(perfect_scores.contains(&perfect.as_str()));
+        } 
+        for worst in analysis.worst_scores {
+            assert!(worst_scores.contains(&worst.as_str()));
+        }
+    }
+
+    #[test]
+    fn test_appearances() {
+        // Each gen inc(0 -> 9)
+        let list = load_csv("generation");
+        let analysis = run_analysis(&list, 9);
+        // avg appearances per gen
+        let anime_count = [36.76158940397351, 22.07, 15.451851851851853, 10.299065420560748, 10.833333333333334, 7.833333333333333, 4.829545454545454, 2.8541666666666665, 0.26666666666666666];
+        
+        for avg in zip(analysis.anime_average, anime_count) {
+            assert_eq!(avg.0, avg.1);
+        }
+    }
+    #[test]
+    fn test_matchups() {
+        let list = load_csv("matchups");
+        let analysis = run_analysis(&list, 4);
+
+        println!("{:?}", analysis.matchup_data[2]);
+        // All pure ghost types are 2
+        assert_eq!(analysis.matchup_data[2][&PTypes::Normal], 0.0);
+        assert_eq!(analysis.matchup_data[2][&PTypes::Ghost], 200.0);
+        
+        // All pure normal types are 3
+        assert_eq!(analysis.matchup_data[3][&PTypes::Fighting], 200.0);
+        assert_eq!(analysis.matchup_data[3][&PTypes::Ghost], 0.0);
+
+
+        // All Dragon +(flying|ground|grass) are 1
+        assert_eq!(analysis.matchup_data[1][&PTypes::Ice], 400.0);
+        assert_eq!(analysis.matchup_data[2][&PTypes::Dragon], 200.0);
+    }
+    // #[test]
+    fn test_stats() {
+        let list = load_csv("generation");
+        let analysis = run_analysis(&list, 9);
+        
+        // att > 150 -> 3
+        println!("{}", analysis.stats_data[2][&StatNames::Attack]);
+        assert!(analysis.stats_data[2][&StatNames::Attack] >= 150.0);
+        // def > 150 -> 2
+        assert!(analysis.stats_data[1][&StatNames::Defense] >= 150.0);
+
+        assert!(analysis.stats_data[0][&StatNames::Attack] < 150.0);
+        
+    }
 }
