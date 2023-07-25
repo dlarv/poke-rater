@@ -63,8 +63,9 @@ maxGradeEl.addEventListener('change', (event) => {
 function init() {
     fileNameEl.value = 'default'
     maxGradeEl.value = 5
-    window.localStorage.removeItem('gradeLabels')
-
+    // window.localStorage.removeItem('gradeLabels')
+    // window.localStorage.removeItem('gradeLabels')
+    window.localStorage.clear()
     for (var label of Array(5).keys()) {
         addGradeLabel(label + 1)
     }

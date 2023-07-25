@@ -63,11 +63,17 @@ impl<T: Clone + Hash + Eq + Serialize> AvgValuePerGrade<T> {
     }
 
     pub fn get_result(&mut self) -> Vec<HashMap<T, f64>> {
+        // json omits neutral resistances (100%)
+        // All counts (AvgValue[key].1) should == self.grades.len()
+        // The difference between count and len is number of neutral resist
         let mut output: Vec<HashMap<T, f64>> = Vec::new();
         let mut average:HashMap<T, f64>;
+        // # of pokemon with this grade
+        let mut pokemon_count: usize;
+        
         for grade in &self.grades {
             average = HashMap::new();
-            
+
             for val in &grade.0 {
                 average.insert(val.0.clone(), val.1.0 as f64 / val.1.1 as f64);
             }

@@ -103,9 +103,14 @@ function openTab(event, id) {
 
 async function load() {
   var data = await fetch('./slides.json')
-  data = await data.json()
-  slides = await invoke('init_list', { slides: data })
+    .then(data => data.json())
 
+  // data = await data.json()
+  slides = await invoke('init_list', { slides: data })
+  init()
+}
+
+async function init() {
   maxSlide = Object.keys(slides).length
 
   // Local data
@@ -145,7 +150,8 @@ async function load() {
 // Get csv of grades in dex order
 async function read(fileName) {
   console.log(`Reading ${fileName}.csv`)
-  var contents = await readTextFile(`${fileName}.csv`, { dir: BaseDirectory.AppLocalData })
+  
+  var contents = await readTextFile(`${fileName}.csv`, { dir: BaseDirectory.AppLocalData }).then((text) => text)
   contents = contents.split('\n')
 
   window.localStorage.setItem('fileName', fileName)

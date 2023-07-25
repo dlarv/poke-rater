@@ -56,6 +56,10 @@ def clean_data(pokemon: dict):
                 print(f"WARNING: {pokemon['name']} ({pokemon['dex_no']}): {item} in {key} is None. Setting to 0")
                 pokemon[key][item] = 0
 
+    # Remove duplicate types from matchups
+    for grade in pokemon['matchups']:
+        grade = [*set(grade)]
+
     return pokemon
 
 def compile_slides():

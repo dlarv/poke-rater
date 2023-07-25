@@ -5,7 +5,7 @@ pub mod data;
 
 use pokemon::*;
 use data::*;
-use std::{sync::Mutex, iter::zip, collections::HashMap, hash::Hash};
+use std::{sync::Mutex, iter::zip, collections::HashMap, hash::Hash, fs};
 use tauri::{State, Manager};
 use strum::IntoEnumIterator;
 
@@ -84,7 +84,6 @@ fn get_gradebook_csv(state: State<List>, slide_index: usize) -> String {
     return output.join(",");
 }
 
-
 #[tauri::command]
 fn parse_csv_file(state: State<List>, csv: String) -> usize {
     /*!
@@ -112,7 +111,6 @@ fn parse_csv_file(state: State<List>, csv: String) -> usize {
     }
     return start_pos;
 }
-
 
 #[tauri::command]
 fn analyze(state: State<List>, num_grades: i32) -> AnalysisOutput {
@@ -169,6 +167,9 @@ fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
     // vec of hashmaps where key = StatName|PType, value = (total, count)
     let mut stats_data: AvgValuePerGrade<StatNames> = AvgValuePerGrade::new(num_grades as usize);
     let mut matchup_data: AvgValuePerGrade<PTypes> = AvgValuePerGrade::new(num_grades as usize);
+    // json data omits neutral matchups. 
+    // All types not included in pokemon.matchup must add 100
+    let mut typing_list: Vec<PTypes>;
 
     let mut grade; 
     let mut gen_no: usize;
@@ -234,12 +235,24 @@ fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
         }
 
         // avg-matchup/type/grade
+        if grade == 5.0 {
+            println!("{}: {:?}", pokemon.name, pokemon.matchups)
+        }
+        typing_list = PTypes::iter().collect();
         for matchup in &pokemon.matchups {
             for typing in matchup.1 {
                 matchup_data.add_value(grade as usize, *typing, *matchup.0 as f64);
+
+                
+                typing_list.remove(typing_list.iter().position(|x| x == typing).unwrap());
             }
         }
+        // Add neutral matchups
+        for matchup in typing_list {
+            matchup_data.add_value(grade as usize, matchup, 100.0);
+        }
     }
+    println!("{:#?}", matchup_data.grades[5]);
     // Calculate and Sort outputs
     let mut typing_output: Vec<(PTypes, f64)> = typing_data.into_iter().map(|x| (x.0, x.1.0 / x.1.1)).collect();
     typing_output.sort_by(|x, y| y.1.partial_cmp(&x.1).unwrap());
@@ -496,7 +509,6 @@ mod tests {
         // All pure normal types are 3
         assert_eq!(analysis.matchup_data[3][&PTypes::Fighting], 200.0);
         assert_eq!(analysis.matchup_data[3][&PTypes::Ghost], 0.0);
-
 
         // All Dragon +(flying|ground|grass) are 1
         assert_eq!(analysis.matchup_data[1][&PTypes::Dragon], 200.0);

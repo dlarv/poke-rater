@@ -48,7 +48,6 @@ async function load() {
         alert('Please load a gradebook')
         window.location.replace('index.html')
     }
-    console.log(grades, grades)
     var data = await invoke('analyze', { numGrades: Number(grades)})
     saveDataToJson(data)
 

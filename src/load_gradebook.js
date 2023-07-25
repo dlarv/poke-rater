@@ -12,6 +12,8 @@ async function openGradingPage() {
 }
 
 async function listCsvFiles() {
+    window.localStorage.clear()
+
     let files = await readDir('', { dir: BaseDirectory.AppLocalData })
     let csvFiles = []
     var el
