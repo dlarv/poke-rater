@@ -22,6 +22,7 @@ Iter 1-1010 (pdb)
 """
 import json
 import os
+import re
 import requests
 from requests.exceptions import ConnectTimeout
 from bs4 import BeautifulSoup
@@ -281,11 +282,12 @@ def _parse_matchups(soup):
 
     # For pokemon with alt forms, only collect basic data for now
     # class="sv-tabs-panel active"
-    tab = soup.find('div', class_="sv-tabs-panel active")
+    tabs = soup.find_all('table', class_="type-table type-table-pokedex", limit=2)
     # First word e.g. "Normal → Poison/Grass"
     for key, vals in matchups.items():
-        for matchup in tab.find_all('td', f"type-fx-{key}"):
-            vals.append(matchup['title'].split(' ')[0])
+        for tab in tabs:
+            for matchup in tab.find_all('td', f"type-fx-{key}"):
+                vals.append(matchup['title'].split(' ')[0])
 
     return matchups
 
@@ -326,7 +328,7 @@ def main():
 
     # Max = 1010
     # Allows log to be filled if program unexpectably stopped
-    skip_to = 488
+    skip_to = 0
     for i in range(1010):
         i += 1
         pokemon = Pokemon(i)
