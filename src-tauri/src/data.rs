@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, fmt::format};
 use std::hash::Hash;
 use serde::{Deserialize, Serialize};
 use strum_macros::EnumIter;
@@ -62,21 +62,40 @@ impl<T: Clone + Hash + Eq + Serialize> AvgValuePerGrade<T> {
         };
     }
 
-    pub fn get_result(&mut self) -> Vec<HashMap<T, f64>> {
-        // json omits neutral resistances (100%)
-        // All counts (AvgValue[key].1) should == self.grades.len()
-        // The difference between count and len is number of neutral resist
-        let mut output: Vec<HashMap<T, f64>> = Vec::new();
-        let mut average:HashMap<T, f64>;
-        // # of pokemon with this grade
-        let mut pokemon_count: usize;
-        
-        for grade in &self.grades {
+    pub fn get_result(&mut self) -> Vec<HashMap<T, String>> {
+        let mut output: Vec<HashMap<T, String>> = Vec::new();
+        let mut average:HashMap<T, String>;
+        let mut value: f64; 
+        let mut s_value: String;
+
+        let mut curr_min: f64;
+        let mut curr_max: f64;
+        for grade in &mut self.grades {
             average = HashMap::new();
+            curr_min = -1.0;
+            curr_max = 0.0;
 
             for val in &grade.0 {
-                average.insert(val.0.clone(), val.1.0 as f64 / val.1.1 as f64);
+                value = val.1.0 as f64 / val.1.1 as f64;
+
+                if curr_min == -1.0 || curr_min > value {
+                    curr_min = value;
+                }
+                if curr_max <= value {
+                    curr_max = value;
+                }
+
+                average.insert(val.0.clone(), value.to_string());
             }
+
+            // Mark the min and max values with a - or +
+            // Used by frontend to color these numbers
+            average = average.iter()
+                .map(|x| if *x.1 == curr_min.to_string() {
+                    (x.0.clone(), format!("-{}", x.1))} else { (x.0.clone(), x.1.clone()) })
+                .map(|x| if x.1 == curr_max.to_string() {
+                    (x.0.clone(), format!("+{}", x.1))} else { (x.0.clone(), x.1) })
+                .collect::<HashMap<T, String>>();
 
             output.push(average);
         }
@@ -95,9 +114,9 @@ pub struct AnalysisOutput {
     pub color_average: Vec<(PColors, f64)>,
     pub dual_type_average: f64,
     pub single_type_average: f64,
-    pub manga_average: Vec<f64>,
-    pub anime_average: Vec<f64>,
+    pub manga_average: Vec<String>,
+    pub anime_average: Vec<String>,
 
-    pub stats_data: Vec<HashMap<StatNames, f64>>,
-    pub matchup_data: Vec<HashMap<PTypes, f64>>,
+    pub stats_data: Vec<HashMap<StatNames, String>>,
+    pub matchup_data: Vec<HashMap<PTypes, String>>,
 }

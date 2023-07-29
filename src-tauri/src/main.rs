@@ -242,8 +242,6 @@ fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
         for matchup in &pokemon.matchups {
             for typing in matchup.1 {
                 matchup_data.add_value(grade as usize, *typing, *matchup.0 as f64);
-
-                
                 typing_list.remove(typing_list.iter().position(|x| x == typing).unwrap());
             }
         }
@@ -252,13 +250,24 @@ fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
             matchup_data.add_value(grade as usize, matchup, 100.0);
         }
     }
-    println!("{:#?}", matchup_data.grades[5]);
+    // println!("{:#?}", matchup_data.grades[5]);
     // Calculate and Sort outputs
     let mut typing_output: Vec<(PTypes, f64)> = typing_data.into_iter().map(|x| (x.0, x.1.0 / x.1.1)).collect();
     typing_output.sort_by(|x, y| y.1.partial_cmp(&x.1).unwrap());
 
     let mut color_output: Vec<(PColors, f64)> = color_data.into_iter().map(|x| (x.0, x.1.0 / x.1.1)).collect();
     color_output.sort_by(|x, y| y.1.partial_cmp(&x.1).unwrap());
+
+    // Add +/- to manga/anime counts
+    let manga_average: Vec<f64> = zip(manga_totals, manga_count).map(|x| x.0 / x.1).collect();
+    let manga_max_count = manga_average.iter().max_by(|x,y| x.total_cmp(y)).unwrap_or(&-1.0);
+    let manga_min_count = manga_average.iter().min_by(|x,y| x.total_cmp(y)).unwrap_or(&-1.0);
+
+    let anime_average: Vec<f64> = zip(anime_totals, anime_count).map(|x| x.0 / x.1).collect();
+    let anime_max_count = anime_average.iter().max_by(|x,y| x.total_cmp(y)).unwrap_or(&-1.0);
+    let anime_min_count = anime_average.iter().min_by(|x,y| x.total_cmp(y)).unwrap_or(&-1.0);
+
+    let check_max_min = |x: &f64, max, min| if x == max { format!("+{}", x) } else if x == min { format!("-{}", x) } else { x.to_string() }; 
 
     return AnalysisOutput {
         perfect_scores,
@@ -268,8 +277,12 @@ fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
         color_average: color_output,
         dual_type_average: dual_type_total / dual_type_count,
         single_type_average: single_type_total / single_type_count,
-        manga_average: zip(manga_totals, manga_count).map(|x| x.0 / x.1).collect(),
-        anime_average: zip(anime_totals, anime_count).map(|x| x.0 / x.1).collect(),
+        manga_average: manga_average.iter()
+            .map(|x| check_max_min(x, manga_max_count, manga_min_count))
+            .collect(),
+        anime_average: anime_average.iter()
+            .map(|x| check_max_min(x, anime_max_count, anime_min_count))
+            .collect(),
         stats_data: stats_data.get_result(),
         matchup_data: matchup_data.get_result(),
     };
@@ -493,7 +506,7 @@ mod tests {
         let anime_count = [36.76158940397351, 22.07, 15.451851851851853, 10.299065420560748, 10.833333333333334, 7.833333333333333, 4.829545454545454, 2.8541666666666665, 0.26666666666666666];
         
         for avg in zip(analysis.anime_average, anime_count) {
-            assert_eq!(avg.0, avg.1);
+            assert_eq!(avg.0.replace('+', "").replace('-', ""), avg.1.to_string());
         }
     }
     #[test]
@@ -503,16 +516,16 @@ mod tests {
 
         println!("{:?}", analysis.matchup_data[2]);
         // All pure ghost types are 2
-        assert_eq!(analysis.matchup_data[2][&PTypes::Normal], 0.0);
-        assert_eq!(analysis.matchup_data[2][&PTypes::Ghost], 200.0);
+        assert_eq!(analysis.matchup_data[2][&PTypes::Normal], "-0");
+        assert_eq!(analysis.matchup_data[2][&PTypes::Ghost], "+200");
         
         // All pure normal types are 3
-        assert_eq!(analysis.matchup_data[3][&PTypes::Fighting], 200.0);
-        assert_eq!(analysis.matchup_data[3][&PTypes::Ghost], 0.0);
+        assert_eq!(analysis.matchup_data[3][&PTypes::Fighting], "+200");
+        assert_eq!(analysis.matchup_data[3][&PTypes::Ghost], "-0");
 
         // All Dragon +(flying|ground|grass) are 1
-        assert_eq!(analysis.matchup_data[1][&PTypes::Dragon], 200.0);
-        assert_eq!(analysis.matchup_data[1][&PTypes::Ice], 400.0);
+        assert_eq!(analysis.matchup_data[1][&PTypes::Dragon], "200");
+        assert_eq!(analysis.matchup_data[1][&PTypes::Ice], "+400");
     }
     #[test]
     fn test_stats() {
@@ -521,11 +534,11 @@ mod tests {
         
         // att > 150 -> 3
         println!("{}", analysis.stats_data[2][&StatNames::Attack]);
-        assert!(analysis.stats_data[2][&StatNames::Attack] >= 150.0);
+        assert!(analysis.stats_data[2][&StatNames::Attack].parse::<f64>().unwrap() >= 150.0);
         // def > 150 -> 2
-        assert!(analysis.stats_data[1][&StatNames::Defense] >= 150.0);
+        assert!(analysis.stats_data[1][&StatNames::Defense].parse::<f64>().unwrap() >= 150.0);
 
-        assert!(analysis.stats_data[0][&StatNames::Attack] < 150.0);
+        assert!(analysis.stats_data[0][&StatNames::Attack].parse::<f64>().unwrap() < 150.0);
         
     }
 }
