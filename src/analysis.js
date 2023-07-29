@@ -19,7 +19,7 @@ const generationSlideEl = document.getElementById('Generation-Tab');
 const typingSlideEl = document.getElementById('Typing-Tab');
 const matchupSlideEl = document.getElementById('Matchup-Tab')
 const looksSlideEl = document.getElementById("Looks-Tab")
-
+let gradeLabels
 // TODO: function used by 2 pages, write in one place and export (DRY)
 function openTab(event, id) {
     // Declare all variables
@@ -44,6 +44,7 @@ function openTab(event, id) {
 
 async function load() {
     var grades = window.localStorage.getItem('maxGrade')
+    gradeLabels = window.localStorage['gradeLabels'].split(',')
     if (!grades) {
         alert('Please load a gradebook')
         window.location.replace('index.html')
@@ -75,6 +76,8 @@ function convertNumToFloats(data) {
     return data
 }
 
+
+
 async function saveDataToJson(data) {
     var fileName = window.localStorage.getItem('fileName')
 
@@ -89,19 +92,19 @@ async function saveDataToJson(data) {
 function renderMediaSlide(animeCount, mangaCount) {
     // Anime / Manga: avg-#appearances / grade  
     // Color: avg-grade / color
-    var gradeLabels = window.localStorage['gradeLabels'].split(',')
     var tableEl = document.getElementById('Media-Table')
+    // animeCount = animeCount.map((x) => {if (x === null) { return 0;} else { return Number(x)}})
+    var maxAnimeVal = parseInt(Math.max(...animeCount.filter(x => x !== null)) * 100)
+    var minAnimeVal = parseInt(Math.min(...animeCount.filter(x => x !== null)) * 100)
+    var maxMangaVal = parseInt(Math.max(...mangaCount.filter(x => x !== null)) * 100)
+    var minMangaVal = parseInt(Math.min(...mangaCount.filter(x => x !== null)) * 100)
+
 
     var rowEl
     var itemEl
-    var maxAnimeEl 
-    var maxMangaEl 
-    var minAnimeEl 
-    var minMangaEl
-    var maxAnimeVal = 0
-    var maxMangaVal = 0
-    var minAnimeVal = Infinity
-    var minMangaVal = Infinity
+
+
+    var count
     for (var i in gradeLabels) {
         rowEl = document.createElement('tr')
         itemEl = document.createElement('td')
@@ -111,33 +114,28 @@ function renderMediaSlide(animeCount, mangaCount) {
         itemEl = document.createElement('td')
         itemEl.textContent = animeCount[i]
         rowEl.appendChild(itemEl)
-        if (maxAnimeVal < Number(animeCount[i])) {
-            maxAnimeVal = animeCount[i]
-            maxAnimeEl = itemEl
+        count = parseInt(animeCount[i]*100)
+        if (count == maxAnimeVal) {
+            itemEl.setAttribute('style', 'color: #007f00')
         }
-        if (minAnimeVal > Number(animeCount[i])) {
-            minAnimeVal = animeCount[i]
-            minAnimeEl = itemEl
+        if (count == minAnimeVal) {
+            itemEl.setAttribute('style', 'color: #7f0000')
         }
+
 
         itemEl = document.createElement('td')
         itemEl.textContent = mangaCount[i]
         rowEl.appendChild(itemEl)
-        if (maxMangaVal < Number(mangaCount[i])) {
-            maxMangaVal = mangaCount[i]
-            maxMangaEl = itemEl
-        }
-        if (minMangaVal > Number(mangaCount[i])) {
-            minMangaVal = mangaCount[i]
-            minMangaEl = itemEl
-        }
 
+        count = parseInt(mangaCount[i] * 100)
+        if (count == maxMangaVal) {
+            itemEl.setAttribute('style', 'color: #007f00')
+        }
+        if (count == minMangaVal) {
+            itemEl.setAttribute('style', 'color: #7f0000')
+        }
         tableEl.appendChild(rowEl)
     }
-    maxAnimeEl.setAttribute('style', 'color: #007f00')
-    minAnimeEl.setAttribute('style', 'color: #7f0000')
-    maxMangaEl.setAttribute('style', 'color: #007f00')
-    minMangaEl.setAttribute('style', 'color: #7f0000')
 }
 
 function renderPerfectSlide(data) {
@@ -294,7 +292,56 @@ function renderTypingSlide(dualTypes, singleTypes, typeAverages) {
     }
 
 }
+function buildTable(tableEl, data) {
+    // Color max and min value for each column
+    var numColumns = Object.keys(data[0]).length
+    var columnMaxValues = Array.from('0'.repeat(numColumns))
+    var columnMinValues = Array.apply(null, Array(numColumns)).map(function () { return Infinity; })
+    var index = 0
+    for (var grade in data) {
+        index = 0
+        for (var column in data[grade]) {
+            columnMaxValues[index] = Math.max(columnMaxValues[index], data[grade][column])
+            columnMinValues[index] = Math.min(columnMinValues[index], data[grade][column])
+            index += 1
+        }
+    }
 
+    var row
+    var cell
+    var value
+    var left
+    var right
+    for (var grade in data) {
+        row = document.createElement('tr')
+        tableEl.appendChild(row)
+
+        // Grade column
+        cell = document.createElement('td')
+        cell.textContent = Number(grade) + 1
+        row.appendChild(cell)
+        index = 0
+        for (var column in data[grade]) {
+            value = parseFloat(data[grade][column])
+            cell = document.createElement('td')
+            cell.textContent = value
+            row.appendChild(cell)
+
+            left = parseInt(value * 100)
+            right = parseInt(columnMaxValues[index] * 100)
+            if (left === right) {
+                cell.setAttribute('style', 'color: #007f00;')
+            }
+            right = parseInt(columnMinValues[index] * 100)
+            if (left === right) {
+                cell.setAttribute('style', 'color: #7f0000;')
+            }
+            index += 1
+        }
+    }
+
+
+}
 function renderMatchupSlide(data) {
     var titleRowEl = document.getElementById("Matchup-Tab-Header-Row")
     var tableBody = document.getElementById("Matchup-Table")
@@ -307,23 +354,25 @@ function renderMatchupSlide(data) {
         titleRowEl.appendChild(cell)
     }
     tableBody.appendChild(titleRowEl)
+    
+    buildTable(tableBody, data)
 
-    var row
-    for (var grade in data) {
-        row = document.createElement('tr')
-        tableBody.appendChild(row)
+    // var row
+    // for (var grade in data) {
+    //     row = document.createElement('tr')
+    //     tableBody.appendChild(row)
 
-        // Grade column
-        cell = document.createElement('td')
-        cell.textContent = Number(grade) + 1
-        row.appendChild(cell)
+    //     // Grade column
+    //     cell = document.createElement('td')
+    //     cell.textContent = Number(grade) + 1
+    //     row.appendChild(cell)
 
-        for (var matchup in data[grade]) {
-            cell = document.createElement('td')
-            cell.textContent = data[grade][matchup]
-            row.appendChild(cell)
-        }
-    }
+    //     for (var matchup in data[grade]) {
+    //         cell = document.createElement('td')
+    //         cell.textContent = data[grade][matchup]
+    //         row.appendChild(cell)
+    //     }
+    // }
 }
 
 function renderStatSlide(data) {
@@ -339,20 +388,21 @@ function renderStatSlide(data) {
     }
     tableBody.appendChild(titleRowEl)
 
-    var row
-    for (var grade in data) {
-        row = document.createElement('tr')
-        tableBody.appendChild(row)
+    buildTable(tableBody, data)
+    // var row
+    // for (var grade in data) {
+    //     row = document.createElement('tr')
+    //     tableBody.appendChild(row)
 
-        // Grade column
-        cell = document.createElement('td')
-        cell.textContent = Number(grade) + 1
-        row.appendChild(cell)
+    //     // Grade column
+    //     cell = document.createElement('td')
+    //     cell.textContent = Number(grade) + 1
+    //     row.appendChild(cell)
 
-        for (var matchup in data[grade]) {
-            cell = document.createElement('td')
-            cell.textContent = data[grade][matchup]
-            row.appendChild(cell)
-        }
-    }
+    //     for (var matchup in data[grade]) {
+    //         cell = document.createElement('td')
+    //         cell.textContent = data[grade][matchup]
+    //         row.appendChild(cell)
+    //     }
+    // }
 }

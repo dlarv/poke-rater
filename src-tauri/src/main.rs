@@ -250,7 +250,6 @@ fn run_analysis(list: &Vec<Pokemon>, num_grades: i32) -> AnalysisOutput {
             matchup_data.add_value(grade as usize, matchup, 100.0);
         }
     }
-    // println!("{:#?}", matchup_data.grades[5]);
     // Calculate and Sort outputs
     let mut typing_output: Vec<(PTypes, f64)> = typing_data.into_iter().map(|x| (x.0, x.1.0 / x.1.1)).collect();
     typing_output.sort_by(|x, y| y.1.partial_cmp(&x.1).unwrap());
