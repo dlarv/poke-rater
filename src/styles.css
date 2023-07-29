@@ -18,6 +18,12 @@ h1 {
     justify-content: center;
     font-size: xx-large;
 }
+h3 {
+    font-size: x-large;
+}
+p {
+    margin: 5px 0;
+}
 
 /* Centered box containing controls */
 .control-box {
@@ -113,6 +119,7 @@ select {
 .slide-controls {
     display: flex;
     justify-content: center;
+    width: 30%;
 }
 .slide-controls button {
     height: 100px;

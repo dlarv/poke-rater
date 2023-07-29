@@ -187,7 +187,7 @@ function renderGradeLabelsDisplay() {
   var display
   for (var label in gradeLabels) {
     display = document.createElement('p')
-    display.textContent = `${label}:  ${gradeLabels[label]}`
+    display.textContent = `${Number(label) + 1}:  ${gradeLabels[label]}`
     gradeLabelsDisplayEl.appendChild(display)
   }
 
