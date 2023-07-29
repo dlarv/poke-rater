@@ -99,10 +99,8 @@ function renderMediaSlide(animeCount, mangaCount) {
     var maxMangaVal = parseInt(Math.max(...mangaCount.filter(x => x !== null)) * 100)
     var minMangaVal = parseInt(Math.min(...mangaCount.filter(x => x !== null)) * 100)
 
-
     var rowEl
     var itemEl
-
 
     var count
     for (var i in gradeLabels) {
@@ -292,8 +290,20 @@ function renderTypingSlide(dualTypes, singleTypes, typeAverages) {
     }
 
 }
-function buildTable(tableEl, data) {
+function buildTable(tableEl, data, invertColors=false) {
     // Color max and min value for each column
+    var minColor
+    var maxColor
+    if (!invertColors) {
+        minColor = '#7f0000'
+        maxColor = '#007f00'
+    }
+    else {
+        
+        maxColor = '#7f0000'
+        minColor = '#007f00'
+    }
+
     var numColumns = Object.keys(data[0]).length
     var columnMaxValues = Array.from('0'.repeat(numColumns))
     var columnMinValues = Array.apply(null, Array(numColumns)).map(function () { return Infinity; })
@@ -330,11 +340,11 @@ function buildTable(tableEl, data) {
             left = parseInt(value * 100)
             right = parseInt(columnMaxValues[index] * 100)
             if (left === right) {
-                cell.setAttribute('style', 'color: #007f00;')
+                cell.setAttribute('style', `color: ${maxColor};`)
             }
             right = parseInt(columnMinValues[index] * 100)
             if (left === right) {
-                cell.setAttribute('style', 'color: #7f0000;')
+                cell.setAttribute('style', `color: ${minColor};`)
             }
             index += 1
         }
@@ -355,7 +365,7 @@ function renderMatchupSlide(data) {
     }
     tableBody.appendChild(titleRowEl)
     
-    buildTable(tableBody, data)
+    buildTable(tableBody, data, true)
 
     // var row
     // for (var grade in data) {
