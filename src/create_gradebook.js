@@ -13,9 +13,10 @@ presetSelectorEl.addEventListener('change', (event) => {
 
     if (preset == 'tierlist') {
         maxGradeEl.value = 6
-         ['F', 'D', 'C', 'B', 'A', 'S'].forEach(label => {
+	for (var label of ['F', 'D', 'C', 'B', 'A', 'S']) {
+
             addGradeLabel(label)
-        })
+        }
     }
     else if (preset == '5') {
         maxGradeEl.value = 5
