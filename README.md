@@ -2,6 +2,7 @@ Comprehensively rate every pokemon (as of Gen 9) and see stats about that data.
 Is it worth the time investment to find out that poison types from Hoenn are your favorite? IDK, its your time really.
 
 # Tutorial
+## Creating a Gradebook
 1. Click 3rd button down ("Start new gradebook")
 2. Choose a name
 3. Changing "Max" determines the number of grades
@@ -9,7 +10,8 @@ Is it worth the time investment to find out that poison types from Hoenn are you
     - Use "Select Presets" to choose common grading schemes
 4. Click the "Start" button
 
-You will be presented with 3 pokemon (probably Bulbasaur and its evos). 
+## Grading 
+**You will be presented with 3 pokemon (probably Bulbasaur and its evos).**
 
 1. Enter a number to autofill each of the 3 with that number
     - The cursor will jump to the next slide button
@@ -18,7 +20,7 @@ You will be presented with 3 pokemon (probably Bulbasaur and its evos).
 3. Hit the "Enter" key to move your cursor to the next slide button (enter again to jump to next slide)
 4. Right and Left arrow keys can also be used to move to next/previous slide
 
-After you have finished grading
+## See your results
 
 1. Click the "Settings" tab at the top left part of the screen
 2. Click the "Start Analysis" Button
