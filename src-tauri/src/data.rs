@@ -1,4 +1,4 @@
-use std::{collections::HashMap, fmt::format};
+use std::collections::HashMap;
 use std::hash::Hash;
 use serde::{Deserialize, Serialize};
 use strum_macros::EnumIter;
@@ -67,8 +67,6 @@ impl<T: Clone + Hash + Eq + Serialize> AvgValuePerGrade<T> {
         let mut average:HashMap<T, f64>;
         let mut value: f64; 
 
-        let mut curr_min: f64;
-        let mut curr_max: f64;
         for grade in &mut self.grades {
             average = HashMap::new();
  

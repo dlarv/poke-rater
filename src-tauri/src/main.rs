@@ -5,7 +5,7 @@ pub mod data;
 
 use pokemon::*;
 use data::*;
-use std::{sync::Mutex, iter::zip, collections::HashMap, hash::Hash, fs};
+use std::{sync::Mutex, iter::zip, collections::HashMap};
 use tauri::{State, Manager};
 use strum::IntoEnumIterator;
 
